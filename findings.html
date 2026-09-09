@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Findings: thecapelligroup.com audit and concept rebuild</title>
+<meta name="description" content="Plain-language audit of the current thecapelligroup.com website, measured 2026-09-09, with the fix for each finding as built in the concept rebuild.">
+<meta name="theme-color" content="#17303c">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=Public+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#f4f1ea; --paper-2:#ebe7dd; --card:#fffdf8;
+    --ink:#1c262e; --muted:#4f5d66;
+    --slate:#274454; --slate-d:#17303c; --slate-x:#0f2029;
+    --brass:#b3803a; --brass-t:#7a5418; --brass-soft:#f3e6cf;
+    --tint:#e4ebe7; --tint-2:#d5e0da;
+    --line:#d9d3c6; --line-dark:#2f4b5a;
+    --red-t:#8a3a2e; --red-soft:#f6e3df;
+  }
+  *{box-sizing:border-box;}
+  html{-webkit-text-size-adjust:100%; overflow-x:hidden; scroll-behavior:smooth;}
+  body{margin:0; background:var(--paper); color:var(--ink); font-family:"Public Sans",-apple-system,system-ui,sans-serif; font-size:17px; line-height:1.6; width:100%; max-width:100%; overflow-x:hidden; overflow-wrap:break-word;}
+  h1,h2,h3,h4,p,li,dd,dt,th,td,blockquote{overflow-wrap:break-word;}
+  a{color:var(--slate);}
+  a:focus-visible{outline:3px solid var(--brass); outline-offset:3px; border-radius:4px;}
+  code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace; font-size:.9em; background:var(--paper-2); padding:2px 6px; border-radius:4px; color:var(--slate-d); overflow-wrap:anywhere;}
+  .wrap{max-width:960px; margin:0 auto; padding:0 24px;}
+  .eyebrow{font-size:12px; letter-spacing:2.6px; text-transform:uppercase; color:var(--brass-t); font-weight:700; margin:0 0 12px;}
+  .skip{position:absolute; left:-999px; top:8px; background:var(--brass); color:var(--slate-x); padding:10px 16px; border-radius:8px; z-index:200; font-weight:700;}
+  .skip:focus{left:8px;}
+
+  header.top{background:linear-gradient(180deg,var(--slate-d),var(--slate)); color:#fff; padding:56px 0 52px;}
+  header.top .eyebrow{color:#e9cf98;}
+  h1{font-family:"Newsreader",serif; font-weight:500; font-size:clamp(32px,5.6vw,52px); line-height:1.08; margin:0 0 16px; letter-spacing:-.3px;}
+  h1 em{font-style:italic; color:#e9cf98;}
+  header.top p{color:#d3dde2; font-size:18px; max-width:700px; margin:0 0 8px;}
+  header.top .meta{color:#b9c8d0; font-size:14px; margin-top:18px;}
+  header.top nav{margin-top:26px;}
+  header.top nav ul{list-style:none; margin:0; padding:0; display:flex; flex-wrap:wrap; gap:8px;}
+  header.top nav a{color:#fff; text-decoration:none; font-weight:600; font-size:14px; padding:8px 12px; border:1px solid rgba(255,255,255,.35); border-radius:6px;}
+  header.top nav a:hover{background:rgba(255,255,255,.1);}
+
+  main section{padding:56px 0; border-bottom:1px solid var(--line);}
+  h2{font-family:"Newsreader",serif; font-weight:500; font-size:clamp(28px,4.4vw,40px); line-height:1.1; margin:4px 0 14px; color:var(--slate-d);}
+  h2 em{font-style:italic; color:var(--brass-t);}
+  .lead{font-size:18px; color:var(--muted); max-width:700px; margin:0 0 8px;}
+
+  .scoreboard{display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-top:26px;}
+  @media(min-width:760px){.scoreboard{grid-template-columns:repeat(4,1fr);}}
+  .stat{background:var(--card); border:1px solid var(--line); border-radius:12px; padding:18px 18px 16px;}
+  .stat .n{font-family:"Newsreader",serif; font-size:40px; line-height:1; color:var(--slate-d); font-weight:500;}
+  .stat .l{font-size:13px; color:var(--muted); margin-top:8px; line-height:1.4;}
+  .stat.bad .n{color:var(--red-t);}
+
+  .finding{background:var(--card); border:1px solid var(--line); border-radius:14px; padding:26px; margin-top:18px; border-left:5px solid var(--brass);}
+  .finding.critical{border-left-color:var(--red-t);}
+  .finding h3{font-family:"Newsreader",serif; font-weight:500; font-size:25px; margin:0 0 6px; color:var(--slate-d);}
+  .finding .sev{display:inline-block; font-size:11.5px; letter-spacing:1.6px; text-transform:uppercase; font-weight:700; padding:4px 9px; border-radius:5px; background:var(--brass-soft); color:var(--brass-t); margin-bottom:10px;}
+  .finding.critical .sev{background:var(--red-soft); color:var(--red-t);}
+  .finding dl{margin:12px 0 0; display:grid; grid-template-columns:1fr; gap:10px;}
+  @media(min-width:700px){.finding dl{grid-template-columns:130px 1fr; gap:10px 18px;}}
+  .finding dt{font-size:12px; letter-spacing:1.6px; text-transform:uppercase; font-weight:700; color:var(--muted); padding-top:3px;}
+  .finding dd{margin:0; color:var(--ink); font-size:16px;}
+  .finding dd.fix{color:var(--slate-d);}
+  .finding dd b{color:var(--ink);}
+  .finding blockquote{margin:8px 0 0; padding:10px 14px; background:var(--paper-2); border-radius:8px; font-style:italic; color:var(--muted); font-size:15px;}
+
+  table.cmp{width:100%; border-collapse:collapse; font-size:15.5px; margin-top:22px; background:var(--card); border:1px solid var(--line); border-radius:12px; overflow:hidden;}
+  table.cmp th,table.cmp td{text-align:left; padding:11px 14px; border-bottom:1px solid var(--line); vertical-align:top;}
+  table.cmp thead th{font-size:12px; letter-spacing:1.5px; text-transform:uppercase; color:var(--muted); background:var(--paper-2);}
+  table.cmp tbody th{font-weight:600; color:var(--ink);}
+  table.cmp tr:last-child td,table.cmp tr:last-child th{border-bottom:none;}
+  table.cmp .was{color:var(--red-t); font-weight:600;}
+  table.cmp .now{color:#2f5c3c; font-weight:600;}
+  @media(max-width:639px){
+    table.cmp{display:block; border:none; background:transparent;}
+    table.cmp thead{position:absolute; left:-9999px; width:1px; height:1px; overflow:hidden;}
+    table.cmp tbody,table.cmp tr,table.cmp th,table.cmp td{display:block;}
+    table.cmp tr{background:var(--card); border:1px solid var(--line); border-radius:12px; padding:12px 14px; margin-bottom:10px;}
+    table.cmp tbody th{padding:0 0 6px; border-bottom:1px solid var(--line);}
+    table.cmp td{padding:6px 0 0; border:none; display:flex; justify-content:space-between; gap:12px;}
+    table.cmp td::before{content:attr(data-label); font-size:12px; letter-spacing:1.5px; text-transform:uppercase; color:var(--muted); font-weight:700;}
+  }
+
+  .built{background:var(--card);}
+  .built ul{margin:16px 0 0; padding-left:20px; color:var(--muted); font-size:16px;}
+  .built li{margin-bottom:8px;}
+  .built li b{color:var(--ink);}
+
+  .next{background:var(--slate-d); color:#e3ebef; border-bottom:none;}
+  .next h2{color:#fff;}
+  .next h2 em{color:#e9cf98;}
+  .next .lead{color:#c3d0d7;}
+  .next ol{margin:16px 0 0; padding-left:22px; color:#c3d0d7; font-size:16px;}
+  .next li{margin-bottom:8px;}
+  .next li b{color:#fff;}
+  .next a{color:#e9cf98;}
+
+  footer{background:var(--slate-x); color:#9fb1ba; font-size:13.5px; padding:34px 0;}
+  footer a{color:#e9cf98;}
+  @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto;}}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="top">
+  <div class="wrap">
+    <p class="eyebrow">Findings &middot; prepared for The Capelli Group, LLC</p>
+    <h1>What the current website is costing you, <em>and what the rebuild fixes</em></h1>
+    <p>This page documents an independent audit of thecapelligroup.com and explains, in plain language, why the concept rebuild looks the way it does. Every number below was measured directly against the live site. Nothing is estimated.</p>
+    <p class="meta">Measured 2026-09-09 with an automated Chromium browser (Playwright) at phone and desktop sizes. Rebuild preview: <a href="index.html" style="color:#e9cf98">index.html</a>.</p>
+    <nav aria-label="Sections of this page">
+      <ul>
+        <li><a href="#summary">Summary</a></li>
+        <li><a href="#critical">The two that matter most</a></li>
+        <li><a href="#findings">All findings</a></li>
+        <li><a href="#compare">Before and after</a></li>
+        <li><a href="#built">What was built</a></li>
+        <li><a href="#next">Next steps</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+<section id="summary" aria-labelledby="sum-h">
+  <div class="wrap">
+    <p class="eyebrow">Summary</p>
+    <h2 id="sum-h">A 2013 page builder, on a 2026 phone</h2>
+    <p class="lead">The current site was built with GoDaddy Website Builder 7.0, a product from around 2013. It works the way websites worked before most visitors carried a phone. Today, a person under a court order looking for your clinic on a phone gets a page shrunk to about 40 percent of its intended size, with no phone number they can tap.</p>
+    <div class="scoreboard" aria-label="Key measurements from the live site">
+      <div class="stat bad"><div class="n">0</div><div class="l">tappable phone links on the homepage</div></div>
+      <div class="stat bad"><div class="n">980px</div><div class="l">what a 390px iPhone reports as its page width, because the mobile viewport tag is missing</div></div>
+      <div class="stat bad"><div class="n">48s</div><div class="l">until the page finished loading (48,013 ms, same on phone and desktop)</div></div>
+      <div class="stat bad"><div class="n">0 of 14</div><div class="l">images with alt text</div></div>
+      <div class="stat bad"><div class="n">14</div><div class="l">top-level headings on one page, and zero sub-headings</div></div>
+      <div class="stat bad"><div class="n">0</div><div class="l">pieces of structured data telling Google what and where the business is</div></div>
+      <div class="stat bad"><div class="n">10</div><div class="l">navigation items with no hierarchy, two pointing at mismatched pages</div></div>
+      <div class="stat bad"><div class="n">1</div><div class="l">retired crisis hotline number still published</div></div>
+    </div>
+  </div>
+</section>
+
+<section id="critical" aria-labelledby="crit-h">
+  <div class="wrap">
+    <p class="eyebrow">Priority</p>
+    <h2 id="crit-h">The two findings that <em>matter most</em></h2>
+    <p class="lead">If nothing else on this page gets fixed, these two should. One is a safety issue. The other decides whether anyone on a phone can use the site at all.</p>
+
+    <article class="finding critical">
+      <span class="sev">Safety content</span>
+      <h3>The published crisis line is the retired number</h3>
+      <dl>
+        <dt>What we found</dt>
+        <dd>The psychotherapy page lists <b>1-800-273-8255 (TALK)</b> as the crisis line. That number belonged to the National Suicide Prevention Lifeline, which transitioned to the three-digit <b>988 Suicide &amp; Crisis Lifeline</b> in July 2022. The old number still forwards today, so nobody calling it is stranded. But it is no longer the published national standard, and a caller who half-remembers it may misdial.</dd>
+        <dt>Why it matters</dt>
+        <dd>This is a clinic whose work is domestic violence, trauma, and veterans. Some of the people reading that page are in genuine distress. On this site, above every other content issue, the crisis information has to be current and unmissable. This is a correction, not a criticism: the number was right when the page was written.</dd>
+        <dt>The fix</dt>
+        <dd class="fix">The rebuild uses <b>988</b> as the primary crisis number, adds the <b>Crisis Text Line (text HOME to 741741)</b>, and adds the <b>Veterans Crisis Line (988, then press 1)</b>, which fits the clinic's Fort Bliss and Military Veteran Safe Zone positioning. All three appear in a strip at the very top of the page, in a full crisis section, in the Spanish summary, in the footer, and in a persistent phone action bar. No local crisis number was added, because none was verified; national numbers are stable and safe to publish.</dd>
+      </dl>
+    </article>
+
+    <article class="finding critical">
+      <span class="sev">Mobile</span>
+      <h3>No mobile viewport tag, so phones render the desktop page at 40 percent</h3>
+      <dl>
+        <dt>What we found</dt>
+        <dd>The HTML contains zero occurrences of <code>&lt;meta name="viewport"&gt;</code>. Without it, mobile Safari falls back to a 980-pixel virtual screen and shrinks the whole page to fit. On a 390-pixel iPhone the page reports its own width as <b>980px</b>. Text renders at roughly 40 percent of its intended size. The screenshot at 390px shows the navigation cut off mid-word on the left and the logo running off the right edge.</dd>
+        <dt>Why it matters</dt>
+        <dd>The people most likely to look you up on a phone are the ones under a court order, often anxious, often Spanish-speaking, sometimes with a probation officer standing next to them. They get a page they have to pinch and squint at, with nothing they can tap.</dd>
+        <dt>The fix</dt>
+        <dd class="fix">The rebuild is designed phone-first and carries the viewport tag. It was verified at 375px and 1440px with zero horizontal scrolling. The phone number is a large tappable link in the hero, in the header, in every section that asks the visitor to call, and in a fixed action bar at the bottom of every phone screen alongside 988.</dd>
+      </dl>
+    </article>
+  </div>
+</section>
+
+<section id="findings" aria-labelledby="all-h">
+  <div class="wrap">
+    <p class="eyebrow">All findings</p>
+    <h2 id="all-h">Defect, consequence, fix</h2>
+    <p class="lead">Each item states what was measured, what it means for a visitor or for search, and what the rebuild does about it.</p>
+
+    <article class="finding">
+      <span class="sev">Contact</span>
+      <h3>The phone number is not on the homepage, and nothing is tappable</h3>
+      <dl>
+        <dt>What we found</dt>
+        <dd>Zero <code>tel:</code> links and zero <code>mailto:</code> links on the homepage. The number 915-799-0614 does not appear on the homepage at all. It lives on the contact page, as plain text.</dd>
+        <dt>Why it matters</dt>
+        <dd>Registration for every program starts with a phone call. A visitor on a phone has to find the contact page, then copy or memorize the number, then switch to the dialer. Each step loses people.</dd>
+        <dt>The fix</dt>
+        <dd class="fix">The rebuild has 22 tappable phone links and 4 tappable email links across one page, all pointing at the clinic's published number and address. The number is the largest text on the screen after the headline.</dd>
+      </dl>
+    </article>
+
+    <article class="finding">
+      <span class="sev">Speed</span>
+      <h3>48 seconds to finish loading</h3>
+      <dl>
+        <dt>What we found</dt>
+        <dd>Time to network idle was <b>48,013 milliseconds</b>, measured identically on the mobile and desktop profiles.</dd>
+        <dt>Why it matters</dt>
+        <dd>Visitors do not wait 48 seconds. Google measures load time and ranks slow pages lower, especially on mobile.</dd>
+        <dt>The fix</dt>
+        <dd class="fix">The rebuild is a single HTML file with its styling inline. Its only outside request is two Google Fonts. There are no image files, no page-builder scripts, and no tracking beacons.</dd>
+      </dl>
+    </article>
+
+    <article class="finding">
+      <span class="sev">Search &amp; accessibility</span>
+      <h3>14 images, none with alt text</h3>
+      <dl>
+        <dt>What we found</dt>
+        <dd>Every one of the 14 images on the homepage has no alt attribute.</dd>
+        <dt>Why it matters</dt>
+        <dd>A screen reader announces nothing useful for any of them. Google Images cannot index them. If the images carry the accreditation logos or the phone number, that information is invisible to both.</dd>
+        <dt>The fix</dt>
+        <dd class="fix">The rebuild uses no raster images at all. Its visuals are drawn in code and marked decorative, so assistive technology skips them. Every placeholder for a future photo is labeled as a placeholder and carries a text description. When real photographs are added, each one gets a written alt text.</dd>
+      </dl>
+    </article>
+
+    <article class="finding">
+      <span class="sev">Search &amp; accessibility</span>
+      <h3>14 top-level headings and no hierarchy</h3>
+      <dl>
+        <dt>What we found</dt>
+        <dd><b>14 <code>&lt;h1&gt;</code> elements, 0 <code>&lt;h2&gt;</code>, 0 <code>&lt;h3&gt;</code>.</b> Every headline on the page claims to be the page's title.</dd>
+        <dt>Why it matters</dt>
+        <dd>Screen-reader users navigate by heading level, so they cannot move through this page by structure. Google uses the single main heading to understand what a page is about, and here it gets fourteen competing answers.</dd>
+        <dt>The fix</dt>
+        <dd class="fix">One <code>&lt;h1&gt;</code>, twelve <code>&lt;h2&gt;</code> section headings, and <code>&lt;h3&gt;</code> beneath them, verified by rendering. The page also has a skip link and proper header, navigation, main, and footer landmarks.</dd>
+      </dl>
+    </article>
+
+    <article class="finding">
+      <span class="sev">Search</span>
+      <h3>Google is left to guess what and where the business is</h3>
+      <dl>
+        <dt>What we found</dt>
+        <dd>Zero structured data. The count of <code>script[type="application/ld+json"]</code> is <b>0</b>. There is no machine-readable business type, address, hours, or location. There is also no canonical link tag, and the Open Graph URL points at an insecure <code>http://</code> address ending in <code>home-1.html</code> rather than the site's root.</dd>
+        <dt>Why it matters</dt>
+        <dd>Structured data is how a clinic tells Google, in one block, "I am a medical business at this address with these hours." Without it, the knowledge panel, map listing, and hours display depend on Google inferring them from prose. The mismatched Open Graph URL means shares on social media point at the wrong address.</dd>
+        <dt>The fix</dt>
+        <dd class="fix">The rebuild includes a MedicalBusiness structured-data block with the clinic's published name, address, phone, email, service area, founders, opening hours, and languages. Nothing in it goes beyond what the clinic already publishes.</dd>
+      </dl>
+    </article>
+
+    <article class="finding">
+      <span class="sev">Content</span>
+      <h3>Unedited page-builder placeholder text is live on the homepage</h3>
+      <dl>
+        <dt>What we found</dt>
+        <dd>Rendered over the logo, visible to every visitor:</dd>
+        <dt></dt>
+        <dd><blockquote>"You can add HTML directly into this element to render on the page. Just edit this element to add your own HTML."</blockquote></dd>
+        <dt>Why it matters</dt>
+        <dd>It is the first sentence many visitors read. For a referral source deciding whether to trust a provider, it signals an unattended site.</dd>
+        <dt>The fix</dt>
+        <dd class="fix">Removed. The rebuild contains no builder-generated content.</dd>
+      </dl>
+    </article>
+
+    <article class="finding">
+      <span class="sev">Content</span>
+      <h3>The page title, and therefore the Google result, has a typo</h3>
+      <dl>
+        <dt>What we found</dt>
+        <dd>The homepage <code>&lt;title&gt;</code> reads "Anger Managment", missing the "e". That exact string is what appears in the browser tab and as the blue headline in Google search results.</dd>
+        <dt>Why it matters</dt>
+        <dd>It is the single most-seen piece of text on the site, and a misspelling in it costs credibility before the visitor arrives.</dd>
+        <dt>The fix</dt>
+        <dd class="fix">Corrected. The rebuild's title names the clinic, the three services, and the city.</dd>
+      </dl>
+    </article>
+
+    <article class="finding">
+      <span class="sev">Navigation</span>
+      <h3>Ten navigation items, no hierarchy, two pointing at the wrong pages</h3>
+      <dl>
+        <dt>What we found</dt>
+        <dd>The top navigation has 10 items in a flat row. Two labels do not match their destinations: "Battering Intervention &amp; Prevention Program (BIPP)" points at a file named <code>-alternative-dispute-resolution--adr-.html</code>, and "Complementary and Integrative Health (CIH)" points at <code>victim-impact-panel--vip-.html</code>. The web addresses describe different services than the labels.</dd>
+        <dt>Why it matters</dt>
+        <dd>A probation officer looking for the BIPP page lands on a URL that says "alternative dispute resolution." Search engines read those URLs too, and index the wrong subject for the page.</dd>
+        <dt>The fix</dt>
+        <dd class="fix">The rebuild opens with three doors, one for each kind of visitor: court-ordered, seeking counseling, and referral source. The navigation has eight clearly named anchors on one page, including a marked Spanish entry, and every link lands where its label says.</dd>
+      </dl>
+    </article>
+
+    <article class="finding">
+      <span class="sev">Platform</span>
+      <h3>Built on a page builder from around 2013</h3>
+      <dl>
+        <dt>What we found</dt>
+        <dd>The generator tag reads <code>Starfield Technologies; Go Daddy Website Builder 7.0.5350</code>.</dd>
+        <dt>Why it matters</dt>
+        <dd>That product line was replaced years ago. It predates mobile-first design, does not emit modern accessibility markup, and is the root cause of most of the findings above. Fixing them one at a time inside it is not practical.</dd>
+        <dt>The fix</dt>
+        <dd class="fix">A rebuild rather than a patch. The concept is a single self-contained file with no builder, no plugins, and nothing to update or break.</dd>
+      </dl>
+    </article>
+  </div>
+</section>
+
+<section id="compare" aria-labelledby="cmp-h">
+  <div class="wrap">
+    <p class="eyebrow">Before and after</p>
+    <h2 id="cmp-h">Measured on the live site, <em>then on the rebuild</em></h2>
+    <table class="cmp">
+      <thead><tr><th scope="col">Measure</th><th scope="col">Live site (2026-09-09)</th><th scope="col">Concept rebuild</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">Mobile viewport tag</th><td data-label="Live site" class="was">Missing</td><td data-label="Rebuild" class="now">Present</td></tr>
+        <tr><th scope="row">Page width reported on a 390px phone</th><td data-label="Live site" class="was">980px</td><td data-label="Rebuild" class="now">Matches the phone</td></tr>
+        <tr><th scope="row">Horizontal scrolling at 375px</th><td data-label="Live site" class="was">Yes, content clipped both edges</td><td data-label="Rebuild" class="now">None (375 of 375px)</td></tr>
+        <tr><th scope="row">Tappable phone links on homepage</th><td data-label="Live site" class="was">0</td><td data-label="Rebuild" class="now">22</td></tr>
+        <tr><th scope="row">Tappable email links on homepage</th><td data-label="Live site" class="was">0</td><td data-label="Rebuild" class="now">4</td></tr>
+        <tr><th scope="row">Main headings (h1)</th><td data-label="Live site" class="was">14</td><td data-label="Rebuild" class="now">1</td></tr>
+        <tr><th scope="row">Sub-headings (h2 / h3)</th><td data-label="Live site" class="was">0 / 0</td><td data-label="Rebuild" class="now">12 / 34</td></tr>
+        <tr><th scope="row">Images without alt text</th><td data-label="Live site" class="was">14 of 14</td><td data-label="Rebuild" class="now">0 of 0 (placeholders labeled)</td></tr>
+        <tr><th scope="row">Structured data blocks</th><td data-label="Live site" class="was">0</td><td data-label="Rebuild" class="now">1 (MedicalBusiness)</td></tr>
+        <tr><th scope="row">Time to finish loading</th><td data-label="Live site" class="was">48,013 ms</td><td data-label="Rebuild" class="now">One HTML file, two font requests</td></tr>
+        <tr><th scope="row">Crisis line published</th><td data-label="Live site" class="was">1-800-273-8255 (retired 2022)</td><td data-label="Rebuild" class="now">988, 741741, Veterans 988 press 1</td></tr>
+        <tr><th scope="row">Spanish-language content</th><td data-label="Live site" class="was">One Spanish testimonial</td><td data-label="Rebuild" class="now">Marked Spanish summary with schedule, phone, crisis line</td></tr>
+        <tr><th scope="row">Placeholder builder text visible</th><td data-label="Live site" class="was">Yes</td><td data-label="Rebuild" class="now">No</td></tr>
+        <tr><th scope="row">Typo in page title</th><td data-label="Live site" class="was">"Anger Managment"</td><td data-label="Rebuild" class="now">Corrected</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section id="built" class="built" aria-labelledby="built-h">
+  <div class="wrap">
+    <p class="eyebrow">What was built</p>
+    <h2 id="built-h">One page that serves both kinds of visitor</h2>
+    <p class="lead">Two audiences arrive at this site with different questions. The rebuild answers both without making either one hunt.</p>
+    <ul>
+      <li><b>A hero that answers who, what, where, and "is it court-approved" on one screen,</b> with the phone number as the largest tappable element and the BIPP provider number in view.</li>
+      <li><b>Crisis resources at the top, in a dedicated section, in Spanish, in the footer, and in the phone action bar.</b> 988, Crisis Text Line, and the Veterans Crisis Line. Persistent without being alarming.</li>
+      <li><b>A "which describes you" router:</b> court ordered, seeking counseling, or referral source. Each leads to the section written for them.</li>
+      <li><b>The 4-step BIPP intake as a visual sequence:</b> Register, Evaluation, Orientation, Ongoing Groups. On the current site this is buried in a wall of text.</li>
+      <li><b>A referral-source section</b> that puts Provider # 071-021, TDCJ-CJAD accreditation, the referral list, monthly progress reporting, and Fort Bliss coverage where a probation officer or judge will find them in ten seconds.</li>
+      <li><b>A real schedule</b> for the four BIPP groups and the Saturday anger management group, with English and Spanish marked on each row. It stacks into cards on a phone.</li>
+      <li><b>Fees and insurance stated plainly:</b> the $180 session rate, the discount categories, thirteen accepted plans, and payment methods. BIPP and anger management fees are described as set at registration, because the clinic does not publish them.</li>
+      <li><b>A Spanish summary block</b> marked up as Spanish for screen readers and search engines, covering who the clinic is, what it does, the Tuesday Spanish group, the phone number, hours, and the 988 line.</li>
+      <li><b>Testimonials presented with restraint.</b> Seven of the clinic's published quotes, verbatim, in a quiet grid. No carousel.</li>
+      <li><b>Every fact traceable.</b> Nothing on the page was invented. Address, phone, hours, credentials, license numbers, schedules, prices, insurance, and quotes all come from the clinic's own published pages. Photos and the map are labeled placeholders.</li>
+    </ul>
+  </div>
+</section>
+
+<section id="next" class="next" aria-labelledby="next-h">
+  <div class="wrap">
+    <p class="eyebrow" style="color:#e9cf98">Next steps</p>
+    <h2 id="next-h">What it would take to <em>go live</em></h2>
+    <p class="lead">The concept is complete as a design and content proof. Four things are needed from the clinic before it could replace the current site.</p>
+    <ol>
+      <li><b>Confirm the facts.</b> Phone, hours, group schedule, insurance list, fees, and license numbers were taken from the live site as of 2026-09-09. The clinic should confirm each is current.</li>
+      <li><b>Supply photographs.</b> Team portraits and, optionally, the building. Each labeled placeholder gets replaced and given a written alt text.</li>
+      <li><b>Decide on BIPP and anger management fees.</b> They are not published today. Publishing them would remove a phone call from the intake path for many visitors. Not publishing them is also a valid choice; the rebuild handles either.</li>
+      <li><b>Point the domain.</b> The rebuild is one file with no dependencies. It can be hosted anywhere and connected to thecapelligroup.com with a single DNS change at the current registrar.</li>
+    </ol>
+    <p class="lead" style="margin-top:22px">Preview the rebuild: <a href="index.html">index.html</a></p>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>Independent audit and concept. Not affiliated with or endorsed by The Capelli Group, LLC. This page is not indexed by search engines. Measurements taken 2026-09-09 against the live site with Playwright and Chromium. Prepared by Rick Finlay, RGF Global Ventures.</p>
+  </div>
+</footer>
+</body>
+</html>
