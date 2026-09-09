@@ -4,12 +4,15 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex, nofollow">
-<title>The Capelli Group, LLC | BIPP, Anger Management &amp; Psychotherapy, El Paso, TX | Concept Redesign</title>
-<meta name="description" content="Concept redesign. The Capelli Group, LLC is a behavioral health clinic in El Paso, Texas. TDCJ-CJAD accredited Battering Intervention and Prevention Program (Provider # 071-021), court-approved anger management, and clinical psychotherapy. 9739 Socorro Rd, El Paso, TX 79927. 915-799-0614.">
+<title>The Capelli Group, LLC | BIPP, Anger Management &amp; Psychotherapy, El Paso, TX | Preview</title>
+<meta name="description" content="Preview redesign. The Capelli Group, LLC is a behavioral health clinic in El Paso, Texas. TDCJ-CJAD accredited Battering Intervention and Prevention Program (Provider # 071-021), court-approved anger management, and clinical psychotherapy. 9739 Socorro Rd, El Paso, TX 79927. 915-799-0614.">
 <meta name="theme-color" content="#17303c">
+<script>document.documentElement.className+=' js';</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=Public+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<!-- Only the weights and styles the stylesheet uses: Newsreader 500 roman and italic (with the optical-size axis), Public Sans 400, 600, 700. -->
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,500;1,6..72,500&family=Public+Sans:wght@400;600;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,500;1,6..72,500&family=Public+Sans:wght@400;600;700&display=swap">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -39,30 +42,41 @@
 }
 </script>
 <style>
+  /* ---------- fallback faces ----------
+     Metric-matched local fallbacks so text set in Georgia or Arial occupies the same lines as the
+     web fonts. Measured in Chromium against Newsreader 500 and Public Sans 400 at 100px. */
+  @font-face{font-family:"Newsreader Fallback"; src:local("Georgia"); size-adjust:101.84%; ascent-override:72.66%; descent-override:25.53%; line-gap-override:0%;}
+  @font-face{font-family:"Public Sans Fallback"; src:local("Arial"),local("Helvetica"); size-adjust:104.06%; ascent-override:91.29%; descent-override:22.1%; line-gap-override:0%;}
+
+  /* ---------- tokens ---------- */
   :root{
     --paper:#f4f1ea; --paper-2:#ebe7dd; --card:#fffdf8;
     --ink:#1c262e; --muted:#4f5d66;
     --slate:#274454; --slate-d:#17303c; --slate-x:#0f2029;
-    --brass:#b3803a; --brass-t:#7a5418; --brass-soft:#f3e6cf;
+    --brass:#b3803a; --brass-t:#7a5418; --brass-soft:#f3e6cf; --brass-l:#e9cf98; --brass-l2:#f0d9a8;
     --tint:#e4ebe7; --tint-2:#d5e0da;
     --line:#d9d3c6; --line-dark:#2f4b5a;
-    --es:#5b4a7a; --es-soft:#ebe6f3;
+    --on-dark:#d3dde2; --on-dark-2:#b9c8d0; --on-dark-3:#c3d0d7;
+    --es:#5b4a7a; --es-d:#3a2d52; --es-soft:#ebe6f3; --es-line:#d7cde6;
+    --serif:"Newsreader","Newsreader Fallback",Georgia,"Times New Roman",serif;
+    --sans:"Public Sans","Public Sans Fallback",Arial,-apple-system,system-ui,sans-serif;
+    /* spacing scale */
+    --s1:4px; --s2:8px; --s3:12px; --s4:16px; --s5:24px; --s6:32px; --s7:48px; --s8:64px;
+    --section:clamp(56px,7vw,92px);
+    --radius:12px; --radius-s:8px;
   }
+
+  /* ---------- base (above the fold first) ---------- */
   *{box-sizing:border-box;}
-  html{-webkit-text-size-adjust:100%; overflow-x:hidden; scroll-behavior:smooth; scroll-padding-top:16px;}
-  body{
-    margin:0; background:var(--paper); color:var(--ink);
-    font-family:"Public Sans",-apple-system,system-ui,sans-serif;
-    font-size:17px; line-height:1.6; width:100%; max-width:100%;
-    overflow-x:hidden; overflow-wrap:break-word;
-  }
+  html{-webkit-text-size-adjust:100%; overflow-x:hidden; scroll-behavior:smooth; scroll-padding-top:16px; font-optical-sizing:auto;}
+  body{margin:0; background:var(--paper); color:var(--ink); font-family:var(--sans); font-size:17px; line-height:1.6; width:100%; max-width:100%; overflow-x:hidden; overflow-wrap:break-word;}
   h1,h2,h3,h4,p,li,dd,dt,th,td,blockquote,.eyebrow{overflow-wrap:break-word;}
-  .serif{font-family:"Newsreader",Georgia,"Times New Roman",serif;}
   a{color:var(--slate);}
-  a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid var(--brass); outline-offset:3px; border-radius:4px;}
+  :focus-visible{outline:3px solid var(--brass); outline-offset:3px;}
   .wrap{max-width:1080px; margin:0 auto; padding:0 24px;}
-  .eyebrow{font-size:12px; letter-spacing:2.6px; text-transform:uppercase; color:var(--brass-t); font-weight:700; margin:0 0 12px;}
-  .btn{display:inline-flex; align-items:center; justify-content:center; gap:10px; font-weight:700; padding:14px 26px; border-radius:8px; text-decoration:none; font-size:16px; border:1.5px solid transparent; transition:background .2s,color .2s,transform .2s; line-height:1.2;}
+  .eyebrow{display:flex; align-items:center; gap:var(--s3); font-size:12px; letter-spacing:.18em; text-transform:uppercase; color:var(--brass-t); font-weight:700; margin:0 0 var(--s3);}
+  .eyebrow::before{content:""; width:28px; height:1px; background:var(--brass); flex:none;}
+  .btn{display:inline-flex; align-items:center; justify-content:center; gap:10px; font-weight:700; padding:14px 26px; border-radius:var(--radius-s); text-decoration:none; font-size:16px; border:1.5px solid transparent; transition:background .2s,color .2s; line-height:1.2; min-height:44px;}
   .btn svg{width:18px; height:18px; flex:none;}
   .btn.primary{background:var(--slate); color:#fff;}
   .btn.primary:hover{background:var(--slate-d);}
@@ -72,48 +86,47 @@
   .btn.light:hover{background:var(--brass-soft);}
   .btn.ghost.onDark{color:#fff; border-color:rgba(255,255,255,.55);}
   .btn.ghost.onDark:hover{background:rgba(255,255,255,.1);}
-  .skip{position:absolute; left:-999px; top:8px; background:var(--brass); color:var(--slate-x); padding:10px 16px; border-radius:8px; z-index:200; font-weight:700;}
+  .skip{position:absolute; left:-999px; top:8px; background:var(--brass); color:var(--slate-x); padding:10px 16px; border-radius:var(--radius-s); z-index:200; font-weight:700;}
   .skip:focus{left:8px;}
-  .tag{display:inline-block; font-size:12.5px; font-weight:700; letter-spacing:.4px; padding:4px 10px; border-radius:6px; background:var(--tint); color:var(--slate-d); border:1px solid var(--tint-2);}
-  .tag.en{background:var(--tint);}
-  .tag.es{background:var(--es-soft); color:var(--es); border-color:#d7cde6;}
-  .tag.placeholder{background:var(--brass-soft); color:var(--brass-t); border-color:#e6d2a8;}
+  .tag{display:inline-block; font-size:12.5px; font-weight:700; letter-spacing:.03em; padding:4px 10px; border-radius:6px; background:var(--tint); color:var(--slate-d); border:1px solid var(--tint-2);}
+  .tag.es{background:var(--es-soft); color:var(--es); border-color:var(--es-line);}
+  .h4{font-family:var(--serif); font-weight:500; font-size:20px; line-height:1.25; margin:var(--s4) 0 var(--s1); color:var(--slate-d);}
+  .print-head{display:none;}
 
   /* ---------- crisis strip ---------- */
   .crisis-strip{background:var(--slate-x); color:#e6edf0; font-size:14.5px; border-bottom:1px solid var(--line-dark);}
-  .crisis-strip .wrap{display:flex; flex-wrap:wrap; gap:6px 18px; align-items:center; padding:10px 24px;}
+  .crisis-strip .wrap{display:flex; flex-wrap:wrap; gap:0 18px; align-items:center; padding:8px 24px;}
   .crisis-strip b{color:#fff; font-weight:700;}
-  .crisis-strip a{color:#f0d9a8; text-decoration:none; font-weight:700; white-space:nowrap;}
+  .crisis-strip a{color:var(--brass-l2); text-decoration:none; font-weight:700; white-space:nowrap; display:inline-block; padding:11px 11px; margin:0 -11px;}
   .crisis-strip a:hover{text-decoration:underline;}
   .crisis-strip .lbl{display:inline-flex; align-items:center; gap:8px;}
-  .crisis-strip .lbl svg{width:16px; height:16px; color:#f0d9a8;}
+  .crisis-strip .lbl svg{width:16px; height:16px; color:var(--brass-l2);}
 
   /* ---------- top bar ---------- */
   .topbar{background:var(--card); border-bottom:1px solid var(--line); position:relative; z-index:20;}
   .topbar .wrap{display:flex; align-items:center; justify-content:space-between; gap:14px; padding:14px 24px; flex-wrap:wrap;}
-  .brand{display:flex; align-items:center; gap:12px; text-decoration:none; color:var(--ink); min-width:0;}
+  .brand{display:flex; align-items:center; gap:12px; text-decoration:none; color:var(--ink); min-width:0; min-height:44px; border-radius:6px;}
   .brand .mark{width:42px; height:42px; border-radius:10px; background:var(--slate-d); flex:none; display:grid; place-items:center;}
   .brand .mark svg{width:26px; height:26px;}
-  .brand .name{font-family:"Newsreader",serif; font-size:21px; line-height:1.05; font-weight:500; color:var(--slate-d);}
-  .brand .name small{display:block; font-family:"Public Sans",sans-serif; font-size:11px; letter-spacing:2px; text-transform:uppercase; color:var(--muted); margin-top:4px; font-weight:600;}
-  .menu-btn{display:inline-flex; align-items:center; gap:8px; background:transparent; border:1.5px solid var(--line); border-radius:8px; padding:9px 12px; font:inherit; font-size:14px; font-weight:700; color:var(--slate-d); cursor:pointer;}
+  .brand .name{font-family:var(--serif); font-size:21px; line-height:1.05; font-weight:500; color:var(--slate-d);}
+  .brand .name small{display:block; font-family:var(--sans); font-size:11px; letter-spacing:.16em; text-transform:uppercase; color:var(--muted); margin-top:4px; font-weight:600;}
+  .menu-btn{display:none; align-items:center; gap:8px; background:transparent; border:1.5px solid var(--line); border-radius:var(--radius-s); padding:9px 12px; min-height:44px; font:inherit; font-size:14px; font-weight:700; color:var(--slate-d); cursor:pointer;}
   .menu-btn svg{width:18px; height:18px;}
   .js .menu-btn{display:inline-flex;}
-  .menu-btn{display:none;}
   nav.top{flex-basis:100%;}
-  nav.top ul{list-style:none; margin:0; padding:10px 0 4px; display:flex; flex-wrap:wrap; gap:6px 6px;}
-  nav.top a{display:inline-block; color:var(--slate-d); text-decoration:none; font-weight:600; font-size:14.5px; padding:8px 12px; border-radius:6px; border:1px solid var(--line); background:var(--paper);}
+  nav.top ul{list-style:none; margin:0; padding:10px 0 4px; display:flex; flex-wrap:wrap; gap:6px;}
+  nav.top a{display:inline-flex; align-items:center; min-height:44px; color:var(--slate-d); text-decoration:none; font-weight:600; font-size:14.5px; padding:0 12px; border-radius:6px; border:1px solid var(--line); background:var(--paper);}
   nav.top a:hover{background:var(--tint); border-color:var(--tint-2);}
-  nav.top a.es-link{color:var(--es); border-color:#d7cde6; background:var(--es-soft);}
+  nav.top a.es-link{color:var(--es); border-color:var(--es-line); background:var(--es-soft);}
   .js nav.top{display:none;}
   .js nav.top.open{display:block;}
-  .topbar .call{color:#fff; background:var(--slate); text-decoration:none; font-weight:700; font-size:15px; display:inline-flex; align-items:center; gap:8px; white-space:nowrap; padding:10px 16px; border-radius:8px;}
+  .topbar .call{color:#fff; background:var(--slate); text-decoration:none; font-weight:700; font-size:15px; display:inline-flex; align-items:center; gap:8px; white-space:nowrap; padding:10px 16px; min-height:44px; border-radius:var(--radius-s);}
   .topbar .call:hover{background:var(--slate-d);}
   .topbar .call svg{width:16px; height:16px;}
   .topbar .right{display:flex; align-items:center; gap:10px;}
   @media(min-width:900px){
     nav.top,.js nav.top{display:block; flex-basis:auto;}
-    nav.top ul{padding:0; gap:4px;}
+    nav.top ul{padding:0; gap:2px;}
     nav.top a{border-color:transparent; background:transparent; font-size:15px;}
     nav.top a.es-link{background:transparent; border-color:transparent;}
     nav.top a.es-link:hover{background:var(--es-soft);}
@@ -128,89 +141,95 @@
       linear-gradient(180deg,var(--slate-d) 0%, var(--slate) 100%);
   }
   .hero-art{position:absolute; right:-40px; bottom:-60px; width:min(62vw,520px); height:auto; opacity:.55; pointer-events:none;}
-  .hero-inner{position:relative; display:grid; grid-template-columns:1fr; gap:34px; align-items:start; padding-top:56px; padding-bottom:56px;}
-  @media(min-width:900px){.hero-inner{grid-template-columns:1.2fr .8fr; gap:56px; padding-top:92px; padding-bottom:88px;}}
-  .hero .eyebrow{color:#e9cf98;}
-  h1.title{font-family:"Newsreader",serif; font-weight:500; font-size:clamp(34px,6.4vw,60px); line-height:1.06; margin:0 0 18px; letter-spacing:-.3px; color:#fff;}
-  h1.title em{font-style:italic; color:#e9cf98;}
-  .hero p.lede{font-size:clamp(17px,2.2vw,20px); color:#d3dde2; margin:0 0 26px; max-width:580px;}
-  .hero .bigcall{display:inline-flex; flex-direction:column; text-decoration:none; color:#fff; margin:0 0 26px;}
-  .hero .bigcall .num{font-family:"Newsreader",serif; font-size:clamp(34px,7vw,52px); line-height:1; font-weight:500; letter-spacing:.5px;}
-  .hero .bigcall .num:hover{color:#e9cf98;}
-  .hero .bigcall small{font-size:13.5px; letter-spacing:1.5px; text-transform:uppercase; color:#b9c8d0; font-weight:600; margin-top:8px;}
+  .hero-inner{position:relative; display:grid; grid-template-columns:1fr; gap:34px; align-items:start; padding-top:var(--s7); padding-bottom:var(--s7);}
+  @media(min-width:900px){.hero-inner{grid-template-columns:1.2fr .8fr; gap:56px; padding-top:88px; padding-bottom:88px;}}
+  .hero .eyebrow{color:var(--brass-l);}
+  .hero .eyebrow::before{background:var(--brass-l);}
+  h1.title{font-family:var(--serif); font-weight:500; font-size:clamp(36px,5.8vw,62px); line-height:1.04; margin:0 0 var(--s4); letter-spacing:-.015em; color:#fff; max-width:14em;}
+  h1.title em{font-style:italic; color:var(--brass-l);}
+  .hero p.lede{font-size:clamp(17px,2.2vw,19.5px); line-height:1.55; color:var(--on-dark); margin:0 0 var(--s5); max-width:34em;}
+  .hero .bigcall{display:inline-flex; flex-direction:column; text-decoration:none; color:#fff; margin:0 0 var(--s5); border-radius:6px;}
+  .hero .bigcall .num{font-family:var(--serif); font-size:clamp(36px,7vw,54px); line-height:1; font-weight:500; letter-spacing:.01em;}
+  .hero .bigcall:hover .num{color:var(--brass-l);}
+  .hero .bigcall small{font-size:13.5px; letter-spacing:.1em; text-transform:uppercase; color:var(--on-dark-2); font-weight:600; margin-top:8px;}
   .hero .cta-row{display:flex; flex-wrap:wrap; gap:12px; align-items:center;}
-  .trust{list-style:none; margin:30px 0 0; padding:0; display:grid; grid-template-columns:1fr; gap:10px; max-width:580px;}
+  .trust{list-style:none; margin:var(--s6) 0 0; padding:var(--s5) 0 0; border-top:1px solid rgba(233,207,152,.28); display:grid; grid-template-columns:1fr; gap:10px; max-width:580px;}
   @media(min-width:560px){.trust{grid-template-columns:1fr 1fr;}}
-  .trust li{display:flex; gap:10px; align-items:flex-start; font-size:14.5px; color:#d3dde2; line-height:1.4;}
-  .trust li svg{width:18px; height:18px; flex:none; color:#e9cf98; margin-top:2px;}
+  .trust li{display:flex; gap:10px; align-items:flex-start; font-size:14.5px; color:var(--on-dark); line-height:1.4;}
+  .trust li svg{width:18px; height:18px; flex:none; color:var(--brass-l); margin-top:2px;}
   .trust li b{color:#fff; font-weight:600;}
-  .hero-card{background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.16); border-radius:16px; padding:24px;}
-  .hero-card h2{font-family:"Newsreader",serif; font-weight:500; margin:0 0 4px; font-size:24px; color:#fff;}
-  .hero-card .sub{color:#b9c8d0; font-size:14.5px; margin:0 0 8px;}
-  .hero-card .row{display:flex; gap:12px; align-items:flex-start; margin-top:14px; color:#d3dde2; font-size:15px;}
-  .hero-card .row svg{width:20px; height:20px; flex:none; margin-top:2px; color:#e9cf98;}
+  .hero-card{background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.16); border-radius:var(--radius); padding:var(--s5);}
+  .hero-card h2{font-family:var(--serif); font-weight:500; margin:0 0 4px; font-size:24px; line-height:1.2; color:#fff;}
+  .hero-card .sub{color:var(--on-dark-2); font-size:14.5px; margin:0 0 8px;}
+  .hero-card .row{display:flex; gap:12px; align-items:flex-start; margin-top:14px; color:var(--on-dark); font-size:15px;}
+  .hero-card .row svg{width:20px; height:20px; flex:none; margin-top:2px; color:var(--brass-l);}
   .hero-card .row b{color:#fff; font-weight:600;}
-  .hero-card .row a{color:#e9cf98;}
+  .hero-card .row a{color:var(--brass-l); display:inline-block; padding:10px 0; margin:-10px 0;}
   .hero-card .mini{width:100%; border-collapse:collapse; margin-top:14px; font-size:14px;}
-  .hero-card .mini th{text-align:left; font-weight:600; color:#fff; padding:5px 0; width:46%;}
-  .hero-card .mini td{color:#d3dde2; padding:5px 0;}
-  .hero-card .mini .closed{color:#b9c8d0;}
+  .hero-card .mini th{text-align:left; font-weight:600; color:#fff; padding:5px 0; width:46%; border-bottom:1px solid rgba(255,255,255,.08);}
+  .hero-card .mini td{color:var(--on-dark); padding:5px 0; border-bottom:1px solid rgba(255,255,255,.08);}
+  .hero-card .mini tr:last-child th,.hero-card .mini tr:last-child td{border-bottom:none;}
+  .hero-card .mini .closed{color:var(--on-dark-2);}
 
   /* ---------- sections ---------- */
-  main section{padding:72px 0; border-bottom:1px solid var(--line);}
-  h2.head{font-family:"Newsreader",serif; font-weight:500; font-size:clamp(30px,4.8vw,46px); line-height:1.08; margin:4px 0 16px; color:var(--slate-d); letter-spacing:-.3px;}
+  main section{padding:var(--section) 0; border-bottom:1px solid var(--line);}
+  h2.head{font-family:var(--serif); font-weight:500; font-size:clamp(30px,4.2vw,44px); line-height:1.1; margin:0 0 var(--s3); color:var(--slate-d); letter-spacing:-.01em; max-width:18em;}
   h2.head em{font-style:italic; color:var(--brass-t);}
-  .lead{font-size:18px; color:var(--muted); max-width:660px; margin:0 0 8px;}
-  h3.sub{font-family:"Newsreader",serif; font-weight:500; font-size:24px; margin:0 0 8px; color:var(--slate-d);}
+  .lead{font-size:18px; line-height:1.55; color:var(--muted); max-width:36em; margin:0;}
+  h3.sub{font-family:var(--serif); font-weight:500; font-size:24px; line-height:1.2; margin:0 0 var(--s2); color:var(--slate-d);}
+  .grid{margin-top:var(--s6);}
+  @media(min-width:800px){.grid{margin-top:40px;}}
 
   /* paths */
   .paths{background:var(--paper);}
-  .path-grid{display:grid; grid-template-columns:1fr; gap:14px; margin-top:28px;}
+  .path-grid{display:grid; grid-template-columns:1fr; gap:14px;}
   @media(min-width:800px){.path-grid{grid-template-columns:1fr 1fr 1fr;}}
-  .path{display:block; background:var(--card); border:1px solid var(--line); border-radius:14px; padding:24px; text-decoration:none; color:var(--ink); transition:border-color .2s,transform .2s,box-shadow .2s; position:relative;}
+  .path{display:block; background:var(--card); border:1px solid var(--line); border-top:3px solid var(--brass); border-radius:var(--radius); padding:var(--s5); text-decoration:none; color:var(--ink); transition:border-color .2s,transform .2s,box-shadow .2s;}
   .path:hover{border-color:var(--brass); transform:translateY(-2px); box-shadow:0 12px 30px rgba(23,48,60,.08);}
-  .path .k{font-size:12px; letter-spacing:2px; text-transform:uppercase; font-weight:700; color:var(--brass-t);}
-  .path h3{font-family:"Newsreader",serif; font-weight:500; font-size:25px; margin:6px 0 8px; color:var(--slate-d);}
+  .path .k{font-size:12px; letter-spacing:.16em; text-transform:uppercase; font-weight:700; color:var(--brass-t);}
+  .path h3{font-family:var(--serif); font-weight:500; font-size:25px; line-height:1.18; margin:6px 0 8px; color:var(--slate-d);}
   .path p{margin:0; color:var(--muted); font-size:15.5px;}
-  .path .go{display:inline-flex; align-items:center; gap:6px; margin-top:16px; color:var(--slate-d); font-weight:700; font-size:14.5px;}
-  .path .go svg{width:16px; height:16px;}
+  .path .go{display:inline-flex; align-items:center; gap:6px; margin-top:var(--s4); color:var(--slate-d); font-weight:700; font-size:14.5px;}
+  .path .go svg{width:16px; height:16px; transition:transform .2s;}
+  .path:hover .go svg{transform:translateX(3px);}
 
   /* services */
   .services{background:var(--card);}
-  .svc-grid{display:grid; grid-template-columns:1fr; gap:16px; margin-top:32px;}
+  .svc-grid{display:grid; grid-template-columns:1fr; gap:16px;}
   @media(min-width:800px){.svc-grid{grid-template-columns:1fr 1fr;}}
-  .svc{background:var(--paper); border:1px solid var(--line); border-radius:14px; padding:26px; display:flex; flex-direction:column;}
+  .svc{background:var(--paper); border:1px solid var(--line); border-radius:var(--radius); padding:26px; display:flex; flex-direction:column;}
   .svc.feature{grid-column:1 / -1; background:var(--tint); border-color:var(--tint-2);}
-  .svc h3{font-family:"Newsreader",serif; font-weight:500; font-size:26px; margin:0 0 6px; color:var(--slate-d);}
+  .svc h3{font-family:var(--serif); font-weight:500; font-size:26px; line-height:1.18; margin:0 0 6px; color:var(--slate-d);}
   .svc .meta{display:flex; flex-wrap:wrap; gap:6px; margin:6px 0 14px;}
-  .svc p{margin:0 0 12px; color:var(--muted); font-size:15.5px;}
+  .svc p{margin:0 0 12px; color:var(--muted); font-size:15.5px; max-width:64ch;}
   .svc p:last-child{margin-bottom:0;}
   .svc ul{margin:0 0 12px; padding-left:20px; color:var(--muted); font-size:15.5px;}
   .svc li{margin-bottom:4px;}
-  .svc .price{font-family:"Newsreader",serif; font-size:30px; color:var(--slate-d); font-weight:500; margin:4px 0 2px;}
-  .svc .price small{font-family:"Public Sans",sans-serif; font-size:14px; color:var(--muted); font-weight:500;}
+  .svc .price{font-family:var(--serif); font-size:30px; color:var(--slate-d); font-weight:500; margin:4px 0 2px;}
+  .svc .price small{font-family:var(--sans); font-size:14px; color:var(--muted); font-weight:400;}
   .feature-cols{display:grid; grid-template-columns:1fr; gap:22px;}
   @media(min-width:800px){.feature-cols{grid-template-columns:1.1fr .9fr; gap:40px;}}
-  .callout{background:var(--card); border-left:4px solid var(--brass); border-radius:0 10px 10px 0; padding:14px 18px; font-size:15px; color:var(--ink); margin:0;}
+  .callout{background:var(--card); border-left:3px solid var(--brass); border-radius:0 var(--radius-s) var(--radius-s) 0; padding:14px 18px; font-size:15px; color:var(--ink); margin:0;}
+  .callout + .callout{margin-top:12px;}
   .callout b{color:var(--slate-d);}
 
   /* intake steps */
   .intake{background:var(--paper-2);}
-  .steps{list-style:none; counter-reset:step; margin:32px 0 0; padding:0; display:grid; grid-template-columns:1fr; gap:14px;}
+  .steps{list-style:none; counter-reset:step; margin:0; padding:0; display:grid; grid-template-columns:1fr; gap:14px;}
   @media(min-width:800px){.steps{grid-template-columns:repeat(4,1fr); gap:0;}}
-  .steps li{counter-increment:step; background:var(--card); border:1px solid var(--line); padding:24px 22px 22px; position:relative;}
-  .steps li:first-child{border-radius:14px 14px 0 0;}
-  .steps li:last-child{border-radius:0 0 14px 14px;}
+  .steps li{counter-increment:step; background:var(--card); border:1px solid var(--line); padding:24px 22px 22px;}
+  .steps li:first-child{border-radius:var(--radius) var(--radius) 0 0;}
+  .steps li:last-child{border-radius:0 0 var(--radius) var(--radius);}
   @media(min-width:800px){
     .steps li{border-right:none;}
-    .steps li:first-child{border-radius:14px 0 0 14px;}
-    .steps li:last-child{border-radius:0 14px 14px 0; border-right:1px solid var(--line);}
+    .steps li:first-child{border-radius:var(--radius) 0 0 var(--radius);}
+    .steps li:last-child{border-radius:0 var(--radius) var(--radius) 0; border-right:1px solid var(--line);}
   }
-  .steps li::before{content:counter(step); display:grid; place-items:center; width:38px; height:38px; border-radius:50%; background:var(--slate-d); color:#fff; font-family:"Newsreader",serif; font-size:20px; font-weight:500; margin-bottom:14px;}
-  .steps h3{font-family:"Newsreader",serif; font-weight:500; font-size:23px; margin:0 0 6px; color:var(--slate-d);}
+  .steps li::before{content:counter(step); display:grid; place-items:center; width:38px; height:38px; border-radius:50%; background:var(--slate-d); color:var(--brass-l); font-family:var(--serif); font-size:20px; font-weight:500; margin-bottom:14px;}
+  .steps h3{font-family:var(--serif); font-weight:500; font-size:23px; line-height:1.2; margin:0 0 6px; color:var(--slate-d);}
   .steps p{margin:0; color:var(--muted); font-size:15px;}
   .steps a{font-weight:700;}
-  .req{margin-top:34px; display:grid; grid-template-columns:1fr; gap:22px;}
+  .req{margin-top:var(--s6); display:grid; grid-template-columns:1fr; gap:22px;}
   @media(min-width:800px){.req{grid-template-columns:1fr 1fr; gap:40px;}}
   .req ul{margin:10px 0 0; padding-left:20px; color:var(--muted); font-size:15.5px;}
   .req li{margin-bottom:8px;}
@@ -218,12 +237,12 @@
 
   /* schedule */
   .schedule{background:var(--card);}
-  .sched-grid{display:grid; grid-template-columns:1fr; gap:22px; margin-top:28px;}
+  .sched-grid{display:grid; grid-template-columns:1fr; gap:22px;}
   @media(min-width:860px){.sched-grid{grid-template-columns:1.25fr .75fr;}}
-  table.sched{width:100%; border-collapse:collapse; font-size:16px; background:var(--paper); border:1px solid var(--line); border-radius:12px; overflow:hidden;}
-  table.sched caption{text-align:left; font-family:"Newsreader",serif; font-size:23px; color:var(--slate-d); font-weight:500; padding:0 0 12px;}
+  table.sched{width:100%; border-collapse:collapse; font-size:16px; background:var(--paper); border:1px solid var(--line); border-radius:var(--radius); overflow:hidden;}
+  table.sched caption{text-align:left; font-family:var(--serif); font-size:23px; color:var(--slate-d); font-weight:500; padding:0 0 12px;}
   table.sched th,table.sched td{text-align:left; padding:12px 14px; border-bottom:1px solid var(--line); vertical-align:top;}
-  table.sched thead th{font-size:12px; letter-spacing:1.5px; text-transform:uppercase; color:var(--muted); background:var(--paper-2); font-weight:700;}
+  table.sched thead th{font-size:12px; letter-spacing:.12em; text-transform:uppercase; color:var(--muted); background:var(--paper-2); font-weight:700;}
   table.sched tbody th{font-weight:700; color:var(--ink); white-space:nowrap;}
   table.sched tr:last-child td,table.sched tr:last-child th{border-bottom:none;}
   table.sched td .tag{margin-top:2px;}
@@ -232,125 +251,142 @@
     table.sched caption{display:block;}
     table.sched thead{position:absolute; left:-9999px; width:1px; height:1px; overflow:hidden;}
     table.sched tbody,table.sched tr,table.sched th,table.sched td{display:block;}
-    table.sched tr{background:var(--paper); border:1px solid var(--line); border-radius:12px; padding:14px 16px; margin-bottom:10px;}
-    table.sched tbody th{padding:0 0 6px; border-bottom:1px solid var(--line); font-family:"Newsreader",serif; font-size:21px; font-weight:500; color:var(--slate-d);}
+    table.sched tr{background:var(--paper); border:1px solid var(--line); border-radius:var(--radius); padding:14px 16px; margin-bottom:10px;}
+    table.sched tbody th{padding:0 0 6px; border-bottom:1px solid var(--line); font-family:var(--serif); font-size:21px; font-weight:500; color:var(--slate-d);}
     table.sched td{padding:6px 0 0; border:none; display:flex; justify-content:space-between; gap:12px; align-items:center;}
-    table.sched td::before{content:attr(data-label); font-size:12px; letter-spacing:1.5px; text-transform:uppercase; color:var(--muted); font-weight:700;}
+    table.sched td::before{content:attr(data-label); font-size:12px; letter-spacing:.12em; text-transform:uppercase; color:var(--muted); font-weight:700;}
   }
   .sched-note{font-size:14.5px; color:var(--muted); margin:14px 0 0;}
-  .side-card{background:var(--paper); border:1px solid var(--line); border-radius:12px; padding:22px;}
-  .side-card h3{font-family:"Newsreader",serif; font-weight:500; font-size:23px; margin:0 0 8px; color:var(--slate-d);}
+  .side-card{background:var(--paper); border:1px solid var(--line); border-top:3px solid var(--brass); border-radius:var(--radius); padding:22px;}
+  .side-card h3{font-family:var(--serif); font-weight:500; font-size:23px; line-height:1.2; margin:0 0 8px; color:var(--slate-d);}
   .side-card p{margin:0 0 10px; color:var(--muted); font-size:15.5px;}
-  .side-card .time{font-family:"Newsreader",serif; font-size:26px; color:var(--slate-d); margin:6px 0 2px;}
+  .side-card .time{font-family:var(--serif); font-size:26px; color:var(--slate-d); margin:6px 0 2px;}
 
-  /* referral */
+  /* referral: credential sheet */
   .referral{background:var(--slate-d); color:#e3ebef; border-bottom:none;}
-  .referral .eyebrow{color:#e9cf98;}
+  .referral .eyebrow{color:var(--brass-l);}
+  .referral .eyebrow::before{background:var(--brass-l);}
   .referral h2.head{color:#fff;}
-  .referral h2.head em{color:#e9cf98;}
-  .referral .lead{color:#c3d0d7;}
-  .ref-grid{display:grid; grid-template-columns:1fr; gap:16px; margin-top:30px;}
-  @media(min-width:860px){.ref-grid{grid-template-columns:1fr 1fr 1fr;}}
-  .ref-card{background:rgba(255,255,255,.05); border:1px solid rgba(255,255,255,.14); border-radius:14px; padding:24px;}
-  .ref-card h3{font-family:"Newsreader",serif; font-weight:500; font-size:22px; margin:0 0 10px; color:#fff;}
-  .ref-card p{color:#c3d0d7; font-size:15px; margin:0 0 10px;}
-  .ref-card ul{margin:0; padding-left:18px; color:#c3d0d7; font-size:15px;}
+  .referral h2.head em{color:var(--brass-l);}
+  .referral .lead{color:var(--on-dark-3);}
+  .sheet{background:var(--card); color:var(--ink); border-radius:var(--radius); border-top:4px solid var(--brass); overflow:hidden;}
+  .sheet-head{display:grid; grid-template-columns:1fr; gap:14px; padding:var(--s5); border-bottom:1px solid var(--line); background:var(--paper);}
+  @media(min-width:860px){.sheet-head{grid-template-columns:auto 1fr; align-items:center; gap:34px;}}
+  .sheet-head .num{font-family:var(--serif); font-size:clamp(34px,5vw,48px); color:var(--slate-d); font-weight:500; line-height:1; white-space:nowrap;}
+  .sheet-head .num small{display:block; font-family:var(--sans); font-size:12px; letter-spacing:.16em; text-transform:uppercase; color:var(--brass-t); margin-bottom:8px; font-weight:700;}
+  .sheet-head p{margin:0; color:var(--muted); font-size:15.5px; max-width:60ch;}
+  .sheet-head p b{color:var(--ink);}
+  .sheet-rows{margin:0; padding:0 var(--s5);}
+  .sheet-rows > div{display:grid; grid-template-columns:1fr; gap:2px 24px; padding:14px 0; border-bottom:1px solid var(--line);}
+  .sheet-rows > div:last-child{border-bottom:none;}
+  @media(min-width:700px){.sheet-rows > div{grid-template-columns:190px 1fr; gap:0 28px;}}
+  .sheet-rows dt{font-size:12px; letter-spacing:.14em; text-transform:uppercase; font-weight:700; color:var(--brass-t); padding-top:3px;}
+  .sheet-rows dd{margin:0; font-size:15.5px; color:var(--ink); line-height:1.55;}
+  .sheet-rows dd b{color:var(--slate-d);}
+  .ref-grid{display:grid; grid-template-columns:1fr; gap:16px; margin-top:16px;}
+  @media(min-width:860px){.ref-grid{grid-template-columns:1fr 1fr;}}
+  .ref-card{background:rgba(255,255,255,.05); border:1px solid rgba(255,255,255,.14); border-radius:var(--radius); padding:var(--s5);}
+  .ref-card h3{font-family:var(--serif); font-weight:500; font-size:22px; line-height:1.2; margin:0 0 10px; color:#fff;}
+  .ref-card p{color:var(--on-dark-3); font-size:15px; margin:0 0 10px;}
+  .ref-card p:last-child{margin-bottom:0;}
+  .ref-card ul,.ref-card ol{margin:0; padding-left:18px; color:var(--on-dark-3); font-size:15px;}
   .ref-card li{margin-bottom:6px;}
-  .ref-card a{color:#e9cf98;}
-  .credential{background:var(--card); color:var(--ink); border-radius:14px; padding:24px; margin-top:16px; display:grid; grid-template-columns:1fr; gap:18px;}
-  @media(min-width:860px){.credential{grid-template-columns:auto 1fr; align-items:center; gap:34px;}}
-  .credential .num{font-family:"Newsreader",serif; font-size:clamp(30px,5vw,44px); color:var(--slate-d); font-weight:500; line-height:1; white-space:nowrap;}
-  .credential .num small{display:block; font-family:"Public Sans",sans-serif; font-size:12px; letter-spacing:2px; text-transform:uppercase; color:var(--brass-t); margin-bottom:8px; font-weight:700;}
-  .credential p{margin:0; color:var(--muted); font-size:15.5px;}
-  .credential p b{color:var(--ink);}
-  .ref-actions{display:flex; flex-wrap:wrap; gap:12px; margin-top:26px;}
+  .ref-card b{color:#fff;}
+  .ref-card a{color:var(--brass-l);}
+  .ref-actions{display:flex; flex-wrap:wrap; gap:12px; margin-top:var(--s5);}
 
   /* fees */
   .fees{background:var(--paper);}
-  .fee-grid{display:grid; grid-template-columns:1fr; gap:16px; margin-top:30px;}
+  .fee-grid{display:grid; grid-template-columns:1fr; gap:16px;}
   @media(min-width:860px){.fee-grid{grid-template-columns:1fr 1fr;}}
-  .fee-card{background:var(--card); border:1px solid var(--line); border-radius:14px; padding:26px;}
-  .fee-card h3{font-family:"Newsreader",serif; font-weight:500; font-size:24px; margin:0 0 8px; color:var(--slate-d);}
-  .fee-card p{margin:0 0 10px; color:var(--muted); font-size:15.5px;}
-  .fee-card .price{font-family:"Newsreader",serif; font-size:44px; color:var(--slate-d); font-weight:500; line-height:1; margin:8px 0 4px;}
-  .fee-card .price small{font-family:"Public Sans",sans-serif; font-size:14px; color:var(--muted); font-weight:500; letter-spacing:.3px;}
-  .fee-card ul{margin:6px 0 0; padding-left:20px; color:var(--muted); font-size:15.5px;}
-  .fee-card li{margin-bottom:5px;}
+  .fee-card{background:var(--card); border:1px solid var(--line); border-radius:var(--radius); padding:26px;}
+  .fee-card h3{font-family:var(--serif); font-weight:500; font-size:24px; line-height:1.2; margin:0 0 8px; color:var(--slate-d);}
+  .fee-card p{margin:0 0 10px; color:var(--muted); font-size:15.5px; max-width:60ch;}
+  .fee-card .price{font-family:var(--serif); font-size:44px; color:var(--slate-d); font-weight:500; line-height:1; margin:8px 0 4px;}
+  .fee-card .price small{font-family:var(--sans); font-size:14px; color:var(--muted); font-weight:400; letter-spacing:.02em;}
   .chips{list-style:none; margin:12px 0 0; padding:0; display:flex; flex-wrap:wrap; gap:8px;}
   .chips li{background:var(--paper); border:1px solid var(--line); border-radius:6px; padding:6px 12px; font-size:14px; font-weight:600; color:var(--slate-d);}
   .fee-card.wide{grid-column:1 / -1;}
 
   /* team */
   .team{background:var(--card);}
-  .team-grid{display:grid; grid-template-columns:1fr; gap:16px; margin-top:30px;}
+  .team-grid{display:grid; grid-template-columns:1fr; gap:16px;}
   @media(min-width:700px){.team-grid{grid-template-columns:1fr 1fr;}}
-  .person{background:var(--paper); border:1px solid var(--line); border-radius:14px; padding:24px; display:grid; grid-template-columns:76px 1fr; gap:18px; align-items:start;}
+  .person{background:var(--paper); border:1px solid var(--line); border-radius:var(--radius); padding:var(--s5); display:grid; grid-template-columns:76px 1fr; gap:18px; align-items:start;}
   .person.lead-person{grid-column:1 / -1; grid-template-columns:1fr;}
   @media(min-width:700px){.person.lead-person{grid-template-columns:200px 1fr; gap:30px;}}
-  .portrait{background:linear-gradient(160deg,var(--tint),var(--tint-2)); border:1px solid var(--tint-2); border-radius:12px; aspect-ratio:1; display:grid; place-items:center; color:var(--slate); font-size:10.5px; letter-spacing:1.5px; text-transform:uppercase; text-align:center; padding:8px; font-weight:700;}
+  .portrait{background:linear-gradient(160deg,var(--tint),var(--tint-2)); border:1px solid var(--tint-2); border-radius:10px; aspect-ratio:1; display:grid; place-items:center; color:var(--slate); font-size:10.5px; letter-spacing:.12em; text-transform:uppercase; text-align:center; padding:8px; font-weight:700;}
   .person.lead-person .portrait{aspect-ratio:4/5; font-size:12px;}
-  .person h3{font-family:"Newsreader",serif; font-weight:500; font-size:24px; margin:0 0 2px; color:var(--slate-d);}
-  .person .role{font-size:13px; letter-spacing:1.5px; text-transform:uppercase; color:var(--brass-t); font-weight:700; margin:0 0 10px;}
-  .person p{margin:0 0 8px; color:var(--muted); font-size:15.5px;}
+  .person h3{font-family:var(--serif); font-weight:500; font-size:24px; line-height:1.2; margin:0 0 2px; color:var(--slate-d);}
+  .person .role{font-size:13px; letter-spacing:.12em; text-transform:uppercase; color:var(--brass-t); font-weight:700; margin:0 0 10px;}
+  .person p{margin:0 0 8px; color:var(--muted); font-size:15.5px; max-width:64ch;}
+  .person p i{font-family:var(--serif); font-style:italic; font-size:1.06em;}
   .person ul{margin:8px 0 0; padding-left:18px; color:var(--muted); font-size:15px;}
   .person li{margin-bottom:3px;}
   .creds{display:flex; flex-wrap:wrap; gap:6px; margin:10px 0 0;}
   .creds span{background:var(--card); border:1px solid var(--line); color:var(--slate-d); font-size:12.5px; font-weight:600; padding:4px 9px; border-radius:6px;}
   .lic{margin-top:12px; font-size:14px; color:var(--muted);}
   .lic b{color:var(--ink);}
-  .pull{margin:34px 0 0; padding:26px 28px; background:var(--tint); border-radius:14px; border:1px solid var(--tint-2);}
-  .pull blockquote{margin:0; font-family:"Newsreader",serif; font-style:italic; font-size:clamp(20px,3vw,26px); color:var(--slate-d); line-height:1.35;}
-  .pull .who{margin-top:10px; font-size:13px; letter-spacing:1.5px; text-transform:uppercase; color:var(--brass-t); font-weight:700;}
+  .pull{margin:var(--s6) 0 0; padding:28px 30px; background:var(--tint); border-radius:var(--radius); border:1px solid var(--tint-2); border-left:3px solid var(--brass);}
+  .pull blockquote{margin:0; font-family:var(--serif); font-style:italic; font-weight:500; font-size:clamp(20px,3vw,26px); color:var(--slate-d); line-height:1.35; max-width:32em;}
+  .pull .who{margin-top:10px; font-size:13px; letter-spacing:.12em; text-transform:uppercase; color:var(--brass-t); font-weight:700;}
 
   /* testimonials */
   .voices{background:var(--paper-2);}
-  .voice-grid{display:grid; grid-template-columns:1fr; gap:14px; margin-top:30px;}
+  .voice-grid{display:grid; grid-template-columns:1fr; gap:14px;}
   @media(min-width:760px){.voice-grid{grid-template-columns:1fr 1fr;}}
-  .voice{background:var(--card); border:1px solid var(--line); border-radius:12px; padding:22px 24px;}
-  .voice blockquote{margin:0; font-family:"Newsreader",serif; font-size:19px; color:var(--ink); line-height:1.45;}
-  .voice .who{margin-top:10px; font-size:13px; letter-spacing:1.5px; text-transform:uppercase; color:var(--muted); font-weight:700;}
+  .voice{background:var(--card); border:1px solid var(--line); border-radius:var(--radius); padding:22px 24px;}
+  .voice blockquote{margin:0; font-family:var(--serif); font-weight:500; font-size:19px; color:var(--ink); line-height:1.45;}
+  .voice .who{margin-top:10px; font-size:13px; letter-spacing:.12em; text-transform:uppercase; color:var(--muted); font-weight:700;}
   .voice.wide{grid-column:1 / -1;}
+  .voice.wide blockquote{max-width:64ch;}
   .voices .note{font-size:14px; color:var(--muted); margin:18px 0 0;}
 
   /* spanish */
   .espanol{background:var(--es-soft); border-top:4px solid var(--es);}
   .espanol .eyebrow{color:var(--es);}
-  .espanol h2.head{color:#3a2d52;}
+  .espanol .eyebrow::before{background:var(--es);}
+  .espanol h2.head{color:var(--es-d);}
   .espanol h2.head em{color:var(--es);}
-  .es-grid{display:grid; grid-template-columns:1fr; gap:18px; margin-top:26px;}
+  .es-grid{display:grid; grid-template-columns:1fr; gap:18px;}
   @media(min-width:860px){.es-grid{grid-template-columns:1.1fr .9fr; gap:34px;}}
-  .es-card{background:var(--card); border:1px solid #d7cde6; border-radius:14px; padding:24px;}
-  .es-card h3{font-family:"Newsreader",serif; font-weight:500; font-size:23px; margin:0 0 8px; color:#3a2d52;}
-  .es-card p{margin:0 0 10px; color:var(--muted); font-size:15.5px;}
-  .es-card ul{margin:0 0 10px; padding-left:20px; color:var(--muted); font-size:15.5px;}
+  .es-card{background:var(--card); border:1px solid var(--es-line); border-radius:var(--radius); padding:var(--s5);}
+  .es-card + .es-card{margin-top:14px;}
+  .es-card.crisis-es{border-color:var(--brass); border-top-width:3px;}
+  .es-card h3{font-family:var(--serif); font-weight:500; font-size:23px; line-height:1.2; margin:0 0 8px; color:var(--es-d);}
+  .es-card h3 + h3,.es-card ul + h3,.es-card p + h3{margin-top:18px;}
+  .es-card p{margin:0 0 10px; color:var(--muted); font-size:15.5px; max-width:64ch;}
+  .es-card p:last-child{margin-bottom:0;}
+  .es-card ul,.es-card ol{margin:0 0 10px; padding-left:20px; color:var(--muted); font-size:15.5px;}
   .es-card li{margin-bottom:5px;}
-  .es-card .ph{display:inline-block; font-family:"Newsreader",serif; font-size:32px; color:#3a2d52; text-decoration:none; margin:6px 0 4px; font-weight:500;}
+  .es-card b{color:var(--ink);}
+  .es-card .ph{display:inline-block; font-family:var(--serif); font-size:32px; color:var(--es-d); text-decoration:none; margin:6px 0 4px; font-weight:500;}
   .es-card .ph:hover{color:var(--es);}
   .es-card .btn.primary{background:var(--es);}
   .es-card .btn.primary:hover{background:#463860;}
 
   /* crisis */
   .crisis{background:var(--card);}
-  .crisis-grid{display:grid; grid-template-columns:1fr; gap:14px; margin-top:28px;}
+  .crisis-grid{display:grid; grid-template-columns:1fr; gap:14px;}
   @media(min-width:760px){.crisis-grid{grid-template-columns:1fr 1fr 1fr;}}
-  .crisis-card{background:var(--paper); border:1px solid var(--line); border-radius:14px; padding:24px; border-top:4px solid var(--brass);}
-  .crisis-card .big{display:block; font-family:"Newsreader",serif; font-size:44px; color:var(--slate-d); text-decoration:none; line-height:1; font-weight:500; margin:4px 0 8px;}
+  .crisis-card{background:var(--paper); border:1px solid var(--line); border-radius:var(--radius); padding:var(--s5); border-top:4px solid var(--brass);}
+  .crisis-card .big{display:inline-block; font-family:var(--serif); font-size:44px; color:var(--slate-d); text-decoration:none; line-height:1; font-weight:500; margin:4px 0 8px;}
   .crisis-card .big:hover{color:var(--brass-t);}
-  .crisis-card h3{font-size:13px; letter-spacing:1.5px; text-transform:uppercase; color:var(--brass-t); font-weight:700; margin:0;}
+  .crisis-card h3{font-size:13px; letter-spacing:.12em; text-transform:uppercase; color:var(--brass-t); font-weight:700; margin:0;}
   .crisis-card p{margin:0; color:var(--muted); font-size:15px;}
-  .crisis .safe{margin-top:22px; display:flex; gap:14px; align-items:flex-start; background:var(--tint); border:1px solid var(--tint-2); border-radius:12px; padding:18px 20px; font-size:15.5px; color:var(--ink);}
+  .crisis .safe{margin-top:22px; display:flex; gap:14px; align-items:flex-start; background:var(--tint); border:1px solid var(--tint-2); border-radius:var(--radius); padding:18px 20px; font-size:15.5px; color:var(--ink);}
   .crisis .safe svg{width:26px; height:26px; flex:none; color:var(--slate-d);}
   .crisis .safe b{color:var(--slate-d);}
 
   /* contact */
   .contact{background:var(--paper);}
-  .con-grid{display:grid; grid-template-columns:1fr; gap:18px; margin-top:28px;}
+  .con-grid{display:grid; grid-template-columns:1fr; gap:18px;}
   @media(min-width:860px){.con-grid{grid-template-columns:1fr 1fr;}}
-  .card{background:var(--card); border:1px solid var(--line); border-radius:14px; padding:26px;}
-  .card h3{font-family:"Newsreader",serif; font-weight:500; font-size:24px; margin:0 0 12px; color:var(--slate-d);}
+  .card{background:var(--card); border:1px solid var(--line); border-radius:var(--radius); padding:26px;}
+  .card h3{font-family:var(--serif); font-weight:500; font-size:24px; line-height:1.2; margin:0 0 12px; color:var(--slate-d);}
   address{font-style:normal; font-size:17.5px; line-height:1.5; color:var(--ink);}
   address b{font-weight:700;}
-  .card .ph{display:inline-block; font-family:"Newsreader",serif; font-size:34px; color:var(--slate-d); text-decoration:none; margin:10px 0 2px; font-weight:500;}
+  .card .ph{display:inline-block; font-family:var(--serif); font-size:34px; color:var(--slate-d); text-decoration:none; margin:10px 0 2px; font-weight:500;}
   .card .ph:hover{color:var(--brass-t);}
   .card p{color:var(--muted); font-size:15.5px; margin:8px 0 0;}
   .hours{width:100%; border-collapse:collapse; margin-top:4px; font-size:16px;}
@@ -360,34 +396,96 @@
   .hours .closed{color:var(--brass-t); font-weight:600;}
   .areas{list-style:none; padding:0; margin:12px 0 0; display:flex; flex-wrap:wrap; gap:8px;}
   .areas li{background:var(--paper); border:1px solid var(--line); border-radius:6px; padding:6px 12px; font-size:14px; font-weight:600; color:var(--slate-d);}
-  .map-ph{margin-top:16px; background:linear-gradient(160deg,var(--tint),var(--tint-2)); border:1px solid var(--tint-2); border-radius:12px; height:150px; display:grid; place-items:center; color:var(--slate); font-size:12px; letter-spacing:1.5px; text-transform:uppercase; font-weight:700; text-align:center; padding:12px;}
+  .map-ph{margin-top:16px; background:linear-gradient(160deg,var(--tint),var(--tint-2)); border:1px solid var(--tint-2); border-radius:10px; height:150px; display:grid; place-items:center; color:var(--slate); font-size:12px; letter-spacing:.12em; text-transform:uppercase; font-weight:700; text-align:center; padding:12px;}
 
   /* footer */
   footer{background:var(--slate-x); color:#9fb1ba; font-size:13.5px; padding:44px 0 40px;}
-  footer .fb{font-family:"Newsreader",serif; color:#fff; font-size:22px; display:block; margin-bottom:6px; font-weight:500;}
-  footer .meta{color:#c3d0d7; margin:0 0 18px;}
-  footer .meta a{color:#e9cf98;}
+  footer .fb{font-family:var(--serif); color:#fff; font-size:22px; display:block; margin-bottom:6px; font-weight:500;}
+  footer .meta{color:var(--on-dark-3); margin:0 0 18px;}
+  footer .meta a,footer .crisis-foot a{color:var(--brass-l);}
   footer .marks{margin:0 0 18px; color:#9fb1ba;}
-  footer .crisis-foot{border:1px solid var(--line-dark); border-radius:10px; padding:14px 18px; color:#c3d0d7; margin:0 0 22px;}
+  footer .crisis-foot{border:1px solid var(--line-dark); border-radius:10px; padding:14px 18px; color:var(--on-dark-3); margin:0 0 22px;}
   footer .crisis-foot b{color:#fff;}
-  footer .crisis-foot a{color:#e9cf98; font-weight:700; text-decoration:none;}
-  .preview-note{margin-top:22px; padding-top:20px; border-top:1px solid var(--line-dark); color:#9fb1ba; font-size:13px;}
+  footer .crisis-foot a{font-weight:700; text-decoration:none;}
+  .preview-note{margin-top:22px; padding-top:20px; border-top:1px solid var(--line-dark); color:#9fb1ba; font-size:13px; max-width:80ch;}
   .preview-note b{color:#e3ebef;}
 
   /* mobile action bar */
   .actionbar{position:fixed; left:0; right:0; bottom:0; z-index:50; display:grid; grid-template-columns:1.4fr 1fr; gap:8px; padding:10px 12px; background:rgba(15,32,41,.96); border-top:1px solid var(--line-dark); padding-bottom:max(10px, env(safe-area-inset-bottom));}
-  .actionbar a{display:flex; align-items:center; justify-content:center; gap:8px; text-decoration:none; font-weight:700; font-size:15px; padding:12px 10px; border-radius:8px; white-space:nowrap;}
+  .actionbar a{display:flex; align-items:center; justify-content:center; gap:8px; text-decoration:none; font-weight:700; font-size:15px; padding:12px 10px; min-height:44px; border-radius:var(--radius-s); white-space:nowrap;}
   .actionbar a svg{width:16px; height:16px; flex:none;}
   .actionbar .a-call{background:#fff; color:var(--slate-d);}
-  .actionbar .a-988{background:transparent; color:#f0d9a8; border:1.5px solid rgba(240,217,168,.6);}
+  .actionbar .a-988{background:transparent; color:var(--brass-l2); border:1.5px solid rgba(240,217,168,.6);}
   body{padding-bottom:76px;}
   @media(min-width:760px){.actionbar{display:none;} body{padding-bottom:0;}}
 
+  /* below-the-fold rendering: skip layout work for sections far off screen */
+  .team,.voices,.espanol,.crisis,.contact{content-visibility:auto; contain-intrinsic-size:auto 900px;}
+
+  /* motion: opt-in only, applied by script to sections below the first screen */
+  @media(prefers-reduced-motion:no-preference){
+    .js .reveal{opacity:0; transform:translateY(14px); transition:opacity .7s cubic-bezier(.2,.6,.2,1),transform .7s cubic-bezier(.2,.6,.2,1);}
+    .js .reveal.in{opacity:1; transform:none;}
+  }
   @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto;} *{transition:none!important; animation:none!important;}}
+
+  /* ---------- print: a two-page sheet a probation officer or attorney can file ---------- */
+  @media print{
+    @page{margin:12mm 14mm;}
+    html,body{background:#fff; color:#000; font-size:10pt; line-height:1.35; padding:0; overflow:visible;}
+    .reveal{opacity:1!important; transform:none!important; transition:none!important;}
+    main section,.svc,.sheet{content-visibility:visible; break-inside:auto;}
+    .crisis-strip,.topbar,.actionbar,.hero-art,.paths,.voices,.team,.pull,.portrait,.map-ph,.preview-note,.btn,.menu-btn,.skip,.cta-row,.ref-actions,.sched-note,.trust,.hero-card,.crisis .safe,.fee-card.wide .chips + .h4,.fee-card.wide .h4 + .chips,footer .crisis-foot,#telehealth,.es-card.crisis-es{display:none!important;}
+    .print-head{display:block; border-bottom:1.5pt solid #000; padding:0 0 6pt; margin:0 0 8pt; font-size:9.5pt;}
+    .print-head b{font-size:12pt; font-family:var(--serif);}
+    .wrap{max-width:none; padding:0;}
+    header.hero,.referral,footer,main section,.svc,.svc.feature,.sheet,.sheet-head,.steps li,.fee-card,.card,.crisis-card,.ref-card,.side-card,.es-card,table.sched,table.sched thead th,.callout,.espanol{background:#fff!important; color:#000!important; border-color:#999!important; box-shadow:none;}
+    header.hero *,.referral *,.es-card *,.svc *,.steps *,.card *,.fee-card *,.crisis-card *,.side-card *,.sheet *{color:#000!important;}
+    main section{padding:8pt 0; border-bottom:1px solid #999;}
+    .hero-inner{padding:0 0 6pt; gap:0; grid-template-columns:1fr;}
+    .hero .eyebrow,.eyebrow{margin-bottom:3pt; font-size:8pt;}
+    .eyebrow::before{background:#000;}
+    h1.title{font-size:17pt; margin:0 0 4pt; max-width:none;}
+    .hero p.lede{font-size:10pt; margin:0 0 6pt; max-width:none;}
+    .hero .bigcall{margin:0 0 4pt;}
+    .hero .bigcall .num{font-size:16pt;}
+    .hero .bigcall small{font-size:8pt;}
+    h2.head{font-size:14pt; margin:0 0 4pt;}
+    .lead{font-size:10pt; margin:0 0 6pt; max-width:none;}
+    .grid{margin-top:6pt;}
+    h3,.h4{font-size:11.5pt!important; margin:0 0 3pt!important;}
+    p,li,dd{font-size:9.5pt!important; margin-bottom:3pt!important;}
+    .svc-grid,.steps,.req,.sched-grid,.ref-grid,.fee-grid,.crisis-grid,.con-grid,.es-grid,.feature-cols{display:grid; grid-template-columns:1fr 1fr; gap:6pt;}
+    .steps{grid-template-columns:repeat(4,1fr);}
+    .svc.feature,.fee-card.wide{grid-column:1 / -1;}
+    .svc,.steps li,.fee-card,.card,.crisis-card,.ref-card,.side-card,.es-card,.sheet{border:1px solid #999; border-radius:0; padding:6pt;}
+    .steps li,.crisis-card,.side-card,.sheet-rows > div{break-inside:avoid;}
+    .steps li{border-right:1px solid #999!important; border-radius:0!important;}
+    .steps li::before{width:16pt; height:16pt; font-size:10pt; margin-bottom:4pt; background:#000; color:#fff!important;}
+    .sheet-head{padding:6pt; border-bottom:1px solid #999; grid-template-columns:auto 1fr; gap:12pt;}
+    .sheet-head .num{font-size:20pt;}
+    .sheet-rows{padding:0 6pt;}
+    .sheet-rows > div{padding:4pt 0; grid-template-columns:110pt 1fr;}
+    .sheet-rows dt{font-size:8pt;}
+    .tag{border:1px solid #999; background:none!important; color:#000!important; padding:1pt 4pt; font-size:8pt;}
+    table.sched{border-radius:0; font-size:9.5pt;}
+    table.sched th,table.sched td{padding:3pt 5pt;}
+    table.sched caption{font-size:11.5pt; padding-bottom:3pt;}
+    .fee-card .price,.svc .price{font-size:16pt;}
+    .chips{gap:3pt;}
+    .chips li{border:1px solid #999; padding:1pt 5pt; font-size:8.5pt;}
+    .crisis-card .big{font-size:16pt; margin:2pt 0 3pt;}
+    .card .ph,.es-card .ph{font-size:14pt; margin:3pt 0 0;}
+    .hours th,.hours td{padding:2pt 0;}
+    a{color:#000!important; text-decoration:none;}
+    .voices,.team{content-visibility:visible;}
+  }
 </style>
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
+
+<div class="print-head" aria-hidden="true"><b>The Capelli Group, LLC</b> &middot; 9739 Socorro Rd, El Paso, TX 79927 &middot; 915-799-0614 &middot; thecapelligroup@gmail.com &middot; BIPP Provider # 071-021, accredited by TDCJ-CJAD &middot; Crisis: call or text 988</div>
 
 <div class="crisis-strip" role="region" aria-label="Crisis resources">
   <div class="wrap">
@@ -439,7 +537,7 @@
       <p class="eyebrow">El Paso, Texas &middot; Serving the community since 2004</p>
       <h1 class="title">Court-approved intervention, anger management, and psychotherapy. <em>Delivered with dignity.</em></h1>
       <p class="lede">The Capelli Group, LLC is a behavioral health clinic on Socorro Road. We run the TDCJ-CJAD accredited Battering Intervention and Prevention Program (BIPP), Texas court-approved anger management, and clinical psychotherapy, in English and Spanish, in person and by telehealth.</p>
-      <a class="bigcall" href="tel:+19157990614"><span class="num">915-799-0614</span><small>Tap to call &middot; Registration starts with a phone call</small></a>
+      <a class="bigcall" href="tel:+19157990614"><span class="num">915-799-0614</span><small>Tap to call &middot; One call schedules your evaluation and orientation</small></a>
       <div class="cta-row">
         <a class="btn light" href="#start">Start here: the 4-step intake</a>
         <a class="btn ghost onDark" href="#referrals">For referral sources</a>
@@ -476,7 +574,7 @@
   <div class="wrap">
     <p class="eyebrow">Which describes you?</p>
     <h2 class="head" id="paths-h">Three ways people arrive here. <em>Pick yours.</em></h2>
-    <div class="path-grid">
+    <div class="path-grid grid">
       <a class="path" href="#start">
         <span class="k">Court ordered</span>
         <h3>I was ordered to complete a program</h3>
@@ -504,20 +602,20 @@
     <p class="eyebrow">Services</p>
     <h2 class="head" id="svc-h">What we provide</h2>
     <p class="lead">Every description below is condensed from The Capelli Group's own published material. Nothing clinical has been added.</p>
-    <div class="svc-grid">
+    <div class="svc-grid grid">
 
       <article class="svc feature" id="bipp">
         <div class="feature-cols">
           <div>
             <h3>Battering Intervention and Prevention Program (BIPP)</h3>
-            <div class="meta"><span class="tag">18 weeks</span><span class="tag">36 hours</span><span class="tag en">English</span><span class="tag es" lang="es">Español</span><span class="tag">Zoom or in person</span></div>
+            <div class="meta"><span class="tag">18 weeks</span><span class="tag">36 hours</span><span class="tag">English</span><span class="tag es" lang="es">Español</span><span class="tag">Zoom or in person</span></div>
             <p>An 18-week program that satisfies the <b>36-hour TDCJ-CJAD and State of Texas requirement</b>. Four phases, offered in both Spanish and English, delivered through interactive Zoom classes or in person. Groups run at 5 to 20 people under State of Texas BIPP Accreditation Guidelines.</p>
             <p>BIPP addresses socio-cultural issues regarding gender and violence, critical thinking, empathy, accountability, and communication. Completion requires the minimum 36 hours of educational group sessions, appropriate participation, and payment of fees.</p>
             <p><b>Affirmative Finding of Family Violence (AFV) Counseling</b> is available where the court does not recommend BIPP but does order family violence counseling.</p>
           </div>
           <div>
             <p class="callout"><b>BIPP is not an anger management program.</b> If your court order says BIPP, anger management will not satisfy it. If you are unsure which program your order requires, call and we will help you read it.</p>
-            <p class="callout" style="margin-top:12px"><b>A note on couples counseling.</b> The clinic advises against couples counseling until the abusive party has completed an appropriate intervention program and the other partner feels safe to participate.</p>
+            <p class="callout"><b>A note on couples counseling.</b> The clinic advises against couples counseling until the abusive party has completed an appropriate intervention program and the other partner feels safe to participate.</p>
           </div>
         </div>
       </article>
@@ -552,7 +650,7 @@
         <h3>Telehealth in Texas and New Mexico</h3>
         <div class="meta"><span class="tag">Virtual appointments</span></div>
         <p>For your health and safety, telemedicine virtual appointments are available for clients in the State of Texas and New Mexico. BIPP groups are also delivered through interactive Zoom classes.</p>
-        <h4 style="font-family:'Newsreader',serif;font-weight:500;font-size:20px;margin:16px 0 4px;color:var(--slate-d)">Complementary and Integrative Health (CIH)</h4>
+        <h4 class="h4">Complementary and Integrative Health (CIH)</h4>
         <p>The practice includes holistic health practitioners and integrative medicine and holistic approaches to mental health topics. Ask about CIH when you call.</p>
       </article>
 
@@ -564,8 +662,8 @@
   <div class="wrap">
     <p class="eyebrow">Start here</p>
     <h2 class="head" id="start-h">BIPP intake in <em>four steps</em></h2>
-    <p class="lead">One phone call starts the process. Bring your court paperwork and the name of your probation officer or referral source.</p>
-    <ol class="steps">
+    <p class="lead">One phone call starts the process. Have your court order and the name of your referral source ready when you call.</p>
+    <ol class="steps grid">
       <li>
         <h3>Register</h3>
         <p>Call <a href="tel:+19157990614">915-799-0614</a> to schedule your evaluation and orientation.</p>
@@ -610,16 +708,16 @@
     <p class="eyebrow">Schedule</p>
     <h2 class="head" id="sched-h">Group sessions</h2>
     <p class="lead">BIPP groups meet in the evening and on Saturday morning. Anger management meets Saturday morning. Language and group are listed for each session.</p>
-    <div class="sched-grid">
+    <div class="sched-grid grid">
       <div>
         <table class="sched">
           <caption>BIPP group sessions</caption>
           <thead><tr><th scope="col">Day</th><th scope="col">Time</th><th scope="col">Group</th><th scope="col">Language</th></tr></thead>
           <tbody>
-            <tr><th scope="row">Monday</th><td data-label="Time">6:00 to 8:00 pm</td><td data-label="Group">Men's group</td><td data-label="Language"><span class="tag en">English</span></td></tr>
+            <tr><th scope="row">Monday</th><td data-label="Time">6:00 to 8:00 pm</td><td data-label="Group">Men's group</td><td data-label="Language"><span class="tag">English</span></td></tr>
             <tr><th scope="row">Tuesday</th><td data-label="Time">6:00 to 8:00 pm</td><td data-label="Group">Men's group</td><td data-label="Language"><span class="tag es" lang="es">Español</span></td></tr>
-            <tr><th scope="row">Wednesday</th><td data-label="Time">6:00 to 8:00 pm</td><td data-label="Group">Women's group</td><td data-label="Language"><span class="tag en">English</span></td></tr>
-            <tr><th scope="row">Saturday</th><td data-label="Time">11:00 am to 1:00 pm</td><td data-label="Group">Men's group</td><td data-label="Language"><span class="tag en">English</span></td></tr>
+            <tr><th scope="row">Wednesday</th><td data-label="Time">6:00 to 8:00 pm</td><td data-label="Group">Women's group</td><td data-label="Language"><span class="tag">English</span></td></tr>
+            <tr><th scope="row">Saturday</th><td data-label="Time">11:00 am to 1:00 pm</td><td data-label="Group">Men's group</td><td data-label="Language"><span class="tag">English</span></td></tr>
           </tbody>
         </table>
         <p class="sched-note">Groups are available through interactive Zoom classes and in person. Your orientation confirms which group you attend.</p>
@@ -638,10 +736,22 @@
   <div class="wrap">
     <p class="eyebrow">For referral sources</p>
     <h2 class="head" id="ref-h">Accredited, court approved, and <em>reporting monthly</em></h2>
-    <p class="lead">For probation and parole officers, attorneys, judges, caseworkers, EAP coordinators, and the VA.</p>
-    <div class="credential">
-      <div class="num"><small>BIPP provider number</small>071-021</div>
-      <p><b>Battering Intervention and Prevention Provider # 071-021</b>, accredited by the Texas Department of Criminal Justice, Community Justice Assistance Division (TDCJ-CJAD). Also a National NCTI Court Approved Programs provider, an El Paso County court approved provider, and a State of Texas CEU provider for continuing education.</p>
+    <p class="lead">A one-page credential sheet for probation and parole officers, attorneys, judges, caseworkers, EAP coordinators, and the VA.</p>
+    <div class="sheet grid">
+      <div class="sheet-head">
+        <div class="num"><small>BIPP provider number</small>071-021</div>
+        <p><b>Battering Intervention and Prevention Provider # 071-021</b>, accredited by the Texas Department of Criminal Justice, Community Justice Assistance Division (TDCJ-CJAD). The Capelli Group, LLC, 9739 Socorro Rd, El Paso, TX 79927.</p>
+      </div>
+      <dl class="sheet-rows">
+        <div><dt>Program</dt><dd>18-week BIPP satisfying the 36-hour TDCJ-CJAD and State of Texas requirement. Four phases. Groups of 5 to 20 under State of Texas BIPP Accreditation Guidelines.</dd></div>
+        <div><dt>Other approvals</dt><dd>National NCTI Court Approved Programs provider. El Paso County Court Approved Provider. State of Texas CEU Provider for continuing education.</dd></div>
+        <div><dt>Reporting</dt><dd><b>Monthly progress reports mailed to the referral source.</b> Victims notified of enrollment and exit. Every participant signs a release of information covering the victim and the referral source.</dd></div>
+        <div><dt>Conditions</dt><dd>All firearms removed from the home during participation. Participants read, sign, and adhere to Capelli Group Rules. Completion requires the 36 hours, appropriate participation, and payment of fees.</dd></div>
+        <div><dt>Languages and delivery</dt><dd>English and Spanish. In person or through interactive Zoom classes. Evening groups Monday through Wednesday, Saturday late morning.</dd></div>
+        <div><dt>Coverage</dt><dd>El Paso, Hudspeth, and Culberson Counties, and Fort Bliss, Texas. <b>All Fort Bliss cases accepted.</b> Telehealth for Texas and New Mexico.</dd></div>
+        <div><dt>Clinical lead</dt><dd>Prof. Samuel Capelli, LPC-S, LPCC. Texas License No. 71960. New Mexico License No. CCMH223591. State of Texas CEU Provider.</dd></div>
+        <div><dt>Also available</dt><dd>Texas court-approved anger management, 8 to 16 hours by court order, Certificate of Completion awarded. Affirmative Finding of Family Violence (AFV) Counseling where the court orders family violence counseling rather than BIPP. Pre-trial assessments and mental health diagnosis for legal matters.</dd></div>
+      </dl>
     </div>
     <div class="ref-grid">
       <div class="ref-card">
@@ -657,20 +767,13 @@
         </ul>
       </div>
       <div class="ref-card">
-        <h3>What you receive</h3>
-        <ul>
-          <li><b>Monthly progress reports</b> mailed to the referral source.</li>
-          <li>Notification to victims of enrollment and exit.</li>
-          <li>A signed release of information from every participant.</li>
-          <li>Certificate of Completion for anger management clients.</li>
-          <li>Pre-trial assessments and mental health diagnosis for legal matters on request.</li>
-        </ul>
-      </div>
-      <div class="ref-card">
-        <h3>Coverage</h3>
-        <p>El Paso, Hudspeth, and Culberson Counties, and Fort Bliss, Texas. <b style="color:#fff">All Fort Bliss cases are accepted.</b></p>
-        <p>Programs run in English and Spanish, in person and by Zoom, so distance and language are not barriers to placement.</p>
-        <p>Telehealth clients in New Mexico are also served.</p>
+        <h3>How a referral proceeds</h3>
+        <ol>
+          <li><b>Contact the clinic</b> by phone at <a href="tel:+19157990614">915-799-0614</a> or by email at <a href="mailto:thecapelligroup@gmail.com">thecapelligroup@gmail.com</a>.</li>
+          <li><b>The participant registers</b> by calling to schedule the psycho-social evaluation and orientation.</li>
+          <li><b>Release signed.</b> The participant signs a release of information naming you as the referral source.</li>
+          <li><b>Reports follow.</b> Monthly progress reports are mailed to you, and you are notified at completion or exit.</li>
+        </ol>
       </div>
     </div>
     <div class="ref-actions">
@@ -684,7 +787,7 @@
   <div class="wrap">
     <p class="eyebrow">Fees &amp; insurance</p>
     <h2 class="head" id="fees-h">What it costs, <em>stated plainly</em></h2>
-    <div class="fee-grid">
+    <div class="fee-grid grid">
       <div class="fee-card">
         <h3>Psychotherapy</h3>
         <p class="price">$180 <small>per session</small></p>
@@ -703,7 +806,7 @@
         <ul class="chips" aria-label="Accepted insurance plans">
           <li>Aetna</li><li>Ambetter</li><li>Oscar Insurance</li><li>Preferred Providers</li><li>OPTUM</li><li>United Healthcare</li><li>MOLINA / MEDICAID / MEDICARE</li><li>TriWest Healthcare Alliance</li><li>MultiPlan Network</li><li>PHCS</li><li>Valuepoint</li><li>Magellan</li><li>Cigna</li>
         </ul>
-        <h4 style="font-family:'Newsreader',serif;font-weight:500;font-size:20px;margin:20px 0 4px;color:var(--slate-d)">Payment methods</h4>
+        <h4 class="h4">Payment methods</h4>
         <ul class="chips" aria-label="Accepted payment methods">
           <li>Cash</li><li>Bank debit card</li><li>Visa</li><li>Mastercard</li><li>American Express</li><li>Discover</li><li>Health Savings Account</li><li>Insurance claims</li>
         </ul>
@@ -717,7 +820,7 @@
     <p class="eyebrow">Our team</p>
     <h2 class="head" id="team-h">The people behind the practice</h2>
     <p class="lead">Established in 2004 as EPIC Association by Professor Samuel Capelli, and renamed The Capelli Group, LLC in October 2014.</p>
-    <div class="team-grid">
+    <div class="team-grid grid">
       <article class="person lead-person">
         <div>
           <div class="portrait" role="img" aria-label="Placeholder for a photo of Prof. Samuel Capelli">Placeholder<br>photo of<br>Prof. Samuel Capelli</div>
@@ -778,7 +881,7 @@
     <p class="eyebrow">In their words</p>
     <h2 class="head" id="voices-h">From people who completed the work</h2>
     <p class="lead">Published by the clinic, attributed as the clinic attributes them. Quoted without editing.</p>
-    <div class="voice-grid">
+    <div class="voice-grid grid">
       <figure class="voice">
         <blockquote>&ldquo;This program helped me to understand that I am an abuser, it also helped me with awareness and equality.&rdquo;</blockquote>
         <figcaption class="who">M. Ibarra</figcaption>
@@ -816,34 +919,44 @@
   <div class="wrap">
     <p class="eyebrow">Resumen en español</p>
     <h2 class="head" id="es-h">Programas ordenados por la corte y psicoterapia, <em>en su idioma</em></h2>
-    <p class="lead">The Capelli Group, LLC es una clínica de salud conductual en El Paso, Texas. Ofrecemos el Programa de Intervención y Prevención para Agresores (BIPP), manejo de la ira aprobado por las cortes de Texas y psicoterapia clínica. Atendemos en español, en persona y por telesalud.</p>
-    <div class="es-grid">
+    <p class="lead">The Capelli Group, LLC es una clínica de salud conductual en El Paso, Texas. Ofrecemos el Programa de Intervención y Prevención para Agresores (BIPP, por sus siglas en inglés), manejo de la ira aprobado por las cortes de Texas y psicoterapia clínica. Le atendemos en español, en persona y por telesalud.</p>
+    <div class="es-grid grid">
       <div class="es-card">
         <h3>Grupo BIPP en español</h3>
-        <p><b>Martes, 6:00 a 8:00 pm.</b> Grupo de hombres. Programa de 18 semanas que cumple con el requisito de 36 horas del Estado de Texas (TDCJ-CJAD). Clases interactivas por Zoom o en persona.</p>
-        <p><b>Proveedor BIPP # 071-021</b>, acreditado por TDCJ-CJAD. Aprobado por las cortes del Condado de El Paso. Se aceptan todos los casos de Fort Bliss.</p>
-        <h3 style="margin-top:18px">Cómo empezar</h3>
-        <ul>
-          <li><b>Regístrese.</b> Llame para programar su evaluación y orientación.</li>
-          <li><b>Evaluación</b> psicosocial.</li>
-          <li><b>Orientación</b> en grupo.</li>
+        <p><b>Martes, de 6:00 a 8:00 pm.</b> Grupo de hombres. Programa de 18 semanas que cumple con el requisito de 36 horas del TDCJ-CJAD y del Estado de Texas. Cuatro fases. Clases interactivas por Zoom o en persona, en grupos de 5 a 20 personas.</p>
+        <p><b>Proveedor BIPP # 071-021</b>, acreditado por el Departamento de Justicia Penal de Texas, División de Asistencia a la Justicia Comunitaria (TDCJ-CJAD). Aprobado por las cortes del Condado de El Paso. Se aceptan todos los casos de Fort Bliss.</p>
+        <h3>Cómo empezar</h3>
+        <ol>
+          <li><b>Regístrese.</b> Llame al <a href="tel:+19157990614">915-799-0614</a> para programar su evaluación y orientación.</li>
+          <li><b>Evaluación</b> psicosocial con un clínico.</li>
+          <li><b>Orientación</b> en una sesión de grupo interactiva.</li>
           <li><b>Grupos semanales</b> hasta completar las 36 horas.</li>
+        </ol>
+        <h3>Lo que el programa exige</h3>
+        <ul>
+          <li>Retirar todas las armas de fuego del hogar mientras participe.</li>
+          <li>Firmar una autorización para que el programa se comunique con la víctima y con la fuente de referencia.</li>
+          <li>Leer, firmar y cumplir las reglas de The Capelli Group.</li>
+          <li>Pagar los honorarios del programa, que se establecen al registrarse. Se envían informes mensuales de progreso a su fuente de referencia.</li>
         </ul>
-        <p>BIPP no es un programa de manejo de la ira. Si no está seguro de qué programa exige su orden judicial, llámenos y le ayudamos a leerla.</p>
+        <p><b>BIPP no es un programa de manejo de la ira.</b> Si no está seguro de qué programa exige su orden judicial, llámenos y le ayudaremos a interpretarla.</p>
       </div>
       <div>
         <div class="es-card">
           <h3>Llame para empezar</h3>
           <a class="ph" href="tel:+19157990614">915-799-0614</a>
-          <p>9739 Socorro Rd, El Paso, TX 79927<br>Lunes y martes 9:30 am a 5:00 pm. Miércoles 9:30 am a 7:00 pm. Jueves 9:30 am a 2:00 pm. Sábado 9:30 am a 12:00 pm. Viernes y domingo cerrado.</p>
-          <p>Psicoterapia en español: <b>$180 por sesión</b>. Individuos, parejas y grupos. Adolescentes de 14 a 19 años, adultos y personas mayores de 65. Telesalud en Texas y Nuevo México.</p>
+          <p>9739 Socorro Rd, El Paso, TX 79927<br>Lunes y martes, de 9:30 am a 5:00 pm. Miércoles, de 9:30 am a 7:00 pm. Jueves, de 9:30 am a 2:00 pm. Sábado, de 9:30 am a 12:00 pm. Viernes y domingo, cerrado.</p>
+          <p><b>Manejo de la ira:</b> sábados, de 9:30 a 10:30 am. Aprobado por las cortes de Texas. De 8 a 16 horas, según la orden judicial. Se otorga un certificado de finalización.</p>
+          <p><b>Psicoterapia en español:</b> $180 por sesión. Individuos, parejas y grupos. Adolescentes de 14 a 19 años, adultos y personas mayores de 65 años. Telesalud en Texas y Nuevo México.</p>
+          <p><b>Zona segura para veteranos militares.</b> Se honra y se da la bienvenida a todas las ramas de las fuerzas armadas.</p>
           <a class="btn primary" href="tel:+19157990614">Llamar ahora</a>
         </div>
-        <div class="es-card" style="margin-top:14px;border-color:var(--brass)">
+        <div class="es-card crisis-es">
           <h3>Si está en crisis</h3>
           <p><b>Emergencia:</b> llame al <a href="tel:911">911</a>.</p>
           <p><b>Línea 988 de Prevención del Suicidio y Crisis:</b> llame o envíe un mensaje de texto al <a href="tel:988">988</a>. Atención en español disponible.</p>
           <p><b>Veteranos:</b> llame al 988 y presione 1.</p>
+          <p><b>Por mensaje de texto:</b> envíe la palabra HOME al <a href="sms:741741&body=HOME">741741</a>.</p>
         </div>
       </div>
     </div>
@@ -855,7 +968,7 @@
     <p class="eyebrow">If you need help right now</p>
     <h2 class="head" id="crisis-h">Crisis support, <em>24 hours a day</em></h2>
     <p class="lead">These national lines are free, confidential, and always open. If anyone is in immediate danger, call 911 first.</p>
-    <div class="crisis-grid">
+    <div class="crisis-grid grid">
       <div class="crisis-card">
         <h3>Suicide &amp; Crisis Lifeline</h3>
         <a class="big" href="tel:988">988</a>
@@ -883,7 +996,7 @@
   <div class="wrap">
     <p class="eyebrow">Contact</p>
     <h2 class="head" id="con-h">Call, email, or <em>visit</em></h2>
-    <div class="con-grid">
+    <div class="con-grid grid">
       <div class="card">
         <h3>The Capelli Group, LLC</h3>
         <address><b>9739 Socorro Rd</b><br>El Paso, TX 79927</address>
@@ -891,7 +1004,7 @@
         <p><a href="mailto:thecapelligroup@gmail.com">thecapelligroup@gmail.com</a></p>
         <p>Founders: Prof. Samuel and Sandra Capelli.</p>
         <div class="map-ph" role="img" aria-label="Placeholder for an embedded map of 9739 Socorro Rd, El Paso, TX 79927">Placeholder: map of 9739 Socorro Rd</div>
-        <h4 style="font-family:'Newsreader',serif;font-weight:500;font-size:20px;margin:20px 0 4px;color:var(--slate-d)">Service area</h4>
+        <h4 class="h4">Service area</h4>
         <ul class="areas">
           <li>El Paso County</li><li>Hudspeth County</li><li>Culberson County</li><li>Fort Bliss, TX</li><li>Telehealth: Texas &amp; New Mexico</li>
         </ul>
@@ -923,7 +1036,7 @@
     <p class="meta">9739 Socorro Rd, El Paso, TX 79927 &middot; <a href="tel:+19157990614">915-799-0614</a> &middot; <a href="mailto:thecapelligroup@gmail.com">thecapelligroup@gmail.com</a></p>
     <p class="crisis-foot"><b>Crisis support:</b> call or text <a href="tel:988">988</a> &middot; text HOME to <a href="sms:741741&body=HOME">741741</a> &middot; Veterans: 988, press 1 &middot; Emergency: <a href="tel:911">911</a></p>
     <p class="marks">Battering Intervention and Prevention Provider # 071-021, accredited by TDCJ-CJAD &middot; Samuel &amp; Sandra Capelli Enterprises TM &middot; &copy;2013-2026 All rights reserved</p>
-    <p class="preview-note"><b>Preview / concept redesign.</b> This page is an independent design concept for The Capelli Group, LLC. It is not the official website, is not indexed by search engines, and is not affiliated with or endorsed by The Capelli Group. Every clinic fact on this page was taken from the clinic's own published site. Photographs and the map are placeholders to be replaced with the practice's own imagery.</p>
+    <p class="preview-note"><b>Preview.</b> This page is a proposed redesign of the website of The Capelli Group, LLC. It is not yet the official website and is not indexed by search engines. Every clinic fact on this page was taken from the clinic's own published site. Photographs and the map are placeholders to be replaced with the practice's own imagery.</p>
   </div>
 </footer>
 
@@ -933,17 +1046,29 @@
 </div>
 
 <script>
-  document.documentElement.classList.add('js');
+  /* Progressive only. Without script the menu is always open, every section is visible,
+     and every phone number is still a tappable link. The "js" class is set in the head. */
   (function(){
     var btn=document.getElementById('menuBtn'), nav=document.getElementById('sitenav');
-    if(!btn||!nav) return;
-    btn.addEventListener('click',function(){
-      var open=nav.classList.toggle('open');
-      btn.setAttribute('aria-expanded',open?'true':'false');
-    });
-    nav.addEventListener('click',function(e){
-      if(e.target.tagName==='A'){nav.classList.remove('open'); btn.setAttribute('aria-expanded','false');}
-    });
+    if(btn&&nav){
+      btn.addEventListener('click',function(){
+        var open=nav.classList.toggle('open');
+        btn.setAttribute('aria-expanded',open?'true':'false');
+      });
+      nav.addEventListener('click',function(e){
+        if(e.target.tagName==='A'){nav.classList.remove('open'); btn.setAttribute('aria-expanded','false');}
+      });
+    }
+    /* Gentle reveal, only for sections that start below the first screen, only when motion is allowed. */
+    if(!('IntersectionObserver' in window)||window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    var io=new IntersectionObserver(function(entries){
+      entries.forEach(function(en){ if(en.isIntersecting){ en.target.classList.add('in'); io.unobserve(en.target); } });
+    },{rootMargin:'0px 0px -8% 0px',threshold:.08});
+    var sections=document.querySelectorAll('main > section');
+    for(var i=0;i<sections.length;i++){
+      var s=sections[i], w=s.querySelector(':scope > .wrap');
+      if(w && s.getBoundingClientRect().top > window.innerHeight){ w.classList.add('reveal'); io.observe(w); }
+    }
   })();
 </script>
 </body>
