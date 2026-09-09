@@ -178,9 +178,76 @@ Each existing address gets a permanent forward to the right place on the new pag
 
 ---
 
-## 7. Scope of Work and Price
+## 7. Why Do This At All
 
-### Included: $500
+A website is easy to treat as decoration. For this practice specifically, it is doing four jobs, and right now it cannot do any of them.
+
+### 7.1 The referral source is the real audience
+
+Probation officers, parole, federal pre-trial, attorneys, judges, CPS, the VA, and Fort Bliss decide where people go. They check one thing before they refer: **is this provider accredited, and is the program court-approved.**
+
+**Provider # 071-021 and the TDCJ-CJAD accreditation are the most valuable facts the practice publishes.** On the current site they are buried on a page whose address reads `-alternative-dispute-resolution--adr-.html`.
+
+A referral source who cannot confirm accreditation in fifteen seconds refers elsewhere. That is the single clearest line between the website and revenue.
+
+### 7.2 The person arriving is on a phone, and the phone is where it fails
+
+Court-ordered clients are not researching at a desk. They are standing outside a courthouse with a piece of paper, or deciding at 11pm whether to call about a family violence situation.
+
+**The site currently renders at roughly 40 percent scale on a phone, and the phone number is not tappable anywhere.** Someone ready to call has to zoom, find a number, memorize it, and dial it manually. Some fraction of them stop there.
+
+### 7.3 Search engines have no record of what the practice is
+
+There is no machine-readable business record on the site, so Google is inferring the practice's category, address, and hours rather than being told.
+
+**Local ranking is driven by relevance, distance, and prominence.** Relevance is the one a website affects, and it is the one currently left to guesswork. This does not promise rankings. It removes a handicap.
+
+### 7.4 The Spanish-speaking client currently has nothing
+
+The practice runs a **Men's Spanish Group** and serves a city where a large share of residents speak Spanish at home. **The site is entirely in English.**
+
+A Spanish-speaking client with a court order has no way to confirm from the website that the program is available in their language.
+
+### What a fix is worth
+
+The BIPP program runs **18 weeks**. The math on the referral question is not complicated: **one additional referral that would otherwise have gone elsewhere covers the cost of this work several times over.**
+
+That is the argument. Not that the site looks dated, but that the credential a referral source needs is currently hard to find, and the phone number a client needs is currently untappable.
+
+---
+
+## 8. Scope of Work and Price
+
+### The honest number first
+
+**This work prices at $1,850.** That figure is stated plainly because a discount only means something if the real number is visible next to it.
+
+| | |
+|---|---|
+| Website, built and finished | **$1,200** |
+| Migration and launch | **$650** |
+| **Full price** | **$1,850** |
+| **Price for you** | **$1,200** |
+
+**$1,200 covers everything, migration included.**
+
+### A correction, stated plainly
+
+In conversation, migration and launch were quoted at **around $100**. That number was wrong, and it was wrong because it was given before the current site had been examined.
+
+The estimate assumed changing a single setting to point the domain at a new site. That is genuinely a ten-minute job, and $100 would have been fair for it.
+
+**What the work actually turned out to be:**
+
+- The current site runs on a closed builder with no file access, so there is no way to modify it. The site has to be rebuilt elsewhere and the domain repointed. This is a platform migration, not an edit.
+- Ten existing page addresses need permanent forwards, and their addresses are builder-generated strings that have to be captured before the old site is switched off, because that platform has no export.
+- **The domain carries live Microsoft 365 email.** Working around it safely is the majority of the care involved.
+
+The migration is a **17-step sequence across four phases**, with a 48-hour waiting period built in and verification steps on either side of the one change that matters. It is not an afternoon.
+
+**The $1,200 absorbs the entire $650 rather than passing the correction along.** The mis-estimate was on this end, and it is not the practice's cost to carry.
+
+### What $1,200 includes
 
 - The site as built, refined to final quality
 - All content verified against published material, nothing invented
@@ -190,10 +257,20 @@ Each existing address gets a permanent forward to the right place on the new pag
 - Machine-readable business record for search engines
 - Screen reader and keyboard support
 - Print layout
-- Deployment to hosting, with the domain pointed at the new site
-- Permanent forwards from all ten existing page addresses
+- **The full migration:** deployment, domain repointed, all ten page addresses permanently forwarded, email verified working before and after
+- **Nothing to manage.** The move is handled end to end, with the practice logging in only for the steps that require its own account
 - One round of revisions
 - Written handover: every account in the practice's name, with access
+
+### Keeping it current, if wanted
+
+Not included above, and priced separately so it stays optional:
+
+| | |
+|---|---|
+| Content updates, as needed | **$75/month** or **$150/quarter** |
+
+Schedule changes, staff changes, new services, fee updates. Without something like this, small changes have no home and tend to accumulate. **Declining it is a perfectly good answer.** It is offered here so the option exists in writing rather than arriving later as an upsell.
 
 ### Not included, stated so there are no surprises
 
@@ -210,15 +287,23 @@ Each existing address gets a permanent forward to the right place on the new pag
 
 Hosting is free at the recommended provider, and the certificate that makes the site secure renews automatically at no cost. If the current Website Builder subscription is cancelled after the move, that cost goes away.
 
-### One note on the price
+### Where $1,850 sits against the market
 
-$500 is below the published range for this kind of work in El Paso, where template-based single-page sites are quoted between $700 and $2,000. This one is hand-built rather than assembled from a template, and it includes a hosting migration and a redirect map.
+Published 2026 ranges, for context rather than persuasion:
 
-The number is what it is because of who is asking. It is stated here so the scope above is clearly the whole of it, and so any later work is understood as separate rather than assumed.
+| Scope | Published range |
+|---|---|
+| El Paso, template-based | $700 – $2,000 |
+| El Paso, custom-built | $4,000 – $8,000 |
+| Small business site, independent developer | $1,000 – $3,000 |
+
+This one is hand-built rather than assembled from a template, which places it above the template range, and it carries a platform migration and a redirect map that a template project does not.
+
+**$1,200 is a 35 percent discount, and it is a decision about who is asking rather than a market rate.** It is stated here so the scope above is clearly the whole of it, and so any later work is understood as separate rather than assumed.
 
 ---
 
-## 8. What This Document Does Not Claim
+## 9. What This Document Does Not Claim
 
 - **Not a ranking promise.** No rankings, Business Profile, or directory listings were measured.
 - **Not a criticism of anyone's work.** Every finding here is a normal consequence of a closed website builder. None of it indicates neglect.
@@ -228,7 +313,7 @@ The number is what it is because of who is asking. It is stated here so the scop
 
 ---
 
-## 9. Path Forward
+## 10. Path Forward
 
 1. **Look at the concept site on a phone**, then open the current site on the same phone. That comparison is the whole argument, and it takes under a minute.
 2. **Confirm the facts.** Hours, fees, insurance list, credentials, license numbers, and the years-in-practice figure. This is the one input that has to come from the practice.
