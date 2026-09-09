@@ -11,6 +11,9 @@ const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const pages = process.argv.slice(2).length ? process.argv.slice(2) : ['index.html', 'findings.html'];
 const widths = [375, 1440];
 const RUNS = 3;
+// THROTTLE=1 emulates Fast 3G (1.6 Mbps down, 750 kbps up, 150 ms RTT) so the web fonts always
+// arrive after first paint. That makes CLS from the font swap deterministic instead of a race.
+const THROTTLE = process.env.THROTTLE === '1';
 const median = a => { const s = [...a].sort((x, y) => x - y); return s[Math.floor(s.length / 2)]; };
 
 const browser = await chromium.launch();
@@ -26,6 +29,7 @@ for (const page of pages) {
       const p = await ctx.newPage();
       const cdp = await ctx.newCDPSession(p);
       await cdp.send('Network.enable');
+      if (THROTTLE) await cdp.send('Network.emulateNetworkConditions', { offline: false, latency: 150, downloadThroughput: 1.6 * 1024 * 1024 / 8, uploadThroughput: 750 * 1024 / 8 });
       const reqs = new Map();
       let transfer = 0;
       cdp.on('Network.requestWillBeSent', e => reqs.set(e.requestId, e.request.url));
@@ -56,7 +60,7 @@ for (const page of pages) {
       networkIdleMs: median(samples.map(s => s.idle)),
     };
     rows.push(r);
-    console.log(`${page} @${w}px  html=${htmlBytes}B  requests=${r.requests}  transfer=${r.transferBytes}B  CLS=${r.cls}  FCP=${r.fcpMs}ms  networkIdle=${r.networkIdleMs}ms  (median of ${RUNS})`);
+    console.log(`${page} @${w}px${THROTTLE ? ' [Fast 3G]' : ''}  html=${htmlBytes}B  requests=${r.requests}  transfer=${r.transferBytes}B  CLS=${r.cls}  FCP=${r.fcpMs}ms  networkIdle=${r.networkIdleMs}ms  (median of ${RUNS})`);
     console.log(`   external: ${samples[0].urls.map(u => u.replace(/^https:\/\//, '').slice(0, 90)).join('\n             ')}`);
     console.log(`   fonts loaded: ${samples[0].fontsLoaded || 'none'}`);
   }
