@@ -227,6 +227,16 @@
   table.sched tbody th{font-weight:700; color:var(--ink); white-space:nowrap;}
   table.sched tr:last-child td,table.sched tr:last-child th{border-bottom:none;}
   table.sched td .tag{margin-top:2px;}
+  @media(max-width:639px){
+    table.sched{display:block; border:none; background:transparent;}
+    table.sched caption{display:block;}
+    table.sched thead{position:absolute; left:-9999px; width:1px; height:1px; overflow:hidden;}
+    table.sched tbody,table.sched tr,table.sched th,table.sched td{display:block;}
+    table.sched tr{background:var(--paper); border:1px solid var(--line); border-radius:12px; padding:14px 16px; margin-bottom:10px;}
+    table.sched tbody th{padding:0 0 6px; border-bottom:1px solid var(--line); font-family:"Newsreader",serif; font-size:21px; font-weight:500; color:var(--slate-d);}
+    table.sched td{padding:6px 0 0; border:none; display:flex; justify-content:space-between; gap:12px; align-items:center;}
+    table.sched td::before{content:attr(data-label); font-size:12px; letter-spacing:1.5px; text-transform:uppercase; color:var(--muted); font-weight:700;}
+  }
   .sched-note{font-size:14.5px; color:var(--muted); margin:14px 0 0;}
   .side-card{background:var(--paper); border:1px solid var(--line); border-radius:12px; padding:22px;}
   .side-card h3{font-family:"Newsreader",serif; font-weight:500; font-size:23px; margin:0 0 8px; color:var(--slate-d);}
@@ -606,10 +616,10 @@
           <caption>BIPP group sessions</caption>
           <thead><tr><th scope="col">Day</th><th scope="col">Time</th><th scope="col">Group</th><th scope="col">Language</th></tr></thead>
           <tbody>
-            <tr><th scope="row">Monday</th><td>6:00 to 8:00 pm</td><td>Men's group</td><td><span class="tag en">English</span></td></tr>
-            <tr><th scope="row">Tuesday</th><td>6:00 to 8:00 pm</td><td>Men's group</td><td><span class="tag es" lang="es">Español</span></td></tr>
-            <tr><th scope="row">Wednesday</th><td>6:00 to 8:00 pm</td><td>Women's group</td><td><span class="tag en">English</span></td></tr>
-            <tr><th scope="row">Saturday</th><td>11:00 am to 1:00 pm</td><td>Men's group</td><td><span class="tag en">English</span></td></tr>
+            <tr><th scope="row">Monday</th><td data-label="Time">6:00 to 8:00 pm</td><td data-label="Group">Men's group</td><td data-label="Language"><span class="tag en">English</span></td></tr>
+            <tr><th scope="row">Tuesday</th><td data-label="Time">6:00 to 8:00 pm</td><td data-label="Group">Men's group</td><td data-label="Language"><span class="tag es" lang="es">Español</span></td></tr>
+            <tr><th scope="row">Wednesday</th><td data-label="Time">6:00 to 8:00 pm</td><td data-label="Group">Women's group</td><td data-label="Language"><span class="tag en">English</span></td></tr>
+            <tr><th scope="row">Saturday</th><td data-label="Time">11:00 am to 1:00 pm</td><td data-label="Group">Men's group</td><td data-label="Language"><span class="tag en">English</span></td></tr>
           </tbody>
         </table>
         <p class="sched-note">Groups are available through interactive Zoom classes and in person. Your orientation confirms which group you attend.</p>
