@@ -82,7 +82,8 @@
     table.cmp tr{background:var(--card); border:1px solid var(--line); border-radius:12px; padding:12px 14px; margin-bottom:10px;}
     table.cmp tbody th{padding:0 0 6px; border-bottom:1px solid var(--line);}
     table.cmp td{padding:6px 0 0; border:none; display:flex; justify-content:space-between; gap:12px;}
-    table.cmp td::before{content:attr(data-label); font-size:12px; letter-spacing:1.5px; text-transform:uppercase; color:var(--muted); font-weight:700;}
+    table.cmp td::before{content:attr(data-label); font-size:12px; letter-spacing:1.5px; text-transform:uppercase; color:var(--muted); font-weight:700; white-space:nowrap; flex:none;}
+    table.cmp td{text-align:right;}
   }
 
   .built{background:var(--card);}
