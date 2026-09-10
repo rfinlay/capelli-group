@@ -158,6 +158,25 @@ So a new site means moving where the site is hosted. The domain, thecapelligroup
 | Domain | unchanged, roughly $23/year, already being paid |
 | Reversible | Yes. Change two records back and the current site returns |
 
+### If the practice would rather stay entirely with GoDaddy
+
+**That option exists and it works.** It is stated here so the recommendation above is a choice rather than the only door.
+
+GoDaddy sells a separate product, **Web Hosting with cPanel**, which is not the same thing as Website Builder. It allows files to be uploaded directly and supports the permanent page forwards this project needs. The finished site would be delivered into that account, under the practice's own login, hosted and billed by GoDaddy exactly as the domain is today.
+
+| | Recommended path | Stay entirely with GoDaddy |
+|---|---|---|
+| Where the site lives | Netlify | GoDaddy Web Hosting with cPanel |
+| Who bills the practice | Nobody, hosting is free | GoDaddy, one provider for everything |
+| Hosting cost | **$0** | **Whatever GoDaddy charges for the plan chosen** |
+| Domain | Unchanged at GoDaddy | Unchanged at GoDaddy |
+| Email protected the same way | Yes | Yes |
+| Page forwards supported | Yes | Yes |
+
+**The cost is GoDaddy's to quote, not this document's.** Their published pricing renews at a higher rate than the first year, and the current figure should be read from the practice's own GoDaddy cart rather than taken from here. The work of building and delivering the site is the same either way, and **the price does not change based on which of these is chosen.**
+
+**The tradeoff, stated honestly:** the recommended path costs nothing and the GoDaddy path costs a monthly fee for the convenience of keeping one provider and one bill. That convenience is a legitimate reason to choose it. It is not a technical improvement, and the site behaves identically on both.
+
 ### The reason this path and not another
 
 **The practice has working Microsoft 365 email on this domain.** Verified by direct DNS lookup on September 9, 2026. That is separate from the gmail address published on the site.
@@ -288,21 +307,33 @@ The migration is a **17-step sequence across four phases**, with a 48-hour waiti
 - One round of revisions
 - Written handover: every account in the practice's name, with access
 
-### Keeping it current, if wanted
+### Changes after launch
 
-Not included above, and priced separately so it stays optional:
+Not included above, and priced separately so it stays optional. **There are two ways to handle changes, and the practice can use either or neither.**
+
+**Option one, pay only when something is needed:**
+
+| | |
+|---|---|
+| Change request, quoted per request | **$80 to $100 per hour** |
+
+Send what needs changing. It gets quoted first, at that rate, and no work starts until the quote is approved. **Most single changes are well under an hour.** Nothing is owed between requests, and there is no ongoing commitment.
+
+**Option two, a standing arrangement:**
 
 | | |
 |---|---|
 | Content updates, as needed | **$75/month** or **$150/quarter** |
 
-Schedule changes, staff changes, new services, fee updates. Without something like this, small changes have no home and tend to accumulate. **Declining it is a perfectly good answer.** It is offered here so the option exists in writing rather than arriving later as an upsell.
+Schedule changes, staff changes, new services, fee updates. Better value if changes are frequent, and it means small edits do not need a quote each time.
+
+**Declining both is a perfectly good answer.** They are offered here so the option exists in writing rather than arriving later as an upsell. Without something like this, small changes have no home and tend to accumulate.
 
 ### Not included, stated so there are no surprises
 
 - **Photography.** Real photographs of the practice and staff, if wanted, are supplied by the practice.
 - **Copywriting.** The site uses published material. New writing is separate.
-- **Ongoing changes after launch.** Schedule updates, staff changes, new services. Available separately.
+- **Ongoing changes after launch.** Schedule updates, staff changes, new services. Available separately, either per request at $80 to $100 per hour or on the standing arrangement above.
 - **Email support.** The Microsoft 365 mailbox is the practice's own, through GoDaddy. It is protected during the move, and confirmed working before the old site is switched off, but ongoing email issues are between the practice and GoDaddy.
 - **Search rankings.** The site is built correctly for search: proper structure, machine-readable business record, fast loading. Where the practice ranks depends mostly on proximity to the searcher and review volume, which no website change controls.
 - **A Notice of Privacy Practices**, if one is required for the site. That is the practice's document. It gets published once supplied.
@@ -312,6 +343,8 @@ Schedule changes, staff changes, new services, fee updates. Without something li
 **Domain renewal, roughly $23 per year.** Already being paid.
 
 Hosting is free at the recommended provider, and the certificate that makes the site secure renews automatically at no cost. If the current Website Builder subscription is cancelled after the move, that cost goes away.
+
+**If the practice chooses to keep hosting with GoDaddy instead**, add whatever GoDaddy charges for the plan chosen. That figure is theirs to quote and should be read from the practice's own account. Everything else on this page is unchanged.
 
 ### Where $1,850 sits against the market
 
