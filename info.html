@@ -1,0 +1,880 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>The Capelli Group, LLC: Website Concept, Findings, and Scope of Work</title>
+<meta name="description" content="Findings from a direct measurement of thecapelligroup.com, the concept site built to replace it, the hosting path, the case for doing the work, and the price. Prepared for Prof. Samuel Capelli, September 9, 2026.">
+<meta name="theme-color" content="#17303c">
+<!-- audit: allow-retired-number. This document reports that 1-800-273-8255 was retired in favor of 988; the string must appear to say so. -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<!-- Only the weights and styles the stylesheet uses: Newsreader 500 roman and italic (with the optical-size axis), Public Sans 400, 600, 700. -->
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,500;1,6..72,500&family=Public+Sans:wght@400;600;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,500;1,6..72,500&family=Public+Sans:wght@400;600;700&display=swap">
+<style>
+  /* ---------- fallback faces ----------
+     Metric-matched local fallbacks so text set in Georgia or Arial occupies the same lines as the
+     web fonts. Measured in Chromium against Newsreader 500 and Public Sans 400 at 100px. */
+  @font-face{font-family:"Newsreader Fallback"; src:local("Georgia"); size-adjust:101.84%; ascent-override:72.66%; descent-override:25.53%; line-gap-override:0%;}
+  @font-face{font-family:"Public Sans Fallback"; src:local("Arial"),local("Helvetica"); size-adjust:104.06%; ascent-override:91.29%; descent-override:22.1%; line-gap-override:0%;}
+
+  /* ---------- tokens (shared with index.html) ---------- */
+  :root{
+    --paper:#f4f1ea; --paper-2:#ebe7dd; --card:#fffdf8;
+    --ink:#1c262e; --muted:#4f5d66;
+    --slate:#274454; --slate-d:#17303c; --slate-x:#0f2029;
+    --brass:#b3803a; --brass-t:#7a5418; --brass-soft:#f3e6cf; --brass-l:#e9cf98; --brass-l2:#f0d9a8;
+    --tint:#e4ebe7; --tint-2:#d5e0da;
+    --line:#d9d3c6; --line-dark:#2f4b5a;
+    --on-dark:#d3dde2; --on-dark-2:#b9c8d0; --on-dark-3:#c3d0d7;
+    --es:#5b4a7a; --es-d:#3a2d52; --es-soft:#ebe6f3; --es-line:#d7cde6;
+    --serif:"Newsreader","Newsreader Fallback",Georgia,"Times New Roman",serif;
+    --sans:"Public Sans","Public Sans Fallback",Arial,-apple-system,system-ui,sans-serif;
+    --s1:4px; --s2:8px; --s3:12px; --s4:16px; --s5:24px; --s6:32px; --s7:48px; --s8:64px;
+    --section:clamp(52px,6.5vw,84px);
+    --radius:12px; --radius-s:8px;
+  }
+
+  /* ---------- base ---------- */
+  *{box-sizing:border-box;}
+  html{-webkit-text-size-adjust:100%; overflow-x:hidden; scroll-behavior:smooth; scroll-padding-top:72px; font-optical-sizing:auto;}
+  body{margin:0; background:var(--paper); color:var(--ink); font-family:var(--sans); font-size:17px; line-height:1.6; width:100%; max-width:100%; overflow-x:hidden; overflow-wrap:break-word;}
+  h1,h2,h3,h4,p,li,dd,dt,th,td,blockquote,.eyebrow{overflow-wrap:break-word;}
+  a{color:var(--slate);}
+  :focus-visible{outline:3px solid var(--brass); outline-offset:3px;}
+  code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace; font-size:.88em; background:var(--paper-2); border:1px solid var(--line); padding:1px 6px; border-radius:4px; color:var(--slate-d); overflow-wrap:anywhere;}
+  .wrap{max-width:1040px; margin:0 auto; padding:0 24px;}
+  .eyebrow{display:flex; align-items:center; gap:var(--s3); font-size:12px; letter-spacing:.18em; text-transform:uppercase; color:var(--brass-t); font-weight:700; margin:0 0 var(--s3);}
+  .eyebrow::before{content:""; width:28px; height:1px; background:var(--brass); flex:none;}
+  .btn{display:inline-flex; align-items:center; justify-content:center; gap:10px; font-weight:700; padding:14px 26px; border-radius:var(--radius-s); text-decoration:none; font-size:16px; border:1.5px solid transparent; transition:background .2s,color .2s; line-height:1.2; min-height:44px;}
+  .btn svg{width:18px; height:18px; flex:none;}
+  .btn.primary{background:var(--slate); color:#fff;}
+  .btn.primary:hover{background:var(--slate-d);}
+  .btn.light{background:#fff; color:var(--slate-d);}
+  .btn.light:hover{background:var(--brass-soft);}
+  .btn.ghost.onDark{background:transparent; color:#fff; border-color:rgba(255,255,255,.55);}
+  .btn.ghost.onDark:hover{background:rgba(255,255,255,.1);}
+  .skip{position:absolute; left:-999px; top:8px; background:var(--brass); color:var(--slate-x); padding:10px 16px; border-radius:var(--radius-s); z-index:200; font-weight:700;}
+  .skip:focus{left:8px;}
+  .print-head{display:none;}
+
+  /* ---------- hero ---------- */
+  header.hero{
+    position:relative; color:#fff; overflow:hidden;
+    background:
+      radial-gradient(90% 70% at 100% 0%, rgba(179,128,58,.22) 0%, rgba(23,48,60,0) 55%),
+      linear-gradient(180deg,var(--slate-d) 0%, var(--slate) 100%);
+  }
+  .hero-inner{position:relative; padding-top:var(--s7); padding-bottom:var(--s7);}
+  @media(min-width:900px){.hero-inner{padding-top:84px; padding-bottom:76px;}}
+  .hero .eyebrow{color:var(--brass-l);}
+  .hero .eyebrow::before{background:var(--brass-l);}
+  h1.title{font-family:var(--serif); font-weight:500; font-size:clamp(34px,5.4vw,58px); line-height:1.06; margin:0 0 var(--s4); letter-spacing:-.015em; color:#fff; max-width:15em;}
+  h1.title em{font-style:italic; color:var(--brass-l);}
+  .hero p.lede{font-size:clamp(17px,2.2vw,19px); line-height:1.55; color:var(--on-dark); margin:0 0 var(--s5); max-width:36em;}
+  .hero .cta-row{display:flex; flex-wrap:wrap; gap:12px; align-items:center; margin:0 0 var(--s6);}
+  .hero .cta-row .hint{color:var(--on-dark-2); font-size:14.5px; margin:0;}
+  dl.meta{margin:0; padding:var(--s5) 0 0; border-top:1px solid rgba(233,207,152,.28); display:grid; grid-template-columns:1fr; gap:14px 28px; max-width:880px;}
+  @media(min-width:700px){dl.meta{grid-template-columns:1fr 1fr;}}
+  dl.meta div{min-width:0;}
+  dl.meta dt{font-size:11.5px; letter-spacing:.16em; text-transform:uppercase; color:var(--brass-l); font-weight:700; margin:0 0 4px;}
+  dl.meta dd{margin:0; color:var(--on-dark); font-size:15px; line-height:1.5;}
+  dl.meta dd b{color:#fff; font-weight:600;}
+  dl.meta dd a{color:#fff;}
+
+  /* ---------- contents ---------- */
+  nav.toc{background:var(--card); border-bottom:1px solid var(--line);}
+  nav.toc .wrap{padding-top:14px; padding-bottom:14px;}
+  nav.toc .lbl{font-size:11.5px; letter-spacing:.16em; text-transform:uppercase; color:var(--muted); font-weight:700; margin:0 0 8px;}
+  nav.toc ol{list-style:none; margin:0; padding:0; display:grid; grid-template-columns:1fr 1fr; gap:6px; counter-reset:toc;}
+  nav.toc li{counter-increment:toc; min-width:0;}
+  nav.toc a{display:flex; align-items:center; gap:8px; min-height:44px; padding:6px 10px; border-radius:6px; text-decoration:none; color:var(--slate-d); font-weight:600; font-size:14px; line-height:1.25; border:1px solid var(--line); background:var(--paper);}
+  nav.toc a::before{content:counter(toc); font-family:var(--serif); font-size:15px; color:var(--brass-t); flex:none; width:1.2em;}
+  nav.toc a:hover{background:var(--tint); border-color:var(--tint-2);}
+  @media(min-width:900px){
+    nav.toc{position:sticky; top:0; z-index:30;}
+    nav.toc .wrap{display:flex; align-items:center; gap:14px; padding-top:8px; padding-bottom:8px;}
+    nav.toc .lbl{margin:0; flex:none;}
+    nav.toc ol{display:flex; flex-wrap:wrap; gap:2px; flex:1;}
+    nav.toc a{min-height:44px; padding:4px 9px; border-color:transparent; background:transparent; font-size:13.5px;}
+    nav.toc a::before{font-size:14px; width:auto;}
+  }
+
+  /* ---------- sections ---------- */
+  main section{padding:var(--section) 0; border-bottom:1px solid var(--line);}
+  main section.white{background:var(--card);}
+  main section.soft{background:var(--paper-2);}
+  main section.dark{background:var(--slate-d); color:var(--on-dark); border-bottom:none;}
+  h2.head{font-family:var(--serif); font-weight:500; font-size:clamp(29px,4vw,42px); line-height:1.1; margin:0 0 var(--s3); color:var(--slate-d); letter-spacing:-.01em; max-width:19em;}
+  h2.head em{font-style:italic; color:var(--brass-t);}
+  .dark h2.head{color:#fff;}
+  .dark h2.head em{color:var(--brass-l);}
+  .dark .eyebrow{color:var(--brass-l);}
+  .dark .eyebrow::before{background:var(--brass-l);}
+  .lead{font-size:18px; line-height:1.55; color:var(--muted); max-width:38em; margin:0;}
+  .dark .lead{color:var(--on-dark);}
+  h3.sub{font-family:var(--serif); font-weight:500; font-size:25px; line-height:1.2; margin:0 0 var(--s2); color:var(--slate-d);}
+  .dark h3.sub{color:#fff;}
+  .prose{margin-top:var(--s5);}
+  .prose p{max-width:68ch; margin:0 0 16px;}
+  .prose p:last-child{margin-bottom:0;}
+  .prose b{color:var(--slate-d);}
+  .dark .prose b{color:#fff;}
+  .prose ul{max-width:68ch; margin:0 0 16px; padding-left:22px;}
+  .prose li{margin-bottom:8px;}
+  .prose li:last-child{margin-bottom:0;}
+  .grid{margin-top:var(--s6);}
+  .block{margin-top:var(--s7);}
+  .block h3.sub{margin-bottom:var(--s3);}
+  .block-2{margin-top:var(--s6);}
+
+  /* callouts and cards */
+  .callout{background:var(--card); border-left:3px solid var(--brass); border-radius:0 var(--radius-s) var(--radius-s) 0; padding:16px 20px; font-size:15.5px; color:var(--ink); margin:var(--s5) 0 0; max-width:68ch;}
+  .callout b{color:var(--slate-d);}
+  .callout p{margin:0;}
+  .callout p + p{margin-top:10px;}
+  .callout.wide{max-width:none;}
+  .cards{display:grid; grid-template-columns:1fr; gap:16px;}
+  @media(min-width:800px){.cards{grid-template-columns:1fr 1fr;}}
+  .card{background:var(--card); border:1px solid var(--line); border-top:3px solid var(--brass); border-radius:var(--radius); padding:26px; min-width:0;}
+  .card h3{font-family:var(--serif); font-weight:500; font-size:24px; line-height:1.18; margin:0 0 10px; color:var(--slate-d);}
+  .card h3 .n{color:var(--brass-t); font-style:italic; margin-right:6px;}
+  .card p{margin:0 0 12px; color:var(--ink); font-size:15.5px;}
+  .card p:last-child{margin-bottom:0;}
+  .card b{color:var(--slate-d);}
+  .card.wide{grid-column:1 / -1;}
+  .card.plain{border-top-color:var(--line);}
+  .card blockquote{margin:12px 0; padding:12px 16px; background:var(--paper); border-left:3px solid var(--line); font-family:var(--serif); font-size:17px; line-height:1.45; color:var(--slate-d);}
+  .card .kicker{font-size:12px; letter-spacing:.14em; text-transform:uppercase; font-weight:700; color:var(--brass-t); margin:0 0 8px;}
+
+  /* priority findings (section 2) */
+  .priority{display:grid; grid-template-columns:1fr; gap:18px;}
+  @media(min-width:900px){.priority{grid-template-columns:1fr 1fr;}}
+  .priority .card{padding:30px; border-top-width:4px;}
+  .priority .card h3{font-size:26px;}
+  .priority .num{display:inline-block; font-family:var(--serif); font-size:34px; line-height:1; color:var(--slate-d); font-weight:500; margin:2px 0 6px;}
+  .priority .num.retired{text-decoration:line-through; text-decoration-color:var(--brass); text-decoration-thickness:2px; color:var(--muted); font-size:26px;}
+  .priority .num.now{color:var(--brass-t);}
+  .priority .pair{display:flex; flex-wrap:wrap; gap:8px 28px; align-items:baseline; margin:4px 0 12px;}
+  .priority .pair small{display:block; font-size:12px; letter-spacing:.12em; text-transform:uppercase; color:var(--muted); font-weight:700; margin-top:2px;}
+  .priority .scale{display:flex; align-items:flex-end; gap:14px; margin:6px 0 14px;}
+  .priority .scale .bar{background:var(--paper-2); border:1px solid var(--line); border-radius:6px; position:relative; overflow:hidden; height:54px; flex:none;}
+  .priority .scale .bar.full{width:100%; max-width:220px; flex:1;}
+  .priority .scale .bar.small{width:40%; max-width:88px; flex:1;}
+  .priority .scale .bar span{position:absolute; left:0; top:0; bottom:0; width:100%; background:var(--slate-d); opacity:.12;}
+  .priority .scale .cap{font-size:12.5px; color:var(--muted); line-height:1.35;}
+  .priority .scale .cap b{display:block; font-family:var(--serif); font-size:22px; color:var(--slate-d); font-weight:500;}
+  .priority .how{margin-top:14px; padding-top:14px; border-top:1px solid var(--line); font-size:14.5px; color:var(--muted);}
+  .priority .how b{color:var(--slate-d);}
+
+  /* evidence table */
+  table.data{width:100%; border-collapse:collapse; font-size:16px; background:var(--card); border:1px solid var(--line); border-radius:var(--radius); overflow:hidden;}
+  table.data caption{text-align:left; font-size:14.5px; color:var(--muted); padding:0 0 12px;}
+  table.data th,table.data td{text-align:left; padding:13px 16px; border-bottom:1px solid var(--line); vertical-align:top;}
+  table.data thead th{font-size:12px; letter-spacing:.12em; text-transform:uppercase; color:var(--muted); background:var(--paper-2); font-weight:700;}
+  table.data tbody th{font-weight:600; color:var(--ink); width:52%;}
+  table.data tbody td b{color:var(--slate-d); font-weight:700;}
+  table.data tr:last-child td,table.data tr:last-child th{border-bottom:none;}
+  @media(max-width:639px){
+    table.data,table.data tbody,table.data tr,table.data th,table.data td{display:block; width:auto;}
+    table.data{border:none; background:transparent; overflow:visible;}
+    table.data caption{display:block;}
+    table.data thead{position:absolute; left:-9999px; width:1px; height:1px; overflow:hidden;}
+    table.data tr{background:var(--card); border:1px solid var(--line); border-radius:var(--radius-s); padding:12px 14px; margin-bottom:8px;}
+    table.data tbody th{padding:0 0 4px; border:none; font-size:14px; color:var(--muted);}
+    table.data td{padding:0; border:none;}
+  }
+  .figure{font-family:var(--serif); font-size:22px; line-height:1; color:var(--slate-d); font-weight:500;}
+  .figure small{font-family:var(--sans); font-size:14px; color:var(--muted); font-weight:400; margin-left:6px;}
+
+  /* audiences (section 4) */
+  .who{display:grid; grid-template-columns:1fr; gap:16px;}
+  @media(min-width:800px){.who{grid-template-columns:1fr 1fr;}}
+  .who .card{background:var(--tint); border-color:var(--tint-2); border-top-color:var(--slate);}
+  .who .card h3{font-size:24px;}
+  .seq{list-style:none; margin:12px 0 0; padding:0; display:flex; flex-wrap:wrap; gap:6px;}
+  .seq li{display:inline-flex; align-items:center; gap:8px; font-size:13.5px; font-weight:700; color:var(--slate-d); background:var(--card); border:1px solid var(--tint-2); padding:5px 10px 5px 8px; border-radius:6px;}
+  .seq li::before{counter-increment:seq; content:counter(seq); display:grid; place-items:center; width:20px; height:20px; border-radius:50%; background:var(--slate-d); color:var(--brass-l); font-family:var(--serif); font-size:12.5px;}
+  .seq{counter-reset:seq;}
+  .cred{display:inline-block; font-family:var(--serif); font-size:20px; color:var(--slate-d); background:var(--card); border:1px solid var(--tint-2); padding:4px 12px; border-radius:6px; font-weight:500; line-height:1.3;}
+  .nots{list-style:none; margin:0; padding:0; display:grid; grid-template-columns:1fr; gap:12px;}
+  @media(min-width:800px){.nots{grid-template-columns:1fr 1fr;}}
+  .nots li{background:var(--card); border:1px solid var(--line); border-radius:var(--radius-s); padding:16px 18px; font-size:15.5px; color:var(--ink);}
+  .nots li b{display:block; color:var(--slate-d); margin-bottom:3px;}
+
+  /* key-value tables (hosting, price) */
+  table.kv{width:100%; border-collapse:collapse; font-size:16px; background:var(--card); border:1px solid var(--line); border-radius:var(--radius); overflow:hidden;}
+  table.kv th,table.kv td{text-align:left; padding:13px 18px; border-bottom:1px solid var(--line); vertical-align:top;}
+  table.kv th{font-weight:600; color:var(--ink); width:40%;}
+  table.kv td{color:var(--ink);}
+  table.kv td b{color:var(--slate-d);}
+  table.kv tr:last-child th,table.kv tr:last-child td{border-bottom:none;}
+  @media(max-width:479px){
+    table.kv th{width:auto;}
+    table.kv th,table.kv td{padding:11px 14px;}
+  }
+  .path-card{background:var(--slate-d); color:var(--on-dark); border-radius:var(--radius); padding:28px; margin-top:var(--s3);}
+  .path-card .rec{font-family:var(--serif); font-size:clamp(20px,2.6vw,25px); line-height:1.3; color:#fff; margin:0 0 18px; font-weight:500;}
+  .path-card table.kv{background:transparent; border-color:var(--line-dark);}
+  .path-card table.kv th,.path-card table.kv td{border-color:var(--line-dark); color:var(--on-dark);}
+  .path-card table.kv th{color:#fff;}
+  .path-card table.kv td b{color:var(--brass-l);}
+  .rule{background:var(--brass-soft); border:1px solid var(--brass-l); border-radius:var(--radius-s); padding:16px 20px; margin:var(--s5) 0 0; font-size:15.5px; max-width:none;}
+  .rule b{color:var(--slate-d);}
+  .rule p{margin:0;}
+  .hosting-cols{display:grid; grid-template-columns:1fr; gap:var(--s6);}
+  @media(min-width:900px){.hosting-cols{grid-template-columns:1fr 1fr; gap:40px;}}
+
+  /* why (section 7) */
+  .why-grid{display:grid; grid-template-columns:1fr; gap:16px;}
+  @media(min-width:800px){.why-grid{grid-template-columns:1fr 1fr;}}
+  .why{background:var(--card); border:1px solid var(--line); border-radius:var(--radius); padding:28px; min-width:0;}
+  .why .n{font-family:var(--serif); font-size:15px; color:var(--brass-t); letter-spacing:.04em; display:block; margin-bottom:8px;}
+  .why h3{font-family:var(--serif); font-weight:500; font-size:24px; line-height:1.18; margin:0 0 12px; color:var(--slate-d);}
+  .why p{margin:0 0 12px; color:var(--ink); font-size:15.5px;}
+  .why p:last-child{margin-bottom:0;}
+  .why b{color:var(--slate-d);}
+  .worth{margin-top:var(--s6); background:var(--slate-d); color:var(--on-dark); border-radius:var(--radius); padding:30px; display:grid; grid-template-columns:1fr; gap:18px 40px; align-items:center;}
+  @media(min-width:900px){.worth{grid-template-columns:auto 1fr; padding:36px 40px;}}
+  .worth .k{font-family:var(--serif); font-weight:500; font-size:clamp(46px,7vw,72px); line-height:1; color:var(--brass-l); margin:0;}
+  .worth .k small{display:block; font-family:var(--sans); font-size:12.5px; letter-spacing:.14em; text-transform:uppercase; color:var(--on-dark-2); font-weight:700; margin-top:10px;}
+  .worth h3{font-family:var(--serif); font-weight:500; font-size:24px; line-height:1.2; margin:0 0 10px; color:#fff;}
+  .worth p{margin:0 0 12px; font-size:16px;}
+  .worth p:last-child{margin-bottom:0;}
+  .worth b{color:#fff;}
+
+  /* price (section 8) */
+  .price-grid{display:grid; grid-template-columns:1fr; gap:var(--s6);}
+  @media(min-width:900px){.price-grid{grid-template-columns:1.05fr .95fr; gap:44px; align-items:start;}}
+  .price-card{background:var(--card); border:1px solid var(--line); border-top:4px solid var(--brass); border-radius:var(--radius); overflow:hidden;}
+  .price-card .head{padding:22px 26px 8px;}
+  .price-card .head h3{font-family:var(--serif); font-weight:500; font-size:25px; line-height:1.2; margin:0 0 8px; color:var(--slate-d);}
+  .price-card .head p{margin:0; color:var(--muted); font-size:15px;}
+  .price-card .head p b{color:var(--slate-d);}
+  table.price{width:100%; border-collapse:collapse; font-size:16px;}
+  table.price th,table.price td{text-align:left; padding:14px 26px; border-top:1px solid var(--line); vertical-align:middle;}
+  table.price th{font-weight:600; color:var(--ink);}
+  table.price td{text-align:right; font-family:var(--serif); font-size:22px; color:var(--slate-d); white-space:nowrap; font-weight:500;}
+  table.price tr.full th{font-weight:700; color:var(--slate-d);}
+  table.price tr.full td{text-decoration:line-through; text-decoration-color:var(--brass); text-decoration-thickness:2px; color:var(--muted);}
+  table.price tr.full td .sr{position:absolute; left:-9999px;}
+  table.price tr.you{background:var(--brass-soft);}
+  table.price tr.you th{font-weight:700; color:var(--slate-d); font-size:17px;}
+  table.price tr.you th small{display:block; font-weight:600; font-size:13.5px; color:var(--brass-t); margin-top:2px;}
+  table.price tr.you td{font-size:clamp(34px,5vw,44px); color:var(--slate-d); line-height:1; padding-top:18px; padding-bottom:18px;}
+  .price-card .foot{padding:16px 26px 20px; border-top:1px solid var(--line); font-size:15.5px; color:var(--ink);}
+  .price-card .foot b{color:var(--slate-d);}
+  .correction{background:var(--paper-2); border:1px solid var(--line); border-radius:var(--radius); padding:28px; min-width:0;}
+  .correction h3{font-family:var(--serif); font-weight:500; font-size:25px; line-height:1.2; margin:0 0 12px; color:var(--slate-d);}
+  .correction p{margin:0 0 14px; font-size:15.5px;}
+  .correction p:last-child{margin-bottom:0;}
+  .correction b{color:var(--slate-d);}
+  .correction ul{margin:0 0 14px; padding-left:20px; font-size:15.5px;}
+  .correction li{margin-bottom:8px;}
+  .correction .absorb{margin-top:18px; padding:16px 18px; background:var(--card); border-left:3px solid var(--brass); border-radius:0 var(--radius-s) var(--radius-s) 0;}
+  .includes{list-style:none; margin:var(--s4) 0 0; padding:0; display:grid; grid-template-columns:1fr; gap:10px;}
+  @media(min-width:760px){.includes{grid-template-columns:1fr 1fr;}}
+  .includes li{display:flex; gap:12px; align-items:flex-start; background:var(--card); border:1px solid var(--line); border-radius:var(--radius-s); padding:13px 16px; font-size:15.5px; color:var(--ink);}
+  .includes li svg{width:18px; height:18px; flex:none; color:var(--brass-t); margin-top:3px;}
+  .includes li b{color:var(--slate-d);}
+  .includes li.wide{grid-column:1 / -1; background:var(--tint); border-color:var(--tint-2);}
+  .two-col{display:grid; grid-template-columns:1fr; gap:var(--s6);}
+  @media(min-width:900px){.two-col{grid-template-columns:1fr 1fr; gap:40px;}}
+  .excl{list-style:none; margin:var(--s4) 0 0; padding:0;}
+  .excl li{padding:12px 0; border-top:1px solid var(--line); font-size:15.5px; color:var(--ink);}
+  .excl li:last-child{border-bottom:1px solid var(--line);}
+  .excl li b{color:var(--slate-d);}
+  .market{margin-top:var(--s4);}
+  .discount{margin-top:var(--s5); padding:20px 24px; background:var(--slate-d); color:var(--on-dark); border-radius:var(--radius); font-size:15.5px;}
+  .discount b{color:#fff;}
+  .discount .big{font-family:var(--serif); font-size:clamp(28px,4vw,38px); color:var(--brass-l); font-weight:500; line-height:1.1; display:block; margin-bottom:8px;}
+  .discount p{margin:0;}
+
+  /* not claimed (section 9) */
+  .claims{list-style:none; margin:0; padding:0; display:grid; grid-template-columns:1fr; gap:14px;}
+  @media(min-width:760px){.claims{grid-template-columns:1fr 1fr;}}
+  @media(min-width:1000px){.claims{grid-template-columns:1fr 1fr 1fr;}}
+  .claims li{background:rgba(255,255,255,.05); border:1px solid rgba(255,255,255,.14); border-radius:var(--radius); padding:22px 24px; font-size:15.5px; color:var(--on-dark);}
+  .claims li b{display:block; font-family:var(--serif); font-weight:500; font-size:21px; color:#fff; margin-bottom:8px; line-height:1.2;}
+  .claims li b::before{content:""; display:block; width:26px; height:2px; background:var(--brass-l); margin-bottom:12px;}
+
+  /* path forward (section 10) */
+  .steps{list-style:none; counter-reset:step; margin:0; padding:0; max-width:820px;}
+  .steps li{counter-increment:step; display:grid; grid-template-columns:48px minmax(0,1fr); column-gap:18px; row-gap:6px; padding:22px 0; border-top:1px solid var(--line);}
+  .steps li:last-child{border-bottom:1px solid var(--line);}
+  .steps li::before{content:counter(step); grid-column:1; grid-row:1 / span 2; display:grid; place-items:center; width:40px; height:40px; border-radius:50%; background:var(--slate-d); color:var(--brass-l); font-family:var(--serif); font-size:20px; font-weight:500;}
+  .steps h3{grid-column:2; font-family:var(--serif); font-weight:500; font-size:23px; line-height:1.2; margin:0; color:var(--slate-d);}
+  .steps p{grid-column:2; margin:0; color:var(--ink); font-size:15.5px;}
+  .steps .btn{grid-column:2; justify-self:start; margin-top:6px;}
+  .cta-band{margin-top:var(--s6); background:var(--slate-d); color:var(--on-dark); border-radius:var(--radius); padding:30px; display:flex; flex-wrap:wrap; gap:18px 30px; align-items:center; justify-content:space-between;}
+  .cta-band h3{font-family:var(--serif); font-weight:500; font-size:24px; line-height:1.2; margin:0 0 6px; color:#fff;}
+  .cta-band p{margin:0; font-size:15.5px; max-width:44em;}
+  .cta-band .btn.light{flex:none;}
+
+  /* footer */
+  footer{background:var(--slate-x); color:#9fb1ba; font-size:13.5px; padding:40px 0 36px;}
+  footer .fb{font-family:var(--serif); color:#fff; font-size:22px; display:block; margin-bottom:6px; font-weight:500;}
+  footer p{color:var(--on-dark-3); margin:0 0 14px; max-width:80ch;}
+  footer p:last-child{margin-bottom:0;}
+  footer a{color:var(--brass-l);}
+  footer .fine{font-style:italic; color:#9fb1ba; border-top:1px solid var(--line-dark); padding-top:16px; margin-top:20px;}
+
+  @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto;} *{transition:none!important; animation:none!important;}}
+
+  /* ---------- print ---------- */
+  @media print{
+    @page{margin:14mm 15mm;}
+    html,body{background:#fff; color:#000; font-size:10.5pt; line-height:1.38; overflow:visible;}
+    .skip,nav.toc,.btn,.cta-row,.cta-band,.print-hide{display:none!important;}
+    .print-head{display:block; border-bottom:1.5pt solid #000; padding:0 0 6pt; margin:0 0 10pt; font-size:9.5pt;}
+    .print-head b{font-size:12pt; font-family:var(--serif);}
+    .wrap{max-width:none; padding:0;}
+    header.hero,main section,main section.dark,main section.soft,main section.white,.card,.why,.worth,.path-card,.discount,.correction,.price-card,.callout,.rule,.claims li,.includes li,.nots li,.seq li,.cred,table.data,table.kv,table.price,table.data thead th,table.price tr.you,.who .card,.card blockquote,.includes li.wide{background:#fff!important; color:#000!important; border-color:#999!important; box-shadow:none;}
+    header.hero *,.dark *,.worth *,.path-card *,.discount *,.claims *,.card *,.why *,.correction *,.price-card *,.steps *,.includes *,.callout *,.rule *,table *,dl.meta *,.cred,.seq *{color:#000!important;}
+    .eyebrow::before,.claims li b::before{background:#000!important;}
+    header.hero{padding:0;}
+    .hero-inner{padding:0 0 8pt;}
+    dl.meta{border-top-color:#999; padding-top:8pt; gap:6pt 18pt; grid-template-columns:1fr 1fr;}
+    h1.title{font-size:20pt; margin:0 0 6pt; max-width:none;}
+    .hero p.lede{font-size:10.5pt; margin:0 0 8pt; max-width:none;}
+    main section{padding:12pt 0; border-bottom:1px solid #999;}
+    h2.head{font-size:15pt; margin:0 0 5pt; max-width:none;}
+    .lead{font-size:10.5pt; max-width:none;}
+    h3{font-size:12pt!important; margin:0 0 4pt!important;}
+    p,li,dd,td,th{font-size:10pt!important;}
+    .prose p,.callout,.prose ul{max-width:none;}
+    .grid,.block{margin-top:10pt;}
+    .block-2,.prose{margin-top:8pt;}
+    /* Small items stay in two columns. Long text cards flow as single blocks, because a grid row that does
+       not fit is pushed whole to the next page and leaves the previous page half empty. */
+    .nots,.claims,.includes,.cards,.who,.why-grid{display:grid; grid-template-columns:1fr 1fr; gap:8pt;}
+    .priority,.two-col,.hosting-cols,.price-grid{display:block;}
+    .priority > *,.two-col > *,.hosting-cols > *,.price-grid > *{margin-bottom:8pt;}
+    .hosting-cols > div,.two-col > div{border:none; padding:0;}
+    /* The price is read most carefully on paper, so the section always starts a fresh sheet with the table on it. */
+    #price{break-before:page;}
+    .card,.why,.claims li,.includes li,.nots li,.correction,.price-card,.worth,.path-card,.discount{border:1px solid #999; border-radius:0; padding:8pt;}
+    /* Short items stay whole; long text cards are allowed to fragment so pages do not end half empty. */
+    .claims li,.includes li,.nots li,.price-card,.worth,.path-card,.discount,.callout,.rule,.absorb,.why,.who .card{break-inside:avoid;}
+    .why .n,.card .kicker{break-after:avoid;}
+    .eyebrow,h2.head,h3,.lead,table caption,thead{break-after:avoid;}
+    .eyebrow,h2.head,h3{break-inside:avoid;}
+    .priority .card{padding:8pt;}
+    .priority .scale{display:none;}
+    .worth{grid-template-columns:auto 1fr; gap:8pt 16pt;}
+    .worth .k{font-size:26pt;}
+    table.data,table.kv,table.price{break-inside:avoid; border-radius:0;}
+    table.data th,table.data td,table.kv th,table.kv td{padding:5pt 8pt; border-color:#999!important;}
+    table.price th,table.price td{padding:6pt 8pt; border-color:#999!important;}
+    table.price tr.you td{font-size:20pt!important; padding-top:8pt; padding-bottom:8pt;}
+    table.price tr.you{border:2pt solid #000!important;}
+    table.price tr.full td{text-decoration:line-through;}
+    .price-card .head,.price-card .foot{padding:6pt 8pt;}
+    .steps li{padding:8pt 0; break-inside:avoid;}
+    .steps li::before{background:#fff!important; border:1px solid #000; width:22pt; height:22pt; font-size:11pt;}
+    .seq li::before{background:#fff!important; border:1px solid #000;}
+    a{text-decoration:none;}
+    footer{background:#fff!important; color:#000!important; padding:8pt 0 0; border-top:1px solid #999;}
+    footer *{color:#000!important;}
+    /* The footer title and meta repeat the print header and the hero meta; only the closing note is kept. */
+    footer .fb,footer p:not(.fine){display:none;}
+    footer .fine{border-top:none; padding-top:0; margin-top:0;}
+  }
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="hero" id="top">
+  <div class="wrap hero-inner">
+    <div class="print-head"><b>The Capelli Group, LLC</b> &middot; Website Concept, Findings, and Scope of Work &middot; Prepared September 9, 2026</div>
+    <p class="eyebrow">The Capelli Group, LLC</p>
+    <h1 class="title">Website concept, findings, <em>and scope of work.</em></h1>
+    <p class="lede">A working replacement for thecapelligroup.com, the two things worth knowing about the current site regardless of what is decided, the hosting path, the case for the work, and the price.</p>
+    <div class="cta-row">
+      <a class="btn light" href="index.html">View the concept site <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      <p class="hint">Built and ready to look at, not a mockup. Open it on a phone.</p>
+    </div>
+    <dl class="meta">
+      <div><dt>Prepared</dt><dd><b>September 9, 2026</b></dd></div>
+      <div><dt>Prepared for</dt><dd><b>Prof. Samuel Capelli</b></dd></div>
+      <div><dt>Scope</dt><dd>The public website only. Nothing touching patient records, intake data, or protected health information.</dd></div>
+      <div><dt>Method</dt><dd>Direct measurement of the live site on September 9, 2026. Read-only throughout. No systems were accessed, no forms submitted, no contact made with any vendor.</dd></div>
+      <div class="print-hide"><dt>Concept site</dt><dd><a href="index.html">View the concept site</a></dd></div>
+    </dl>
+  </div>
+</header>
+
+<nav class="toc" aria-label="Contents">
+  <div class="wrap">
+    <p class="lbl">Contents</p>
+    <ol>
+      <li><a href="#what">What this is</a></li>
+      <li><a href="#first">Two things first</a></li>
+      <li><a href="#evidence">The evidence</a></li>
+      <li><a href="#concept">The concept site</a></li>
+      <li><a href="#confirm">One detail to confirm</a></li>
+      <li><a href="#hosting">Hosting</a></li>
+      <li><a href="#why">Why do this</a></li>
+      <li><a href="#price">Scope and price</a></li>
+      <li><a href="#limits">What is not claimed</a></li>
+      <li><a href="#path">Path forward</a></li>
+    </ol>
+  </div>
+</nav>
+
+<main id="main">
+
+<!-- ============ 1. WHAT THIS IS ============ -->
+<section class="white" id="what" aria-labelledby="what-h">
+  <div class="wrap">
+    <p class="eyebrow">1. What this is</p>
+    <h2 class="head" id="what-h">A working replacement for thecapelligroup.com, <em>built and ready to look at.</em></h2>
+    <p class="lead">Not a mockup.</p>
+    <div class="prose">
+      <p>Every word on it came from your own site. No service, credential, price, hour, or phone number was invented. Where your published material was thin, the new page stays thin rather than filling the gap with something that sounds good.</p>
+      <p>Two items are flagged separately below because they are worth knowing regardless of what you decide about a website.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 2. TWO THINGS FIRST ============ -->
+<section id="first" aria-labelledby="first-h">
+  <div class="wrap">
+    <p class="eyebrow">2. Two things worth knowing first</p>
+    <h2 class="head" id="first-h">Worth knowing <em>whatever is decided about a website.</em></h2>
+
+    <div class="priority grid">
+      <article class="card">
+        <p class="kicker">2.1</p>
+        <h3>The crisis number on the psychotherapy page was retired</h3>
+        <div class="pair">
+          <div><span class="num retired">1-800-273-8255</span><small>Published on the site now</small></div>
+          <div><span class="num now">988</span><small>Current national standard</small></div>
+        </div>
+        <p>The site currently publishes <b>1-800-273-8255</b> as a crisis line. That number was the National Suicide Prevention Lifeline. It was replaced by <b>988</b>, the Suicide and Crisis Lifeline, in July 2022.</p>
+        <p><b>The old number still forwards</b>, so nobody calling it is stranded. This is not an emergency. But 988 is the current published national standard, and on a behavioral health practice's website the current number is the one that should appear.</p>
+        <p>The concept site uses <b>988</b>, plus the <b>Crisis Text Line</b> (text HOME to 741741) and the <b>Veterans Crisis Line</b> (988, then press 1). The veterans line is there because of the Fort Bliss caseload and the Military Veteran Safe Zone.</p>
+        <p>No local El Paso crisis number was added. One was not verified, and an incorrect crisis number would be worse than the problem it solves. National numbers only, because those are verifiable and stable.</p>
+      </article>
+
+      <article class="card">
+        <p class="kicker">2.2</p>
+        <h3>The site does not work correctly on a phone</h3>
+        <div class="scale" aria-hidden="true">
+          <div class="bar full"><span></span></div>
+          <div class="cap"><b>980px</b>what the phone is told the page is</div>
+        </div>
+        <div class="scale" aria-hidden="true">
+          <div class="bar small"><span></span></div>
+          <div class="cap"><b>390px</b>what the phone actually is</div>
+        </div>
+        <p>This one is visible in about ten seconds and worth seeing firsthand.</p>
+        <p>The page is missing a single line of code that tells a phone how wide it is. Without it, phones assume a desktop-sized window and shrink the entire page to roughly <b>40 percent scale</b>.</p>
+        <p>Measured directly: on an iPhone-width screen of 390 pixels, the browser reports the page as <b>980 pixels wide</b>. Text renders at about 40 percent of its intended size. The navigation is cut off at the left edge and the logo runs off the right.</p>
+        <p><b>Why it matters here specifically.</b> A person with a court order, or someone deciding at 11pm whether to call about a family violence situation, is on a phone. That is the moment the site has to work, and it is the moment it currently does not.</p>
+        <p class="how"><b>How to check it yourself:</b> open thecapelligroup.com on your phone and try to read the navigation without zooming.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 3. THE EVIDENCE ============ -->
+<section class="white" id="evidence" aria-labelledby="ev-h">
+  <div class="wrap">
+    <p class="eyebrow">3. The evidence</p>
+    <h2 class="head" id="ev-h">Measured on the live site, <em>September 9, 2026.</em></h2>
+
+    <div class="grid">
+      <table class="data">
+        <caption>Direct measurements of thecapelligroup.com as it is today.</caption>
+        <thead><tr><th scope="col">Finding</th><th scope="col">Measurement</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">Mobile viewport instruction</th><td><b>absent</b> (page renders at 980px on a 390px phone)</td></tr>
+          <tr><th scope="row">Time until the page stops loading</th><td><span class="figure">48<small>seconds</small></span></td></tr>
+          <tr><th scope="row">Tappable phone links (<code>tel:</code>)</th><td><span class="figure">0</span></td></tr>
+          <tr><th scope="row">Phone number on the homepage</th><td><b>not present</b></td></tr>
+          <tr><th scope="row">Machine-readable business information for search engines</th><td><b>none</b></td></tr>
+          <tr><th scope="row">Images carrying descriptions for screen readers</th><td><span class="figure">0<small>of 14</small></span></td></tr>
+          <tr><th scope="row">Heading structure</th><td>14 top-level headings, no subheadings</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="cards grid">
+      <article class="card plain">
+        <h3><span class="n">3.1</span>Nobody can tap to call</h3>
+        <p>There is no phone number on the homepage at all, and no tappable number anywhere on the site. The number exists on the contact page as plain text. On a phone, a visitor has to memorize it or copy it by hand.</p>
+        <p>For a practice whose intake begins with "call 915-799-0614 to schedule your evaluation," this is the single most direct thing to fix.</p>
+      </article>
+      <article class="card plain">
+        <h3><span class="n">3.2</span>Search engines have no machine-readable record of the practice</h3>
+        <p>Modern sites carry a hidden block of structured information: business type, address, hours, phone, service area. It is how Google knows what a business is and where it is.</p>
+        <p>The site has none. For a practice whose referrals come from local courts, probation officers, and attorneys searching by name and location, that information is worth publishing.</p>
+      </article>
+      <article class="card plain">
+        <h3><span class="n">3.3</span>Unedited placeholder text is live on the homepage</h3>
+        <p>The homepage currently displays the website builder's own sample text:</p>
+        <blockquote>"You can add HTML directly into this element to render on the page. Just edit this element to add your own HTML."</blockquote>
+        <p>It sits over the logo area and is publicly visible.</p>
+      </article>
+      <article class="card plain">
+        <h3><span class="n">3.4</span>The page title has a typo</h3>
+        <p>The browser tab and the Google search result read "Anger <b>Managment</b>." That string is what appears in search results.</p>
+      </article>
+      <article class="card plain">
+        <h3><span class="n">3.5</span>The credentials that matter most are the hardest to find</h3>
+        <p><b>Battering Intervention and Prevention Provider # 071-021.</b> TDCJ-CJAD accreditation. National NCTI court approval. El Paso County court approval.</p>
+        <p>For a probation officer or an attorney deciding where to send someone, that provider number is the entire decision. On the current site it is buried in body text on a page whose address reads <code>-alternative-dispute-resolution--adr-.html</code>.</p>
+      </article>
+      <article class="card plain">
+        <h3><span class="n">3.6</span>Spanish-speaking clients have no Spanish page</h3>
+        <p>You run a Men's Spanish Group on Tuesdays and offer all four BIPP phases in Spanish. The website is entirely in English.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 4. WHAT THE CONCEPT SITE DOES ============ -->
+<section id="concept" aria-labelledby="concept-h">
+  <div class="wrap">
+    <p class="eyebrow">4. What the concept site does</p>
+    <h2 class="head" id="concept-h">Built for the two people <em>who actually arrive.</em></h2>
+
+    <div class="who grid">
+      <article class="card">
+        <h3>The person who has to be here</h3>
+        <p>Court-ordered, often anxious, usually on a phone. They get one screen that answers: is this the right place, is it court-approved, what is the number, and what happens first. The four-step intake is shown as a sequence rather than a paragraph.</p>
+        <ol class="seq" aria-label="The four-step intake as shown on the concept site">
+          <li>Register</li><li>Evaluation</li><li>Orientation</li><li>Groups</li>
+        </ol>
+      </article>
+      <article class="card">
+        <h3>The person deciding where to send them</h3>
+        <p>Probation, parole, federal pre-trial, attorneys, judges, CPS, the VA, Fort Bliss. They get provider <span class="cred"># 071-021</span> displayed as a credential, TDCJ-CJAD accreditation stated plainly, the 18-week and 36-hour requirements, the monthly progress reporting commitment, and the group schedule.</p>
+      </article>
+    </div>
+
+    <div class="block">
+      <h3 class="sub">Specific changes</h3>
+      <table class="data">
+        <thead><tr><th scope="col">Change</th><th scope="col">What it buys</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">Correct mobile rendering</th><td>The page works at full size on a phone, where the visitor actually is</td></tr>
+          <tr><th scope="row">Phone number tappable in four places, plus a fixed bar on mobile</th><td>A person ready to call can call with one tap</td></tr>
+          <tr><th scope="row">988 and current crisis resources, pinned above everything</th><td>The current national standard, first thing on the page</td></tr>
+          <tr><th scope="row">Provider # 071-021 and TDCJ-CJAD shown as credentials</th><td>The referral source finds the one thing they need</td></tr>
+          <tr><th scope="row">Machine-readable business record added</th><td>Google can state what the practice is, where it is, and when it is open</td></tr>
+          <tr><th scope="row">Full Spanish section</th><td>Serves the Tuesday Spanish group and a heavily Spanish-speaking city</td></tr>
+          <tr><th scope="row">Group schedule as a readable table</th><td>Days, times, language, and gender legible at a glance</td></tr>
+          <tr><th scope="row">Screen reader support, keyboard navigation, reduced motion</th><td>The site works for people with disabilities, which for a clinical practice is the right default</td></tr>
+          <tr><th scope="row">Printable</th><td>A referral source can print the credentials page and put it in a file</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="block">
+      <h3 class="sub">What it deliberately does not do</h3>
+      <ul class="nots">
+        <li><b>No stock photography.</b> No pictures of models pretending to be clients. Illustration and typography only, until real photographs are supplied.</li>
+        <li><b>No contact form.</b> Deliberate. A form on a behavioral health site invites people to type things that should not travel by email. The site routes to the phone instead.</li>
+        <li><b>Nothing invented.</b> No price, credential, hour, or outcome appears that was not already published.</li>
+        <li><b>No testimonial that could not be verified.</b> One testimonial on the live site names a person who appears nowhere else on it. It was left out rather than reproduced.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 5. ONE DETAIL TO CONFIRM ============ -->
+<section class="soft" id="confirm" aria-labelledby="confirm-h">
+  <div class="wrap">
+    <p class="eyebrow">5. One detail to confirm</p>
+    <h2 class="head" id="confirm-h">Two published figures <em>that do not reconcile.</em></h2>
+    <div class="prose">
+      <p>The current site lists <b>"Years in Practice: 14"</b> while also stating the practice was founded as EPIC Association in <b>2004</b>.</p>
+      <p>Those do not reconcile. Rather than pick one, the concept site omits the figure. Whichever is correct is easy to publish once confirmed.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 6. HOSTING ============ -->
+<section class="white" id="hosting" aria-labelledby="hosting-h">
+  <div class="wrap">
+    <p class="eyebrow">6. Hosting: what the current setup allows</p>
+    <h2 class="head" id="hosting-h">This part changes what the work involves, <em>so it is stated plainly.</em></h2>
+    <div class="prose">
+      <p>The site runs on <b>GoDaddy Website Builder 7.0</b>, a closed page builder. Confirmed from the page's own source code.</p>
+      <p><b>A hand-built site cannot be uploaded into it.</b> Website Builder has no file access. GoDaddy's own documentation says that for full control of a site's code, a different product is required. The custom-code box inside the builder runs in an isolated frame and cannot supply the parts of a page that make the improvements above work.</p>
+      <p>So a new site means moving where the site is hosted. The domain, thecapelligroup.com, stays exactly where it is.</p>
+    </div>
+
+    <div class="block">
+      <h3 class="sub">The recommended path</h3>
+      <div class="path-card">
+        <p class="rec">Host the new site on Netlify. Leave the domain and DNS at GoDaddy. Change only the two records that point to the website.</p>
+        <table class="kv">
+          <tbody>
+            <tr><th scope="row">Hosting cost</th><td><b>$0</b></td></tr>
+            <tr><th scope="row">Domain</th><td>unchanged, roughly $23/year, already being paid</td></tr>
+            <tr><th scope="row">Reversible</th><td><b>Yes.</b> Change two records back and the current site returns</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="hosting-cols block">
+      <div>
+        <h3 class="sub">The reason this path and not another</h3>
+        <div class="prose">
+          <p><b>The practice has working Microsoft 365 email on this domain.</b> Verified by direct DNS lookup on September 9, 2026. That is separate from the gmail address published on the site.</p>
+          <p>Some hosting arrangements require moving the domain's entire configuration to a new provider, and email settings move with it. For a practice receiving court and probation correspondence, losing email is not an inconvenience.</p>
+          <p><b>The recommended path never touches the email settings.</b> Only the two records that point to the website change. Website records and mail records are independent, so editing one cannot affect the other. That constraint chose the hosting path, not preference.</p>
+        </div>
+        <div class="rule">
+          <p><b>One sequencing rule matters:</b> the current Website Builder subscription gets cancelled <b>last</b>, after the new site is live and email is confirmed working. Not first. If the Microsoft 365 mailbox is bundled with the website subscription, cancelling in the wrong order could take the email with it. Whether it is bundled needs checking inside the GoDaddy account.</p>
+        </div>
+      </div>
+      <div>
+        <h3 class="sub">The existing page addresses</h3>
+        <div class="prose">
+          <p>The current site has ten pages. Some are linked from outside, possibly in court referral packets.</p>
+          <p>Those addresses are not obvious. The BIPP content, for example, lives at <code>-alternative-dispute-resolution--adr-.html</code>.</p>
+          <p>Each existing address gets a permanent forward to the right place on the new page, so an old link in a referral packet still works. The list has to be captured before the current site is switched off, because a Website Builder site cannot be exported once it is gone.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 7. WHY DO THIS AT ALL ============ -->
+<section id="why" aria-labelledby="why-h">
+  <div class="wrap">
+    <p class="eyebrow">7. Why do this at all</p>
+    <h2 class="head" id="why-h">A website is easy to treat as decoration. For this practice, it is doing four jobs, <em>and right now it cannot do any of them.</em></h2>
+
+    <div class="why-grid grid">
+      <article class="why">
+        <span class="n">7.1</span>
+        <h3>The referral source is the real audience</h3>
+        <p>Probation officers, parole, federal pre-trial, attorneys, judges, CPS, the VA, and Fort Bliss decide where people go. They check one thing before they refer: <b>is this provider accredited, and is the program court-approved.</b></p>
+        <p><b>Provider # 071-021 and the TDCJ-CJAD accreditation are the most valuable facts the practice publishes.</b> On the current site they are buried on a page whose address reads <code>-alternative-dispute-resolution--adr-.html</code>.</p>
+        <p>A referral source who cannot confirm accreditation in fifteen seconds refers elsewhere. That is the single clearest line between the website and revenue.</p>
+      </article>
+      <article class="why">
+        <span class="n">7.2</span>
+        <h3>The person arriving is on a phone, and the phone is where it fails</h3>
+        <p>Court-ordered clients are not researching at a desk. They are standing outside a courthouse with a piece of paper, or deciding at 11pm whether to call about a family violence situation.</p>
+        <p><b>The site currently renders at roughly 40 percent scale on a phone, and the phone number is not tappable anywhere.</b> Someone ready to call has to zoom, find a number, memorize it, and dial it manually. Some fraction of them stop there.</p>
+      </article>
+      <article class="why">
+        <span class="n">7.3</span>
+        <h3>Search engines have no record of what the practice is</h3>
+        <p>There is no machine-readable business record on the site, so Google is inferring the practice's category, address, and hours rather than being told.</p>
+        <p><b>Local ranking is driven by relevance, distance, and prominence.</b> Relevance is the one a website affects, and it is the one currently left to guesswork. This does not promise rankings. It removes a handicap.</p>
+      </article>
+      <article class="why">
+        <span class="n">7.4</span>
+        <h3>The Spanish-speaking client currently has nothing</h3>
+        <p>The practice runs a <b>Men's Spanish Group</b> and serves a city where a large share of residents speak Spanish at home. <b>The site is entirely in English.</b></p>
+        <p>A Spanish-speaking client with a court order has no way to confirm from the website that the program is available in their language.</p>
+      </article>
+    </div>
+
+    <div class="worth">
+      <p class="k">18<small>weeks, the BIPP program</small></p>
+      <div>
+        <h3>What a fix is worth</h3>
+        <p>The BIPP program runs <b>18 weeks</b>. The math on the referral question is not complicated: <b>one additional referral that would otherwise have gone elsewhere covers the cost of this work several times over.</b></p>
+        <p>That is the argument. Not that the site looks dated, but that the credential a referral source needs is currently hard to find, and the phone number a client needs is currently untappable.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 8. SCOPE OF WORK AND PRICE ============ -->
+<section class="white" id="price" aria-labelledby="price-h">
+  <div class="wrap">
+    <p class="eyebrow">8. Scope of work and price</p>
+    <h2 class="head" id="price-h">The honest number first.</h2>
+    <p class="lead"><b>This work prices at $1,850.</b> That figure is stated plainly because a discount only means something if the real number is visible next to it.</p>
+
+    <div class="price-grid grid">
+      <div class="price-card">
+        <div class="head">
+          <h3>Scope of work and price</h3>
+          <p>One figure covers the whole of it.</p>
+        </div>
+        <table class="price">
+          <tbody>
+            <tr><th scope="row">Website, built and finished</th><td>$1,200</td></tr>
+            <tr><th scope="row">Migration and launch</th><td>$650</td></tr>
+            <tr class="full"><th scope="row">Full price</th><td>$1,850</td></tr>
+            <tr class="you"><th scope="row">Price for you<small>Migration included</small></th><td>$1,200</td></tr>
+          </tbody>
+        </table>
+        <div class="foot"><b>$1,200 covers everything, migration included.</b></div>
+      </div>
+
+      <div class="correction">
+        <h3>A correction, stated plainly</h3>
+        <p>In conversation, migration and launch were quoted at <b>around $100</b>. That number was wrong, and it was wrong because it was given before the current site had been examined.</p>
+        <p>The estimate assumed changing a single setting to point the domain at a new site. That is genuinely a ten-minute job, and $100 would have been fair for it.</p>
+        <p><b>What the work actually turned out to be:</b></p>
+        <ul>
+          <li>The current site runs on a closed builder with no file access, so there is no way to modify it. The site has to be rebuilt elsewhere and the domain repointed. This is a platform migration, not an edit.</li>
+          <li>Ten existing page addresses need permanent forwards, and their addresses are builder-generated strings that have to be captured before the old site is switched off, because that platform has no export.</li>
+          <li><b>The domain carries live Microsoft 365 email.</b> Working around it safely is the majority of the care involved.</li>
+        </ul>
+        <p>The migration is a <b>17-step sequence across four phases</b>, with a 48-hour waiting period built in and verification steps on either side of the one change that matters. It is not an afternoon.</p>
+        <div class="absorb">
+          <p><b>The $1,200 absorbs the entire $650 rather than passing the correction along.</b> The mis-estimate was on this end, and it is not the practice's cost to carry.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="block">
+      <h3 class="sub">What $1,200 includes</h3>
+      <ul class="includes">
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg><span>The site as built, refined to final quality</span></li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg><span>All content verified against published material, nothing invented</span></li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg><span>Correct rendering on phones, tablets, and desktop</span></li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg><span>Tappable phone numbers, current crisis resources, provider credentials displayed</span></li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg><span>Full Spanish section</span></li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg><span>Machine-readable business record for search engines</span></li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg><span>Screen reader and keyboard support</span></li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg><span>Print layout</span></li>
+        <li class="wide"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg><span><b>The full migration:</b> deployment, domain repointed, all ten page addresses permanently forwarded, email verified working before and after</span></li>
+        <li class="wide"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg><span><b>Nothing to manage.</b> The move is handled end to end, with the practice logging in only for the steps that require its own account</span></li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg><span>One round of revisions</span></li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg><span>Written handover: every account in the practice's name, with access</span></li>
+      </ul>
+    </div>
+
+    <div class="two-col block">
+      <div>
+        <h3 class="sub">Keeping it current, if wanted</h3>
+        <div class="prose">
+          <p>Not included above, and priced separately so it stays optional:</p>
+        </div>
+        <table class="kv" style="margin-top:14px">
+          <tbody>
+            <tr><th scope="row">Content updates, as needed</th><td><b>$75/month</b> or <b>$150/quarter</b></td></tr>
+          </tbody>
+        </table>
+        <div class="prose">
+          <p>Schedule changes, staff changes, new services, fee updates. Without something like this, small changes have no home and tend to accumulate. <b>Declining it is a perfectly good answer.</b> It is offered here so the option exists in writing rather than arriving later as an upsell.</p>
+        </div>
+
+        <div class="block-2">
+          <h3 class="sub">What the practice pays after launch</h3>
+          <div class="prose">
+            <p><b>Domain renewal, roughly $23 per year.</b> Already being paid.</p>
+            <p>Hosting is free at the recommended provider, and the certificate that makes the site secure renews automatically at no cost. If the current Website Builder subscription is cancelled after the move, that cost goes away.</p>
+          </div>
+        </div>
+      </div>
+      <div>
+        <h3 class="sub">Not included, stated so there are no surprises</h3>
+        <ul class="excl">
+          <li><b>Photography.</b> Real photographs of the practice and staff, if wanted, are supplied by the practice.</li>
+          <li><b>Copywriting.</b> The site uses published material. New writing is separate.</li>
+          <li><b>Ongoing changes after launch.</b> Schedule updates, staff changes, new services. Available separately.</li>
+          <li><b>Email support.</b> The Microsoft 365 mailbox is the practice's own, through GoDaddy. It is protected during the move, and confirmed working before the old site is switched off, but ongoing email issues are between the practice and GoDaddy.</li>
+          <li><b>Search rankings.</b> The site is built correctly for search: proper structure, machine-readable business record, fast loading. Where the practice ranks depends mostly on proximity to the searcher and review volume, which no website change controls.</li>
+          <li><b>A Notice of Privacy Practices</b>, if one is required for the site. That is the practice's document. It gets published once supplied.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="block">
+      <h3 class="sub">Where $1,850 sits against the market</h3>
+      <div class="prose">
+        <p>Published 2026 ranges, for context rather than persuasion:</p>
+      </div>
+      <table class="data market">
+        <thead><tr><th scope="col">Scope</th><th scope="col">Published range</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">El Paso, template-based</th><td>$700 to $2,000</td></tr>
+          <tr><th scope="row">El Paso, custom-built</th><td>$4,000 to $8,000</td></tr>
+          <tr><th scope="row">Small business site, independent developer</th><td>$1,000 to $3,000</td></tr>
+        </tbody>
+      </table>
+      <div class="prose">
+        <p>This one is hand-built rather than assembled from a template, which places it above the template range, and it carries a platform migration and a redirect map that a template project does not.</p>
+      </div>
+      <div class="discount">
+        <span class="big">$1,200 is a 35 percent discount</span>
+        <p><b>It is a decision about who is asking rather than a market rate.</b> It is stated here so the scope above is clearly the whole of it, and so any later work is understood as separate rather than assumed.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 9. WHAT THIS DOCUMENT DOES NOT CLAIM ============ -->
+<section class="dark" id="limits" aria-labelledby="limits-h">
+  <div class="wrap">
+    <p class="eyebrow">9. What this document does not claim</p>
+    <h2 class="head" id="limits-h">The limits, <em>stated as clearly as the findings.</em></h2>
+    <ul class="claims grid">
+      <li><b>Not a ranking promise</b> No rankings, Business Profile, or directory listings were measured.</li>
+      <li><b>Not a criticism of anyone's work</b> Every finding here is a normal consequence of a closed website builder. None of it indicates neglect.</li>
+      <li><b>Not a compliance opinion</b> Nothing in the concept touches intake, patient communication, or protected health information. The site has no forms and no tracking of any kind.</li>
+      <li><b>Not a finished product</b> Photographs are placeholders. Facts, though drawn from published material, should be confirmed by the practice before the site goes live.</li>
+      <li><b>Not a claim about the practice's accounts</b> No GoDaddy or Microsoft account was accessed. Everything about the current setup was determined from public information.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============ 10. PATH FORWARD ============ -->
+<section class="white" id="path" aria-labelledby="path-h">
+  <div class="wrap">
+    <p class="eyebrow">10. Path forward</p>
+    <h2 class="head" id="path-h">Five steps. <em>The first takes under a minute.</em></h2>
+
+    <ol class="steps grid">
+      <li>
+        <h3>Look at the concept site on a phone</h3>
+        <p>Then open the current site on the same phone. That comparison is the whole argument, and it takes under a minute.</p>
+        <a class="btn primary" href="index.html">View the concept site <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </li>
+      <li>
+        <h3>Confirm the facts</h3>
+        <p>Hours, fees, insurance list, credentials, license numbers, and the years-in-practice figure. This is the one input that has to come from the practice.</p>
+      </li>
+      <li>
+        <h3>Decide about photography</h3>
+        <p>Real photographs of the office and staff would replace the placeholders. Consent for any staff photograph is the practice's to obtain.</p>
+      </li>
+      <li>
+        <h3>Confirm inside the GoDaddy account</h3>
+        <p>Whether the domain, the website subscription, and the Microsoft 365 email bill separately. This determines the safe order of operations.</p>
+      </li>
+      <li>
+        <h3>Set a launch date</h3>
+        <p>The technical work is short. Confirming content is what determines the schedule.</p>
+      </li>
+    </ol>
+
+    <div class="cta-band">
+      <div>
+        <h3>The concept site</h3>
+        <p>Built and ready to look at. Open it on a phone, because that is where the difference is largest.</p>
+      </div>
+      <a class="btn light" href="index.html">View the concept site <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <span class="fb">The Capelli Group, LLC: website concept, findings, and scope of work</span>
+    <p>Prepared September 9, 2026 for Prof. Samuel Capelli. Scope is the public website only. Method was direct measurement of the live site on September 9, 2026, read-only throughout. No systems were accessed, no forms submitted, no contact made with any vendor.</p>
+    <p class="fine">The concept site carries instructions telling search engines not to index it, so it cannot compete with the live site while it is under review. Those instructions are removed only at launch.</p>
+  </div>
+</footer>
+</body>
+</html>

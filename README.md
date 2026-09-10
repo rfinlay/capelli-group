@@ -10,6 +10,7 @@ An **unsolicited concept redesign** of the website for The Capelli Group, LLC, a
 |---|---|
 | `index.html` | The rebuilt site. One self-contained page. |
 | `findings.html` | Plain-language audit of the current site and what the rebuild fixes. For the buyer, not for patients. **Not linked from the visitor navigation.** |
+| `info.html` | Client-facing information sheet, built from `INFO-SHEET.md`: findings, the concept, the hosting path, why the work is worth doing, and the price. Sent to the practice as a link. No JavaScript, prints to Letter. **Not linked from the visitor navigation.** |
 | `SOURCE-FACTS.md` | Every verified fact pulled from the clinic's live site. The only source of facts for the build. |
 | `scripts/verify.mjs` | Playwright render check: horizontal scroll at 375px and 1440px, heading counts, alt text, robots and viewport tags, link targets, em dashes. |
 

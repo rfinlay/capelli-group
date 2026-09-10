@@ -20,9 +20,12 @@ for (const page of pages) {
   const src = fs.readFileSync(path.join(root, page), 'utf8');
   const tells = src.match(/\b(leverage|spearhead|utilize|robust|seamless|delve|tapestry|testament)\w*/gi) || [];
   const retired = (src.match(/273[\s.-]?8255/g) || []).length;
+  // A page that documents the retirement of the old crisis number has to print it. It declares that with
+  // an "audit: allow-retired-number" comment; the count is still reported, it just does not fail the run.
+  const retiredAllowed = /<!--\s*audit:\s*allow-retired-number\b/.test(src);
   const emDash = (src.match(/—/g) || []).length;
-  console.log(`prose: em dashes=${emDash}  retired number=${retired}  AI-tell verbs=${tells.length}${tells.length ? ' (' + tells.join(', ') + ')' : ''}`);
-  if (emDash || retired || tells.length) failures++;
+  console.log(`prose: em dashes=${emDash}  retired number=${retired}${retired && retiredAllowed ? ' (allowed by page marker)' : ''}  AI-tell verbs=${tells.length}${tells.length ? ' (' + tells.join(', ') + ')' : ''}`);
+  if (emDash || (retired && !retiredAllowed) || tells.length) failures++;
 
   for (const w of [375, 1440]) {
     const ctx = await browser.newContext({ viewport: { width: w, height: 900 }, deviceScaleFactor: 1 });
