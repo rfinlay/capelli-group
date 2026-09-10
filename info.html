@@ -266,6 +266,13 @@
   table.price tr.you td{font-size:clamp(34px,5vw,44px); color:var(--slate-d); line-height:1; padding-top:18px; padding-bottom:18px;}
   .price-card .foot{padding:16px 26px 20px; border-top:1px solid var(--line); font-size:15.5px; color:var(--ink);}
   .price-card .foot b{color:var(--slate-d);}
+  /* payment: two figures beneath the foot line, sized like the line items so the $1,200 row stays the loudest number */
+  .price-card .pay{padding:16px 26px 20px; border-top:1px solid var(--line);}
+  .price-card .pay h3{font-family:var(--serif); font-weight:500; font-size:25px; line-height:1.2; margin:0 0 var(--s3); color:var(--slate-d);}
+  .price-card .pay .split{display:grid; grid-template-columns:1fr 1fr; gap:var(--s4); margin:0 0 var(--s3);}
+  .price-card .pay .split b{display:block; font-family:var(--serif); font-weight:500; font-size:22px; line-height:1; color:var(--slate-d);}
+  .price-card .pay .split small{display:block; font-weight:600; font-size:13.5px; color:var(--brass-t); margin-top:var(--s1);}
+  .price-card .pay p{margin:0; font-size:15.5px; color:var(--ink);}
   .correction{background:var(--paper-2); border:1px solid var(--line); border-radius:var(--radius); padding:28px; min-width:0;}
   .correction h3{font-family:var(--serif); font-weight:500; font-size:25px; line-height:1.2; margin:0 0 12px; color:var(--slate-d);}
   .correction p{margin:0 0 14px; font-size:15.5px;}
@@ -406,7 +413,8 @@
     table.price tr.you td{font-size:20pt!important; padding-top:8pt; padding-bottom:8pt;}
     table.price tr.you{border:2pt solid #000!important;}
     table.price tr.full td{text-decoration:line-through;}
-    .price-card .head,.price-card .foot{padding:6pt 8pt;}
+    .price-card .head,.price-card .foot,.price-card .pay{padding:6pt 8pt;}
+    .price-card .pay .split b{font-size:14pt;}
     .steps li{padding:8pt 0; break-inside:avoid;}
     .steps li::before{background:#fff!important; border:1px solid #000; width:22pt; height:22pt; font-size:11pt;}
     .seq li::before{background:#fff!important; border:1px solid #000;}
@@ -750,6 +758,14 @@
           </tbody>
         </table>
         <div class="foot"><b>$1,200 covers everything, migration included.</b></div>
+        <div class="pay">
+          <h3>Payment</h3>
+          <div class="split">
+            <div><b>$600</b><small>to begin</small></div>
+            <div><b>$600</b><small>at thirty days</small></div>
+          </div>
+          <p>Work starts and the site goes live on the first payment. The second is due thirty days after launch.</p>
+        </div>
       </div>
 
       <div class="tiers">
