@@ -274,6 +274,36 @@
   .correction ul{margin:0 0 14px; padding-left:20px; font-size:15.5px;}
   .correction li{margin-bottom:8px;}
   .correction .absorb{margin-top:18px; padding:16px 18px; background:var(--card); border-left:3px solid var(--brass); border-radius:0 var(--radius-s) var(--radius-s) 0;}
+  /* why the complex tier: intro sits beside the price card, the comparison table spans the full width below */
+  .tiers{min-width:0;}
+  .tiers h3.sub{margin-bottom:var(--s3);}
+  .tiers .prose{margin-top:0;}
+  .tiers .prose p{font-size:16px;}
+  .tiers-table{margin-top:var(--s5);}
+  .tiers-table .prose{margin-top:var(--s5);}
+  table.data.compare .sr{position:absolute; left:-9999px;}
+  table.data.compare tbody th{width:30%;}
+  table.data.compare td{width:26%;}
+  table.data.compare td.this{width:44%;}
+  table.data.compare .this{background:var(--brass-soft);}
+  table.data.compare thead th.this{color:var(--brass-t);}
+  table.data.compare td.this b{color:var(--slate-d);}
+  @media(max-width:639px){
+    table.data.compare tbody th{width:auto; padding-bottom:8px;}
+    table.data.compare td,table.data.compare td.this{width:auto;}
+    table.data.compare td{display:grid; grid-template-columns:7.5em 1fr; gap:10px; align-items:start; padding:6px 0; border-top:1px solid var(--line);}
+    table.data.compare td::before{content:attr(data-label); font-size:11.5px; letter-spacing:.12em; text-transform:uppercase; color:var(--muted); font-weight:700; padding-top:3px;}
+    table.data.compare td.this{background:transparent;}
+    table.data.compare td.this::before{color:var(--brass-t);}
+  }
+  /* the correction runs full width once the tiers column takes its old place; the closing note becomes a side column */
+  .correction.wide{margin-top:var(--s6); display:grid; grid-template-columns:1fr; gap:0;}
+  .correction.wide .body{min-width:0;}
+  .correction.wide .body p:last-child{margin-bottom:0;}
+  @media(min-width:900px){
+    .correction.wide{grid-template-columns:1.5fr 1fr; gap:36px; align-items:end; padding:32px 36px;}
+    .correction.wide .absorb{margin-top:0;}
+  }
   .includes{list-style:none; margin:var(--s4) 0 0; padding:0; display:grid; grid-template-columns:1fr; gap:10px;}
   @media(min-width:760px){.includes{grid-template-columns:1fr 1fr;}}
   .includes li{display:flex; gap:12px; align-items:flex-start; background:var(--card); border:1px solid var(--line); border-radius:var(--radius-s); padding:13px 16px; font-size:15.5px; color:var(--ink);}
@@ -350,8 +380,13 @@
     /* Small items stay in two columns. Long text cards flow as single blocks, because a grid row that does
        not fit is pushed whole to the next page and leaves the previous page half empty. */
     .nots,.claims,.includes,.cards,.who,.why-grid{display:grid; grid-template-columns:1fr 1fr; gap:8pt;}
-    .priority,.two-col,.hosting-cols,.price-grid{display:block;}
+    .priority,.two-col,.hosting-cols,.price-grid,.correction.wide{display:block;}
     .priority > *,.two-col > *,.hosting-cols > *,.price-grid > *{margin-bottom:8pt;}
+    .tiers-table,.tiers-table .prose,.correction.wide{margin-top:8pt;}
+    .tiers .prose p{font-size:10pt;}
+    .correction.wide .absorb{margin-top:6pt;}
+    table.data.compare .this{background:#fff!important;}
+    table.data.compare thead th.this{font-weight:700; text-decoration:underline;}
     .hosting-cols > div,.two-col > div{border:none; padding:0;}
     /* The price is read most carefully on paper, so the section always starts a fresh sheet with the table on it. */
     #price{break-before:page;}
@@ -717,7 +752,35 @@
         <div class="foot"><b>$1,200 covers everything, migration included.</b></div>
       </div>
 
-      <div class="correction">
+      <div class="tiers">
+        <h3 class="sub">Why the site is $1,200 and not $500</h3>
+        <div class="prose">
+          <p>In conversation, three tiers were described: <b>around $500 for a simple revamp, $800 for a medium one, and $1,200 for a complex one.</b> Those numbers stand, and this is the complex tier. What follows is why, so the figure is not just an assertion.</p>
+          <p><b>A simple revamp means the existing site stays where it is and gets reworked.</b> New look, same platform, same page addresses, same host. Nothing else in the practice is affected. That is a real category of work, and $500 is a fair price for it.</p>
+          <p><b>That option does not exist here</b>, and the reason is specific rather than a matter of taste:</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="tiers-table">
+      <table class="data compare">
+        <thead><tr><th scope="col"><span class="sr">Question</span></th><th scope="col">Simple revamp</th><th scope="col" class="this">This project</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">Existing site can be edited</th><td data-label="Simple revamp">Yes</td><td class="this" data-label="This project"><b>No. The builder has no file access.</b></td></tr>
+          <tr><th scope="row">Platform</th><td data-label="Simple revamp">Stays</td><td class="this" data-label="This project"><b>Has to change</b></td></tr>
+          <tr><th scope="row">Page addresses</th><td data-label="Simple revamp">Stay</td><td class="this" data-label="This project"><b>Ten need permanent forwards</b></td></tr>
+          <tr><th scope="row">Anything else at risk</th><td data-label="Simple revamp">No</td><td class="this" data-label="This project"><b>Live business email on the domain</b></td></tr>
+          <tr><th scope="row">Build method</th><td data-label="Simple revamp">Rework the existing pages</td><td class="this" data-label="This project"><b>Written from nothing</b></td></tr>
+        </tbody>
+      </table>
+      <div class="prose">
+        <p><b>Every page on the concept site was written by hand.</b> No template was purchased or adapted. That covers the mobile layout, the Spanish section, the machine-readable business record, the accessibility work, the print layout, and the crisis resources, each built specifically for this practice rather than configured in a builder.</p>
+        <p><b>What actually moved this out of the simple tier was not effort. It was the platform.</b> The current site cannot be modified, so there was no version of this that was a revamp. Once it is a rebuild, the complex tier is the honest description of it.</p>
+      </div>
+    </div>
+
+    <div class="correction wide">
+      <div class="body">
         <h3>A correction, stated plainly</h3>
         <p>In conversation, migration and launch were quoted at <b>around $100</b>. That number was wrong, and it was wrong because it was given before the current site had been examined.</p>
         <p>The estimate assumed changing a single setting to point the domain at a new site. That is genuinely a ten-minute job, and $100 would have been fair for it.</p>
@@ -728,9 +791,9 @@
           <li><b>The domain carries live Microsoft 365 email.</b> Working around it safely is the majority of the care involved.</li>
         </ul>
         <p>The migration is a <b>17-step sequence across four phases</b>, with a 48-hour waiting period built in and verification steps on either side of the one change that matters. It is not an afternoon.</p>
-        <div class="absorb">
-          <p><b>The $1,200 absorbs the entire $650 rather than passing the correction along.</b> The mis-estimate was on this end, and it is not the practice's cost to carry.</p>
-        </div>
+      </div>
+      <div class="absorb">
+        <p><b>The $1,200 absorbs the entire $650 rather than passing the correction along.</b> The mis-estimate was on this end, and it is not the practice's cost to carry.</p>
       </div>
     </div>
 
