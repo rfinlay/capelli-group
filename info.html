@@ -309,9 +309,26 @@
   @media(max-width:639px){
     table.data.compare.even td,table.data.compare.even td.this{width:auto; grid-template-columns:9em 1fr;}
   }
-  /* changes after launch (section 8): two options of equal weight, each a label, a one-row table, and a note */
+  /* before launch (section 8): a reassurance panel in the quiet tint already used for the audience cards, so it
+     reads as warm without competing with the price card above it */
+  .pre{background:var(--tint); border:1px solid var(--tint-2); border-radius:var(--radius); padding:26px 28px; min-width:0;}
+  .pre .prose{margin-top:0;}
+  .pre .prose p{max-width:none;}
+  .pre-list{list-style:none; margin:var(--s4) 0; padding:0; display:grid; grid-template-columns:1fr; gap:12px 28px;}
+  @media(min-width:760px){.pre-list{grid-template-columns:1fr 1fr;}}
+  .pre-list li{padding:12px 0 0; border-top:1px solid var(--tint-2); font-size:15.5px; color:var(--ink);}
+  .pre-list li b{display:block; font-family:var(--serif); font-weight:500; font-size:21px; line-height:1.2; color:var(--slate-d); margin-bottom:4px;}
+  /* changes after launch (section 8): three options of equal weight. Each is a rule-topped column with the same
+     kicker and serif title; two carry a one-row table, the first is prose only, and none is boxed or tinted, so
+     the unpriced option is not read as the lesser one */
+  .opts{display:grid; grid-template-columns:1fr; gap:var(--s5);}
+  @media(min-width:960px){.opts{grid-template-columns:1fr 1fr 1fr; gap:32px;}}
+  .opt{border-top:2px solid var(--slate-d); padding-top:14px; min-width:0;}
+  .opt .kicker{font-size:12px; letter-spacing:.14em; text-transform:uppercase; font-weight:700; color:var(--brass-t); margin:0 0 6px;}
+  .opt .name{font-family:var(--serif); font-weight:500; font-size:22px; line-height:1.2; color:var(--slate-d); margin:0 0 12px;}
   .opt .prose{margin-top:0;}
-  .opt table.kv{margin:var(--s3) 0 var(--s4);}
+  .opt .prose p{font-size:15.5px;}
+  .opt table.kv{margin:0 0 var(--s4);}
   /* the correction runs full width once the tiers column takes its old place; the closing note becomes a side column */
   .correction.wide{margin-top:var(--s6); display:grid; grid-template-columns:1fr; gap:0;}
   .correction.wide .body{min-width:0;}
@@ -396,8 +413,16 @@
     /* Small items stay in two columns. Long text cards flow as single blocks, because a grid row that does
        not fit is pushed whole to the next page and leaves the previous page half empty. */
     .nots,.claims,.includes,.cards,.who,.why-grid{display:grid; grid-template-columns:1fr 1fr; gap:8pt;}
-    .priority,.two-col,.hosting-cols,.price-grid,.correction.wide{display:block;}
-    .priority > *,.two-col > *,.hosting-cols > *,.price-grid > *{margin-bottom:8pt;}
+    .priority,.two-col,.hosting-cols,.price-grid,.correction.wide,.opts{display:block;}
+    .priority > *,.two-col > *,.hosting-cols > *,.price-grid > *,.opts > *{margin-bottom:8pt;}
+    .pre{background:#fff!important; border:1px solid #999; border-radius:0; padding:8pt; break-inside:avoid;}
+    .pre-list{display:grid; grid-template-columns:1fr 1fr; gap:6pt 12pt; margin:6pt 0;}
+    .pre-list li{border-top-color:#999; padding-top:4pt;}
+    .pre-list li b{font-size:11pt; margin-bottom:2pt;}
+    .opt{border-top:1px solid #999; padding-top:4pt; break-inside:avoid;}
+    .opt .kicker,.opt .name{color:#000!important;}
+    .opt .kicker{font-size:8pt!important; margin-bottom:2pt;}
+    .opt .name{font-size:12pt!important; margin-bottom:6pt;}
     .tiers-table,.tiers-table .prose,.correction.wide{margin-top:8pt;}
     .tiers .prose p{font-size:10pt;}
     .correction.wide .absorb{margin-top:6pt;}
@@ -866,15 +891,39 @@
     </div>
 
     <div class="block">
+      <h3 class="sub">Before launch: changes are part of the price</h3>
+      <div class="pre">
+        <div class="prose">
+          <p><b>Anything that should look different is changed before the site goes live, at no additional cost.</b> This is the point to say so.</p>
+        </div>
+        <ul class="pre-list">
+          <li><b>Colors.</b> The current palette is a starting point, not a decision. If the practice has a color scheme it uses, or wants one, the site is rebuilt in it.</li>
+          <li><b>Branding.</b> Logo treatment, typefaces, and the overall visual identity are all adjustable. If there is a brand standard the practice works to, the site conforms to it rather than the other way around.</li>
+          <li><b>Photographs.</b> Real photographs of the office, the staff, or the space replace the placeholders wherever they are supplied.</li>
+          <li><b>Wording, section order, and emphasis.</b> Anything that reads wrong or sits in the wrong place gets moved.</li>
+        </ul>
+        <div class="prose">
+          <p>Say what should change and it changes. <b>None of this is billed separately, and it is not the one round of revisions above.</b> It is what the price already covers.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="block">
       <h3 class="sub">Changes after launch</h3>
       <div class="prose">
-        <p>Not included above, and priced separately so it stays optional. <b>There are two ways to handle changes, and the practice can use either or neither.</b></p>
+        <p>Not included above, and priced separately so it stays optional. <b>There are three ways to handle changes, and the practice can use any of them or none.</b></p>
       </div>
-      <div class="two-col block-2">
+      <div class="opts block-2">
         <div class="opt">
+          <p class="kicker">Option one</p>
+          <p class="name">Manage the site independently</p>
           <div class="prose">
-            <p><b>Option one, pay only when something is needed:</b></p>
+            <p>The site is a set of plain files in the practice's own hosting account, in the practice's own name. There is no proprietary platform and no license. <b>Anyone comfortable editing a web page can edit it directly</b>, and the written handover explains where everything lives. Nothing is owed and no permission is needed.</p>
           </div>
+        </div>
+        <div class="opt">
+          <p class="kicker">Option two</p>
+          <p class="name">Pay only when something is needed</p>
           <table class="kv">
             <tbody>
               <tr><th scope="row">Change request, quoted per request</th><td><b>$80 to $100 per hour</b></td></tr>
@@ -885,9 +934,8 @@
           </div>
         </div>
         <div class="opt">
-          <div class="prose">
-            <p><b>Option two, a standing arrangement:</b></p>
-          </div>
+          <p class="kicker">Option three</p>
+          <p class="name">A standing arrangement</p>
           <table class="kv">
             <tbody>
               <tr><th scope="row">Content updates, as needed</th><td><b>$75/month</b> or <b>$150/quarter</b></td></tr>
@@ -899,7 +947,7 @@
         </div>
       </div>
       <div class="prose">
-        <p><b>Declining both is a perfectly good answer.</b> They are offered here so the option exists in writing rather than arriving later as an upsell. Without something like this, small changes have no home and tend to accumulate.</p>
+        <p><b>Managing it independently is a perfectly good answer, and so is declining all three.</b> They are offered here so the options exist in writing rather than arriving later as an upsell.</p>
       </div>
     </div>
 
@@ -917,7 +965,7 @@
         <ul class="excl">
           <li><b>Photography.</b> Real photographs of the practice and staff, if wanted, are supplied by the practice.</li>
           <li><b>Copywriting.</b> The site uses published material. New writing is separate.</li>
-          <li><b>Ongoing changes after launch.</b> Schedule updates, staff changes, new services. Available separately, either per request at $80 to $100 per hour or on the standing arrangement above.</li>
+          <li><b>Ongoing changes after launch.</b> Schedule updates, staff changes, new services. The practice can make these itself at no cost, or have them done per request at $80 to $100 per hour, or on the standing arrangement above. Changes made <em>before</em> launch, including colors and branding, are covered by the price.</li>
           <li><b>Email support.</b> The Microsoft 365 mailbox is the practice's own, through GoDaddy. It is protected during the move, and confirmed working before the old site is switched off, but ongoing email issues are between the practice and GoDaddy.</li>
           <li><b>Search rankings.</b> The site is built correctly for search: proper structure, machine-readable business record, fast loading. Where the practice ranks depends mostly on proximity to the searcher and review volume, which no website change controls.</li>
           <li><b>A Notice of Privacy Practices</b>, if one is required for the site. That is the practice's document. It gets published once supplied.</li>
@@ -981,8 +1029,8 @@
         <p>Hours, fees, insurance list, credentials, license numbers, and the years-in-practice figure. This is the one input that has to come from the practice.</p>
       </li>
       <li>
-        <h3>Decide about photography</h3>
-        <p>Real photographs of the office and staff would replace the placeholders. Consent for any staff photograph is the practice's to obtain.</p>
+        <h3>Say what should look different</h3>
+        <p>Colors, branding, typefaces, photographs, wording, section order. All of it is changed before launch at no additional cost. Consent for any staff photograph is the practice's to obtain.</p>
       </li>
       <li>
         <h3>Confirm inside the GoDaddy account</h3>
