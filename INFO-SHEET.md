@@ -320,19 +320,19 @@ Say what should change and it changes. **None of this is billed separately, and 
 
 ### Changes after launch
 
-Not included above, and priced separately so it stays optional. **There are three ways to handle changes, and the practice can use any of them or none.**
+The work above ends at handover. What happens after that is the practice's to decide, and there are three ways it can go.
 
-**Option one, manage the site independently:**
+**Option one, manage the site independently. This is what happens by default:**
 
-The site is a set of plain files in the practice's own hosting account, in the practice's own name. There is no proprietary platform and no license. **Anyone comfortable editing a web page can edit it directly**, and the written handover explains where everything lives. Nothing is owed and no permission is needed.
+At handover the site is a set of plain files in the practice's own hosting account, in the practice's own name. There is no proprietary platform and no license. **Anyone comfortable editing a web page can edit it directly**, and the written handover explains where everything lives. **Nothing further is owed, nothing renews, and no permission is needed.** This is where the practice lands automatically unless it chooses one of the arrangements below.
 
-**Option two, pay only when something is needed:**
+**Option two, keep option one and call when it is easier not to:**
 
 | | |
 |---|---|
 | Change request, quoted per request | **$80 to $100 per hour** |
 
-Send what needs changing. It gets quoted first, at that rate, and no work starts until the quote is approved. **Most single changes are well under an hour.** Nothing is owed between requests, and there is no ongoing commitment.
+Send what needs changing. It gets quoted first, at that rate, and no work starts until the quote is approved. **Most single changes are well under an hour.** This is not an alternative to option one, it sits on top of it. Nothing is owed between requests and nothing renews.
 
 **Option three, a standing arrangement:**
 
@@ -342,7 +342,7 @@ Send what needs changing. It gets quoted first, at that rate, and no work starts
 
 Schedule changes, staff changes, new services, fee updates. Better value if changes are frequent, and it means small edits do not need a quote each time.
 
-**Managing it independently is a perfectly good answer, and so is declining all three.** They are offered here so the options exist in writing rather than arriving later as an upsell.
+**Option one is the default and it costs nothing. Doing nothing lands there.** Options two and three are stated in writing so that if a change is ever wanted, the price is already known rather than arriving later as an upsell.
 
 ### Not included, stated so there are no surprises
 

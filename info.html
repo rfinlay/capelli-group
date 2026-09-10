@@ -322,7 +322,11 @@
      kicker and serif title; two carry a one-row table, the first is prose only, and none is boxed or tinted, so
      the unpriced option is not read as the lesser one */
   .opts{display:grid; grid-template-columns:1fr; gap:var(--s5);}
-  @media(min-width:960px){.opts{grid-template-columns:1fr 1fr 1fr; gap:32px;}}
+  @media(min-width:960px){
+    .opts{grid-template-columns:1fr 1fr 1fr; gap:32px;}
+    /* two of the three titles wrap to two lines; reserve two lines on all of them so the bodies share a top edge */
+    .opt .name{min-height:2.4em;}
+  }
   .opt{border-top:2px solid var(--slate-d); padding-top:14px; min-width:0;}
   .opt .kicker{font-size:12px; letter-spacing:.14em; text-transform:uppercase; font-weight:700; color:var(--brass-t); margin:0 0 6px;}
   .opt .name{font-family:var(--serif); font-weight:500; font-size:22px; line-height:1.2; color:var(--slate-d); margin:0 0 12px;}
@@ -422,7 +426,7 @@
     .opt{border-top:1px solid #999; padding-top:4pt; break-inside:avoid;}
     .opt .kicker,.opt .name{color:#000!important;}
     .opt .kicker{font-size:8pt!important; margin-bottom:2pt;}
-    .opt .name{font-size:12pt!important; margin-bottom:6pt;}
+    .opt .name{font-size:12pt!important; margin-bottom:6pt; min-height:0;}
     .tiers-table,.tiers-table .prose,.correction.wide{margin-top:8pt;}
     .tiers .prose p{font-size:10pt;}
     .correction.wide .absorb{margin-top:6pt;}
@@ -911,26 +915,26 @@
     <div class="block">
       <h3 class="sub">Changes after launch</h3>
       <div class="prose">
-        <p>Not included above, and priced separately so it stays optional. <b>There are three ways to handle changes, and the practice can use any of them or none.</b></p>
+        <p>The work above ends at handover. <b>What happens after that is the practice's to decide, and there are three ways it can go.</b></p>
       </div>
       <div class="opts block-2">
         <div class="opt">
           <p class="kicker">Option one</p>
-          <p class="name">Manage the site independently</p>
+          <p class="name">Manage the site independently. This is what happens by default</p>
           <div class="prose">
-            <p>The site is a set of plain files in the practice's own hosting account, in the practice's own name. There is no proprietary platform and no license. <b>Anyone comfortable editing a web page can edit it directly</b>, and the written handover explains where everything lives. Nothing is owed and no permission is needed.</p>
+            <p>At handover the site is a set of plain files in the practice's own hosting account, in the practice's own name. There is no proprietary platform and no license. <b>Anyone comfortable editing a web page can edit it directly</b>, and the written handover explains where everything lives. <b>Nothing further is owed, nothing renews, and no permission is needed.</b> This is where the practice lands automatically unless it chooses one of the arrangements below.</p>
           </div>
         </div>
         <div class="opt">
           <p class="kicker">Option two</p>
-          <p class="name">Pay only when something is needed</p>
+          <p class="name">Keep option one and call when it is easier not to</p>
           <table class="kv">
             <tbody>
               <tr><th scope="row">Change request, quoted per request</th><td><b>$80 to $100 per hour</b></td></tr>
             </tbody>
           </table>
           <div class="prose">
-            <p>Send what needs changing. It gets quoted first, at that rate, and no work starts until the quote is approved. <b>Most single changes are well under an hour.</b> Nothing is owed between requests, and there is no ongoing commitment.</p>
+            <p>Send what needs changing. It gets quoted first, at that rate, and no work starts until the quote is approved. <b>Most single changes are well under an hour.</b> This is not an alternative to option one, it sits on top of it. Nothing is owed between requests and nothing renews.</p>
           </div>
         </div>
         <div class="opt">
@@ -947,7 +951,7 @@
         </div>
       </div>
       <div class="prose">
-        <p><b>Managing it independently is a perfectly good answer, and so is declining all three.</b> They are offered here so the options exist in writing rather than arriving later as an upsell.</p>
+        <p><b>Option one is the default and it costs nothing. Doing nothing lands there.</b> Options two and three are stated in writing so that if a change is ever wanted, the price is already known rather than arriving later as an upsell.</p>
       </div>
     </div>
 
