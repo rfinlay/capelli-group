@@ -307,11 +307,26 @@ The migration is a **17-step sequence across four phases**, with a 48-hour waiti
 - One round of revisions
 - Written handover: every account in the practice's name, with access
 
+### Before launch: changes are part of the price
+
+**Anything that should look different is changed before the site goes live, at no additional cost.** This is the point to say so.
+
+- **Colors.** The current palette is a starting point, not a decision. If the practice has a color scheme it uses, or wants one, the site is rebuilt in it.
+- **Branding.** Logo treatment, typefaces, and the overall visual identity are all adjustable. If there is a brand standard the practice works to, the site conforms to it rather than the other way around.
+- **Photographs.** Real photographs of the office, the staff, or the space replace the placeholders wherever they are supplied.
+- **Wording, section order, and emphasis.** Anything that reads wrong or sits in the wrong place gets moved.
+
+Say what should change and it changes. **None of this is billed separately, and it is not the one round of revisions above.** It is what the price already covers.
+
 ### Changes after launch
 
-Not included above, and priced separately so it stays optional. **There are two ways to handle changes, and the practice can use either or neither.**
+Not included above, and priced separately so it stays optional. **There are three ways to handle changes, and the practice can use any of them or none.**
 
-**Option one, pay only when something is needed:**
+**Option one, manage the site independently:**
+
+The site is a set of plain files in the practice's own hosting account, in the practice's own name. There is no proprietary platform and no license. **Anyone comfortable editing a web page can edit it directly**, and the written handover explains where everything lives. Nothing is owed and no permission is needed.
+
+**Option two, pay only when something is needed:**
 
 | | |
 |---|---|
@@ -319,7 +334,7 @@ Not included above, and priced separately so it stays optional. **There are two 
 
 Send what needs changing. It gets quoted first, at that rate, and no work starts until the quote is approved. **Most single changes are well under an hour.** Nothing is owed between requests, and there is no ongoing commitment.
 
-**Option two, a standing arrangement:**
+**Option three, a standing arrangement:**
 
 | | |
 |---|---|
@@ -327,13 +342,13 @@ Send what needs changing. It gets quoted first, at that rate, and no work starts
 
 Schedule changes, staff changes, new services, fee updates. Better value if changes are frequent, and it means small edits do not need a quote each time.
 
-**Declining both is a perfectly good answer.** They are offered here so the option exists in writing rather than arriving later as an upsell. Without something like this, small changes have no home and tend to accumulate.
+**Managing it independently is a perfectly good answer, and so is declining all three.** They are offered here so the options exist in writing rather than arriving later as an upsell.
 
 ### Not included, stated so there are no surprises
 
 - **Photography.** Real photographs of the practice and staff, if wanted, are supplied by the practice.
 - **Copywriting.** The site uses published material. New writing is separate.
-- **Ongoing changes after launch.** Schedule updates, staff changes, new services. Available separately, either per request at $80 to $100 per hour or on the standing arrangement above.
+- **Ongoing changes after launch.** Schedule updates, staff changes, new services. The practice can make these itself at no cost, or have them done per request at $80 to $100 per hour, or on the standing arrangement above. Changes made *before* launch, including colors and branding, are covered by the price.
 - **Email support.** The Microsoft 365 mailbox is the practice's own, through GoDaddy. It is protected during the move, and confirmed working before the old site is switched off, but ongoing email issues are between the practice and GoDaddy.
 - **Search rankings.** The site is built correctly for search: proper structure, machine-readable business record, fast loading. Where the practice ranks depends mostly on proximity to the searcher and review volume, which no website change controls.
 - **A Notice of Privacy Practices**, if one is required for the site. That is the practice's document. It gets published once supplied.
@@ -376,7 +391,7 @@ This one is hand-built rather than assembled from a template, which places it ab
 
 1. **Look at the concept site on a phone**, then open the current site on the same phone. That comparison is the whole argument, and it takes under a minute.
 2. **Confirm the facts.** Hours, fees, insurance list, credentials, license numbers, and the years-in-practice figure. This is the one input that has to come from the practice.
-3. **Decide about photography.** Real photographs of the office and staff would replace the placeholders. Consent for any staff photograph is the practice's to obtain.
+3. **Say what should look different.** Colors, branding, typefaces, photographs, wording, section order. All of it is changed before launch at no additional cost. Consent for any staff photograph is the practice's to obtain.
 4. **Confirm inside the GoDaddy account** whether the domain, the website subscription, and the Microsoft 365 email bill separately. This determines the safe order of operations.
 5. **Set a launch date.** The technical work is short. Confirming content is what determines the schedule.
 
