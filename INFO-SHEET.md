@@ -231,6 +231,12 @@ That is the argument. Not that the site looks dated, but that the credential a r
 
 **$1,200 covers everything, migration included.**
 
+### Payment
+
+**$600 to begin, $600 at thirty days.**
+
+Work starts and the site goes live on the first payment. The second is due thirty days after launch.
+
 ### Why the site is $1,200 and not $500
 
 In conversation, three tiers were described: **around $500 for a simple revamp, $800 for a medium one, and $1,200 for a complex one.** Those numbers stand, and this is the complex tier. What follows is why, so the figure is not just an assertion.
