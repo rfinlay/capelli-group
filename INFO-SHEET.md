@@ -231,6 +231,26 @@ That is the argument. Not that the site looks dated, but that the credential a r
 
 **$1,200 covers everything, migration included.**
 
+### Why the site is $1,200 and not $500
+
+In conversation, three tiers were described: **around $500 for a simple revamp, $800 for a medium one, and $1,200 for a complex one.** Those numbers stand, and this is the complex tier. What follows is why, so the figure is not just an assertion.
+
+**A simple revamp means the existing site stays where it is and gets reworked.** New look, same platform, same page addresses, same host. Nothing else in the practice is affected. That is a real category of work, and $500 is a fair price for it.
+
+**That option does not exist here**, and the reason is specific rather than a matter of taste:
+
+| | Simple revamp | This project |
+|---|---|---|
+| Existing site can be edited | Yes | **No. The builder has no file access.** |
+| Platform | Stays | **Has to change** |
+| Page addresses | Stay | **Ten need permanent forwards** |
+| Anything else at risk | No | **Live business email on the domain** |
+| Build method | Rework the existing pages | **Written from nothing** |
+
+**Every page on the concept site was written by hand.** No template was purchased or adapted. That covers the mobile layout, the Spanish section, the machine-readable business record, the accessibility work, the print layout, and the crisis resources, each built specifically for this practice rather than configured in a builder.
+
+**What actually moved this out of the simple tier was not effort. It was the platform.** The current site cannot be modified, so there was no version of this that was a revamp. Once it is a rebuild, the complex tier is the honest description of it.
+
 ### A correction, stated plainly
 
 In conversation, migration and launch were quoted at **around $100**. That number was wrong, and it was wrong because it was given before the current site had been examined.
