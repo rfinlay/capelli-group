@@ -303,6 +303,15 @@
     table.data.compare td.this{background:transparent;}
     table.data.compare td.this::before{color:var(--brass-t);}
   }
+  /* two-option comparison where both columns are legitimate choices (section 6): equal data columns, the
+     recommended one tinted the same way as the tier table, the other left plain rather than marked down */
+  table.data.compare.even td,table.data.compare.even td.this{width:35%;}
+  @media(max-width:639px){
+    table.data.compare.even td,table.data.compare.even td.this{width:auto; grid-template-columns:9em 1fr;}
+  }
+  /* changes after launch (section 8): two options of equal weight, each a label, a one-row table, and a note */
+  .opt .prose{margin-top:0;}
+  .opt table.kv{margin:var(--s3) 0 var(--s4);}
   /* the correction runs full width once the tiers column takes its old place; the closing note becomes a side column */
   .correction.wide{margin-top:var(--s6); display:grid; grid-template-columns:1fr; gap:0;}
   .correction.wide .body{min-width:0;}
@@ -667,6 +676,31 @@
       </div>
     </div>
 
+    <div class="block">
+      <h3 class="sub">If the practice would rather stay entirely with GoDaddy</h3>
+      <div class="prose">
+        <p><b>That option exists and it works.</b> It is stated here so the recommendation above is a choice rather than the only door.</p>
+        <p>GoDaddy sells a separate product, <b>Web Hosting with cPanel</b>, which is not the same thing as Website Builder. It allows files to be uploaded directly and supports the permanent page forwards this project needs. The finished site would be delivered into that account, under the practice's own login, hosted and billed by GoDaddy exactly as the domain is today.</p>
+      </div>
+      <div class="tiers-table">
+        <table class="data compare even">
+          <thead><tr><th scope="col"><span class="sr">Item</span></th><th scope="col" class="this">Recommended path</th><th scope="col">Stay entirely with GoDaddy</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">Where the site lives</th><td class="this" data-label="Recommended path">Netlify</td><td data-label="Stay with GoDaddy">GoDaddy Web Hosting with cPanel</td></tr>
+            <tr><th scope="row">Who bills the practice</th><td class="this" data-label="Recommended path">Nobody, hosting is free</td><td data-label="Stay with GoDaddy">GoDaddy, one provider for everything</td></tr>
+            <tr><th scope="row">Hosting cost</th><td class="this" data-label="Recommended path"><b>$0</b></td><td data-label="Stay with GoDaddy"><b>Whatever GoDaddy charges for the plan chosen</b></td></tr>
+            <tr><th scope="row">Domain</th><td class="this" data-label="Recommended path">Unchanged at GoDaddy</td><td data-label="Stay with GoDaddy">Unchanged at GoDaddy</td></tr>
+            <tr><th scope="row">Email protected the same way</th><td class="this" data-label="Recommended path">Yes</td><td data-label="Stay with GoDaddy">Yes</td></tr>
+            <tr><th scope="row">Page forwards supported</th><td class="this" data-label="Recommended path">Yes</td><td data-label="Stay with GoDaddy">Yes</td></tr>
+          </tbody>
+        </table>
+        <div class="prose">
+          <p><b>The cost is GoDaddy's to quote, not this document's.</b> Their published pricing renews at a higher rate than the first year, and the current figure should be read from the practice's own GoDaddy cart rather than taken from here. The work of building and delivering the site is the same either way, and <b>the price does not change based on which of these is chosen.</b></p>
+          <p><b>The tradeoff, stated honestly:</b> the recommended path costs nothing and the GoDaddy path costs a monthly fee for the convenience of keeping one provider and one bill. That convenience is a legitimate reason to choose it. It is not a technical improvement, and the site behaves identically on both.</p>
+        </div>
+      </div>
+    </div>
+
     <div class="hosting-cols block">
       <div>
         <h3 class="sub">The reason this path and not another</h3>
@@ -831,27 +865,51 @@
       </ul>
     </div>
 
+    <div class="block">
+      <h3 class="sub">Changes after launch</h3>
+      <div class="prose">
+        <p>Not included above, and priced separately so it stays optional. <b>There are two ways to handle changes, and the practice can use either or neither.</b></p>
+      </div>
+      <div class="two-col block-2">
+        <div class="opt">
+          <div class="prose">
+            <p><b>Option one, pay only when something is needed:</b></p>
+          </div>
+          <table class="kv">
+            <tbody>
+              <tr><th scope="row">Change request, quoted per request</th><td><b>$80 to $100 per hour</b></td></tr>
+            </tbody>
+          </table>
+          <div class="prose">
+            <p>Send what needs changing. It gets quoted first, at that rate, and no work starts until the quote is approved. <b>Most single changes are well under an hour.</b> Nothing is owed between requests, and there is no ongoing commitment.</p>
+          </div>
+        </div>
+        <div class="opt">
+          <div class="prose">
+            <p><b>Option two, a standing arrangement:</b></p>
+          </div>
+          <table class="kv">
+            <tbody>
+              <tr><th scope="row">Content updates, as needed</th><td><b>$75/month</b> or <b>$150/quarter</b></td></tr>
+            </tbody>
+          </table>
+          <div class="prose">
+            <p>Schedule changes, staff changes, new services, fee updates. Better value if changes are frequent, and it means small edits do not need a quote each time.</p>
+          </div>
+        </div>
+      </div>
+      <div class="prose">
+        <p><b>Declining both is a perfectly good answer.</b> They are offered here so the option exists in writing rather than arriving later as an upsell. Without something like this, small changes have no home and tend to accumulate.</p>
+      </div>
+    </div>
+
     <div class="two-col block">
       <div>
-        <h3 class="sub">Keeping it current, if wanted</h3>
+        <h3 class="sub">What the practice pays after launch</h3>
         <div class="prose">
-          <p>Not included above, and priced separately so it stays optional:</p>
-        </div>
-        <table class="kv" style="margin-top:14px">
-          <tbody>
-            <tr><th scope="row">Content updates, as needed</th><td><b>$75/month</b> or <b>$150/quarter</b></td></tr>
-          </tbody>
-        </table>
-        <div class="prose">
-          <p>Schedule changes, staff changes, new services, fee updates. Without something like this, small changes have no home and tend to accumulate. <b>Declining it is a perfectly good answer.</b> It is offered here so the option exists in writing rather than arriving later as an upsell.</p>
-        </div>
-
-        <div class="block-2">
-          <h3 class="sub">What the practice pays after launch</h3>
-          <div class="prose">
-            <p><b>Domain renewal, roughly $23 per year.</b> Already being paid.</p>
-            <p>Hosting is free at the recommended provider, and the certificate that makes the site secure renews automatically at no cost. If the current Website Builder subscription is cancelled after the move, that cost goes away.</p>
-          </div>
+          <p><b>Domain renewal, roughly $23 per year.</b> Already being paid.</p>
+          <p>Hosting is free at the recommended provider, and the certificate that makes the site secure renews automatically at no cost. If the current Website Builder subscription is cancelled after the move, that cost goes away.</p>
+          <p><b>If the practice chooses to keep hosting with GoDaddy instead</b>, add whatever GoDaddy charges for the plan chosen. That figure is theirs to quote and should be read from the practice's own account. Everything else on this page is unchanged.</p>
         </div>
       </div>
       <div>
@@ -859,7 +917,7 @@
         <ul class="excl">
           <li><b>Photography.</b> Real photographs of the practice and staff, if wanted, are supplied by the practice.</li>
           <li><b>Copywriting.</b> The site uses published material. New writing is separate.</li>
-          <li><b>Ongoing changes after launch.</b> Schedule updates, staff changes, new services. Available separately.</li>
+          <li><b>Ongoing changes after launch.</b> Schedule updates, staff changes, new services. Available separately, either per request at $80 to $100 per hour or on the standing arrangement above.</li>
           <li><b>Email support.</b> The Microsoft 365 mailbox is the practice's own, through GoDaddy. It is protected during the move, and confirmed working before the old site is switched off, but ongoing email issues are between the practice and GoDaddy.</li>
           <li><b>Search rankings.</b> The site is built correctly for search: proper structure, machine-readable business record, fast loading. Where the practice ranks depends mostly on proximity to the searcher and review volume, which no website change controls.</li>
           <li><b>A Notice of Privacy Practices</b>, if one is required for the site. That is the practice's document. It gets published once supplied.</li>
