@@ -324,7 +324,13 @@ The work above ends at handover. What happens after that is the practice's to de
 
 **Option one, manage the site independently. This is what happens by default:**
 
-At handover the site is a set of plain files in the practice's own hosting account, in the practice's own name. There is no proprietary platform and no license. **Anyone comfortable editing a web page can edit it directly**, and the written handover explains where everything lives. **Nothing further is owed, nothing renews, and no permission is needed.** This is where the practice lands automatically unless it chooses one of the arrangements below.
+At handover the site is a set of plain files in the practice's own hosting account, in the practice's own name. There is no proprietary platform, no license, and no permission needed to change anything. **Nothing further is owed and nothing renews.** This is where the practice lands automatically unless it chooses one of the arrangements below.
+
+**Said plainly, because it matters: this is not a drag-and-drop editor.** The old Website Builder had a visual interface where text was clicked and typed over. A hand-built site does not work that way. Editing it means opening the page files and changing the code directly, which is straightforward for someone who works with web pages and is not something most practice owners will want to do themselves.
+
+**That is a deliberate trade, and it is what buys everything else.** A site with no builder behind it is why there is no subscription, why nothing can be retired out from under the practice again, and why the files can move to any host at any time. The cost of that freedom is that routine text changes are a phone call rather than a login.
+
+**Most practices land on option two below and that is the expected outcome, not a failure of option one.** Option one is stated first because it is genuinely available and costs nothing, and because the practice should know the door is unlocked even if it never walks through it.
 
 **Option two, keep option one and call when it is easier not to:**
 
@@ -349,15 +355,35 @@ Schedule changes, staff changes, new services, fee updates. Better value if chan
 - **Photography.** Real photographs of the practice and staff, if wanted, are supplied by the practice.
 - **Copywriting.** The site uses published material. New writing is separate.
 - **Ongoing changes after launch.** Schedule updates, staff changes, new services. The practice can make these itself at no cost, or have them done per request at $80 to $100 per hour, or on the standing arrangement above. Changes made *before* launch, including colors and branding, are covered by the price.
-- **Email support.** The Microsoft 365 mailbox is the practice's own, through GoDaddy. It is protected during the move, and confirmed working before the old site is switched off, but ongoing email issues are between the practice and GoDaddy.
+- **Email support.** Practice email runs on a separate provider and is not affected by this move. The domain still carries leftover Microsoft 365 mail records pointing at a mailbox that no longer exists; clearing those out is included, but setting up or supporting an email service is not.
 - **Search rankings.** The site is built correctly for search: proper structure, machine-readable business record, fast loading. Where the practice ranks depends mostly on proximity to the searcher and review volume, which no website change controls.
 - **A Notice of Privacy Practices**, if one is required for the site. That is the practice's document. It gets published once supplied.
 
 ### What the practice pays after launch
 
-**Domain renewal, roughly $23 per year.** Already being paid.
+This is the recurring cost of owning the site once it is live. It is separate from the one-time build.
 
-Hosting is free at the recommended provider, and the certificate that makes the site secure renews automatically at no cost. If the current Website Builder subscription is cancelled after the move, that cost goes away.
+| Recurring item | Cost | Notes |
+|---|---|---|
+| Hosting | **$0/month** | Free tier at the recommended provider |
+| SSL certificate | **$0/month** | Issued and renewed automatically |
+| Website Builder subscription | **$0/month** | Cancelled after the move. This is a current cost that goes away |
+| SSL certificate purchased through the registrar | **$0/month** | Stops renewing. Also a current cost that goes away |
+| Domain registration | **roughly $23/year**, about **$2/month** | Already being paid today. Unchanged |
+| **Total recurring, managing the site independently** | **about $2/month** | Domain only |
+
+**If the practice wants changes handled rather than doing them itself**, add one of:
+
+| | Cost |
+|---|---|
+| Change request, only when something is needed | **$80 to $100 per hour**, quoted first, **$0 between requests** |
+| Standing arrangement, changes as needed | **$75/month** or **$150/quarter** |
+
+**So the honest recurring figure is about $2 per month, or about $77 per month with the standing arrangement.** Two of the four costs in that first table are things currently being paid that stop.
+
+Exact savings cannot be stated until the two GoDaddy invoice amounts are known. The structure is certain even though the figure is not: the domain continues, and the builder and certificate line items end.
+
+**If the practice chooses to keep hosting with GoDaddy instead**, add whatever GoDaddy charges for the plan chosen. That figure is theirs to quote and should be read from the practice's own account. Everything else here is unchanged.
 
 **If the practice chooses to keep hosting with GoDaddy instead**, add whatever GoDaddy charges for the plan chosen. That figure is theirs to quote and should be read from the practice's own account. Everything else on this page is unchanged.
 
